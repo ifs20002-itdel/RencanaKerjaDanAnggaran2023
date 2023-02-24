@@ -14,21 +14,15 @@
 
 ## Introduction 🚀
 
-Sesuai dengan silabus bahwa pada TA.2021-2022 mata kuliah Pengembangan Aplikasi
-Berbasis Web ini memiliki proyek.
-Proyek ini merupakan Proyek 2 Proyek 2, merupakan proyek dengan skop lebih besar dimana pada proyek ini mahasiswa diminta untuk mengerjakan pembuatan aplikasi web. Pada proyek kedua ini akan dilakukan kolaborasi proyek antar mata kuliah di program studi Informatika.
+Sesuai dengan silabus bahwa pada TA.2021-2022 mata kuliah Manajemen Pengembangan Perangkat Lunak memiliki proyek dengan latihan siklus kehidupan kerja dalam pengerjaan aplikasi Berbasis Web.Proyek ini merupakan Proyek lanjutan dari Proyek Matakuliah PABWE pada semester Gasal. Proyek ini merupakan proyek dengan skop lebih besar dimana pada proyek ini mahasiswa diminta untuk mengerjakan semua proses pembuatan aplikasi web. Pada proyek ini akan dilakukan kolaborasi proyek antar mata kuliah di program studi Informatika.
 
-## Kelompok 1
+## Kelompok 2
 
-Anggota Kelompok
+Team Implementasi
 
 <ol>
-    <li>11S19035 - Rahmad Joko Susilo Situmorang</li>
-    <li>11S20002 - Yoel Ganda Aprilco Napitupulu</li>
-    <li>11S20016 - Nanchy Monika Siadari</li>
-    <li>11S20020 - Roosen Gabriel Manurung</li>
-    <li>11S20023 - Natanael Jansudin Siregar</li>
-    <li>11S20030 - Vistar Tiop Raja Gukguk</li>
+    <li>11S20020 - Roosen Gabriel Manurung (LEADER)</li>
+    <li>11S20002 - Yoel Ganda Aprilco Napitupulu (FULLSTACK)</li>    
 </ol>
 Program Studi : S1 Informatika
 
@@ -75,10 +69,12 @@ php artisan serve
 ## Fitur
 
 <ul>
-    <li>Register & Login (validation, otentikasi, otorisasi)</li>
-    <li>Web Page (routing, controller, model, view)</li>
-    <li>Implementasi Theme Frontend/Backend</li>
-    <li>Database Connection dan CRUD Data (dalam form, table, text)</li>
+    <li>Login (validation, otentikasi, otorisasi)</li>
+    <li>Jenis Penggunaan (CRUD)</li>
+    <li>Sub Jenis Penggunaan (CRUD)</li>
+    <li>Mata Anggaran (CRUD)</li>
+    <li>dst</li>
+    
 </ul>
 
 ## ERD Database
