@@ -67,7 +67,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Rencana Kerja Dan Anggaran</b>
     </div>
-    <strong>Copyright &copy; 2023 -</strong> <a href="https://coda.io/d/RKA_dGvkMHI5SK0/Rencana-Kerja-dan-Anggaran-Institut-Teknologi-Del-T-A-2022-2023_su8Ub#_luXXM" target="_blank"> Kelompok 1</a> 
+    <strong>Copyright &copy; 2023 -</strong> <a href="https://coda.io/d/Kelompok-RKA_dFKRDQbWVRg/RKA-Rencana-Kerja-dan-Anggaran-IT-Del_su8Ub" target="_blank"> Kelompok 2</a> 
   </footer>
 
   <!-- Control Sidebar -->
