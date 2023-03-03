@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\JenisPenggunaanController;
 use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\JPenggunaanController;
 
 
 /*
@@ -40,6 +41,12 @@ Route::middleware('auth')->group(function() {
     Route::get('/listJenisAnggaran', [JenisPenggunaanController::class, 'listJenisPenggunaan']);    
 
     
+    //JENIS PENGGUNAAN (NEW)
+        //CREATE
+        Route::get('/jp', [JPenggunaanController::class, 'JPenggunaan']);
+        Route::get('/jpcreate', [JPenggunaanController::class, 'jpCreate']);
+        Route::post('/jp', [JPenggunaanController::class, 'jpStore']);
+
 
     //JenisPenggunaan
     Route::get('/addJenisPenggunaan', [JenisPenggunaanController::class, 'addJenisPenggunaan']);
