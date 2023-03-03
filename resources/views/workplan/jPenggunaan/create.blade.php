@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label>Nama</label>
                     <input type="text" name="namaJenisPenggunaan" class="form-control" placeholder="Biaya Operasional Pendidikan" value="{{old('namaJenisPenggunaan')}}">
-                    <br>
+                
                     @error('namaJenisPenggunaan')
                     <p class="text-danger font-weight-bold">{{$message}}</p>
                     @enderror
