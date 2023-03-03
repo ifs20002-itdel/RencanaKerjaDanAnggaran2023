@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Jenispenggunaan;
 
 class JPenggunaanController extends Controller
 {
@@ -28,6 +29,11 @@ class JPenggunaanController extends Controller
             ]
         );
         return redirect('/jp');
+    }
+
+    public function JPenggunaanIndex(){
+        $Jenispenggunaan = DB::table('jenispenggunaan')->get();
+        return view('workplan.jPenggunaan.index', compact('Jenispenggunaan'));
     }
 
 

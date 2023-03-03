@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/jp', [JPenggunaanController::class, 'JPenggunaan']);
         Route::get('/jpcreate', [JPenggunaanController::class, 'jpCreate']);
         Route::post('/jp', [JPenggunaanController::class, 'jpStore']);
+        Route::get('/jp', [JPenggunaanController::class, 'JPenggunaanIndex']);
 
 
     //JenisPenggunaan

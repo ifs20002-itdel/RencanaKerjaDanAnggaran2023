@@ -28,7 +28,7 @@
         <li class="nav-header mt-2">Anggaran</li>
 
         <li class="nav-item mt-2">
-          <a href="#" class="nav-link">
+          <a href="/jp" class="nav-link">
           <i class="fa-solid fa-plus nav-icon"></i>
             <p>
               Jenis Penggunaan
