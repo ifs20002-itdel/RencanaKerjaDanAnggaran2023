@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class JPenggunaanController extends Controller
 {
+    public function JPenggunaan(){
+        return view('workplan.jPenggunaan.index');
+    }
+
     public function jpCreate(){
         return view('workplan.jPenggunaan.create');
     }
