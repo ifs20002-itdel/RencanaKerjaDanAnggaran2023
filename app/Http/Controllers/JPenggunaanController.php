@@ -36,5 +36,11 @@ class JPenggunaanController extends Controller
         return view('workplan.jPenggunaan.index', compact('Jenispenggunaan'));
     }
 
+    public function JPEdit($id){
+        $Jenispenggunaan = DB::table('jenispenggunaan')->where('id', $id)->first();
+
+        return view('workplan.jPenggunaan.edit', compact('Jenispenggunaan')); //namaVariabel
+    }
+
 
 }
