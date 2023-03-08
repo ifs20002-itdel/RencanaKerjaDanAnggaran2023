@@ -57,5 +57,10 @@ class JPenggunaanController extends Controller
         return redirect('/jp');
     }
 
+    public function JPDestroy($id){
+        DB::table('jenispenggunaan')->where('id', '=', $id)->delete();
+        return redirect('/jp');
+    }
+
 
 }

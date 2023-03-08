@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Jenis Penggunaan')
+@section('title', 'Add Jenis Penggunaan')
 @section('breadcrumb1')
     <li class="breadcrumb-item"><a href="/jp">Mata Anggaran</a></li>
 @endsection
@@ -23,7 +23,7 @@
                 
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" name="namaJenisPenggunaan" class="form-control" placeholder="Biaya Operasional Pendidikan" value="{{old('namaJenisPenggunaan')}}">
+                    <input type="text" name="namaJenisPenggunaan" class="form-control" placeholder="Cth. Biaya Operasional Pendidikan" value="{{old('namaJenisPenggunaan')}}">
                 
                     @error('namaJenisPenggunaan')
                     <p class="text-danger font-weight-bold">{{$message}}</p>

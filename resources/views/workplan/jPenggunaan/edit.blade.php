@@ -25,7 +25,7 @@
                 
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" name="namaJenisPenggunaan" class="form-control" placeholder="Biaya Operasional Pendidikan" value="{{$Jenispenggunaan->namaJenisPenggunaan}}">
+                    <input type="text" name="namaJenisPenggunaan" class="form-control" placeholder="Cth. Biaya Operasional Pendidikan" value="{{$Jenispenggunaan->namaJenisPenggunaan}}">
                 
                     @error('namaJenisPenggunaan')
                     <p class="text-danger font-weight-bold">{{$message}}</p>

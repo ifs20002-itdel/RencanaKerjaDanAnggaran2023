@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Add Jenis Penggunaan')
+@section('title', 'Mata Anggaran')
 
 @section('breadcrumb1')
     <li class="breadcrumb-item">Mata Anggaran</li>
@@ -8,19 +8,23 @@
 @section('judulTengah', 'Mata Anggaran RKA')
 
 @section('content')
-  <a href="/jpcreate"><button type="submit" class="btn btn-success mb-3"><i class="fa-regular fa-plus mr-2"></i>Jenis Penggunaan</button></a>
-
+<a href="/jpcreate"><button type="submit" class="btn btn-success mb-3"><i class="fa-regular fa-plus mr-2"></i>Jenis Penggunaan</button></a>
 <span class="invisible">{{ $byk = 0 }}</span>
-    @foreach ($Jenispenggunaan as $item)
+  @forelse ($Jenispenggunaan as $item)
     <div class="card col-lg-12 col-6">
         <div class="card-header">
             <h3 class="card-title font-weight-bold ">{{$byk+=1}}. {{$item->namaJenisPenggunaan}}</h3>
             <div class="card-tools">
-              <a class="btn btn-link text-danger text-gradient px-2 mb-0" href="#"><i class="far fa-trash-alt me-2 mr-1"></i>Delete</a>
-              <a class="btn btn-link text-dark px-2 mb-0" href="/jp/{{$item->id}}/edit"><i class="fas fa-pencil-alt text-dark me-2 mr-1" aria-hidden="true"></i>Edit</a>
+              <form action="/jp/{{$item->id}}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-link text-danger text-gradient px-2 mb-0"><i class="far fa-trash-alt me-2 mr-1"></i>Delete</button>
+                <a class="btn btn-link text-dark px-2 mb-0" href="/jp/{{$item->id}}/edit"><i class="fas fa-pencil-alt text-dark me-2 mr-1" aria-hidden="true"></i>Edit</a>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
                 </button> 
+              </form>
+              
             </div>
         
         </div>
@@ -29,7 +33,15 @@
             <!--COntent-->
         </div>
     </div>
-    @endforeach
+    @empty
+    <div class="card col-lg-12 col-6">
+      <div class="card-body">
+        <p class="text-center"> Data Jenis Penggunaan Belum ada</p>
+      </div>
+    </div>
+    
+    
+    @endforelse
 
     <div class="card-body pt-4 p-3">
               <ul class="list-group">

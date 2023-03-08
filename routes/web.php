@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/jp', [JPenggunaanController::class, 'JPenggunaanIndex']);
         Route::get('/jp/{jenispenggunaan_id}/edit', [JPenggunaanController::class, 'JPEdit']);
         Route::put('/jp/{jenispenggunaan_id}', [JPenggunaanController::class, 'JPUpdate']);
+        Route::delete('/jp/{jenispenggunaan_id}', [JPenggunaanController::class, 'JPDestroy']);
 
 
     //JenisPenggunaan
