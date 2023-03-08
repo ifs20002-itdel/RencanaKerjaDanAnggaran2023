@@ -31,7 +31,7 @@
           <a href="/jp" class="nav-link">
           <i class="fa-solid fa-plus nav-icon"></i>
             <p>
-              Jenis Penggunaan
+              Mata Anggaran
             </p>
           </a>
         </li>
