@@ -42,5 +42,20 @@ class JPenggunaanController extends Controller
         return view('workplan.jPenggunaan.edit', compact('Jenispenggunaan')); //namaVariabel
     }
 
+    public function JPUpdate($id, Request $request){
+        $request->validate([
+            'namaJenisPenggunaan' => 'required',
+        ],
+        [
+            'namaJenisPenggunaan.required' => 'Nama Jenis Anggaran Harus Di Isi',
+        ]);
+        DB::table('jenispenggunaan')->where('id', $id)->update(
+            [
+                'namaJenisPenggunaan' => $request['namaJenisPenggunaan']
+            ]
+        );
+        return redirect('/jp');
+    }
+
 
 }
