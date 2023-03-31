@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-    <a href="{{asset("/")}}" class="brand-link">
+    <a href="{{asset("/")}}" class="brand-link" style="border-right: 2px solid grey; background-color: #3C8DBC;">
       <img src="{{asset("layout/dist/img/del.png")}}" alt="ITDel Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light d-flex flex-row">RKA - IT DEL 2023</span>
     </a>

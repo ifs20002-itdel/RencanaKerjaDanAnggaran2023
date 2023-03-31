@@ -10,7 +10,7 @@
 <div class="col-lg-7 col-6 mx-auto">
   <!-- small box -->
   
-  <div class="small-box bg-info">
+  <div class="small-box bg-info" style="border-radius: 25px">
     <div class="inner text-center">
         <h5>Selamat Datang!</h5>
       <h4 class="text-nowrap">{{Auth::user()->nama}}</h4>
