@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Penggunaan;
 use App\Models\Pengajuan;
+use App\Models\Jabatan;
 
 use App\Helpers\AuthUser;
 use App\Models\User;

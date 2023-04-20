@@ -69,7 +69,9 @@
           <i class="right fas fa-angle-down ml-2"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
           <span class="dropdown-item dropdown-header">{{Auth::user()->jabatan_fungsional}}</span>
+           
           <div class="dropdown-divider"></div>
           <a href="/profile" class="dropdown-item text-center">
             <i class="fa-solid fa-person-chalkboard mr-2"></i>Profile

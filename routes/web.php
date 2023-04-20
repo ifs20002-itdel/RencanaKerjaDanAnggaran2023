@@ -32,8 +32,8 @@ Route::middleware('auth')->group(function() {
         return view('welcomming');
       
     });
+    
     //Profile
-
     Route::get('/profile', [LoginController::class, 'profile']);
     Route::get('/user/logout', [LoginController::class, 'logout']);
 

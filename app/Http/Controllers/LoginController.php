@@ -91,12 +91,14 @@ class LoginController extends Controller
 
         Auth::login($dataUser);
         return redirect('/');
+
     }
 
     public function profile(){
         $Pengajuan = Pengajuan::all();
         $Penggunaan = Penggunaan::all();
-        return view('pages.profile', compact('Pengajuan', 'Penggunaan'));
+        $Jabatan = Jabatan::all();
+        return view('pages.profile', compact('Pengajuan', 'Penggunaan', 'Jabatan'));
     }
 
     function logout(Request $request) {

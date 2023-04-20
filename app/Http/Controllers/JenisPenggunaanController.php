@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Penggunaan;
 use App\Models\Pengajuan;
+use App\Models\Jabatan;
 
 class JenisPenggunaanController extends Controller
 {

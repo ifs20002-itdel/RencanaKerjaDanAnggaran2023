@@ -46,6 +46,14 @@
                                 <th>Nama</th>
                                 <td>{{ Auth::user()->nama }}</td>
                               </tr>
+                              @foreach ($Jabatan as $item)
+                                  @if(Auth::user()->jabatan_id == $item->id)
+                                  <tr>
+                                    <th>Jabatan</th>
+                                    <td>{{$item->jabatan}}</td>
+                                  </tr>
+                                  @endif
+                              @endforeach
                               <tr>
                                 <th>NIP</th>
                                 <td>{{ Auth::user()->nip }}</td>
@@ -75,6 +83,7 @@
                                 <th>Program Studi</th>
                                 <td>{{ Auth::user()->prodi }}</td>
                               </tr>
+                              
 
                               <tr>
                                 <th>Jabatan Fungsional</th>
