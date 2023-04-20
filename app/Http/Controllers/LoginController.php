@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Penggunaan;
 use App\Models\Pengajuan;
+use App\Models\Jabatan;
 
 
 class LoginController extends Controller
@@ -30,8 +31,8 @@ class LoginController extends Controller
 
         if ($json['result'] == true) {
             $token = $json['token'];
-
-            return $this->getDataDosen($json['user']['user_id'], $token);
+            $jabatan = $json['user']['jabatan'][0];
+            return $this->getDataDosen($json['user']['user_id'], $token, $jabatan);
         } else {
             return Redirect::back()
                 ->withInput()
@@ -40,7 +41,7 @@ class LoginController extends Controller
 
     }
 
-    function getDataDosen($userId, $token) {
+    function getDataDosen($userId, $token, $jabatan) {
         $responseDataDosen = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/dosen?userid='.$userId)->body();
         $jsonDataDosen = json_decode($responseDataDosen, true);
         
@@ -51,15 +52,23 @@ class LoginController extends Controller
         $nip = $jsonDataDosen['data']['dosen'][0]['nip'];   
         $jabatanFungsional = $jsonDataDosen['data']['dosen'][0]['jabatan_akademik_desc'];
         $pegawaiId = $jsonDataDosen['data']['dosen'][0]['pegawai_id'];
-
+        
 
         $responseStatusKeaktifan = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?pegawaiid='.$pegawaiId)->body();
         $jsonKeaktifan = json_decode($responseStatusKeaktifan, true);
         $keaktifanDosen = $jsonKeaktifan['data']['pegawai'][0]['status_pegawai'];
         
+        
+        $cekApakahAdaJabatan = Jabatan::where('id', '=', $jabatan["struktur_jabatan_id"])->exists();   
+        $jabatanSaatIni = new Jabatan;
+        $jabatanSaatIni->id = $jabatan["struktur_jabatan_id"];
+        $jabatanSaatIni->jabatan = $jabatan["jabatan"];
+        
+        if(!$cekApakahAdaJabatan){
+            $jabatanSaatIni->save();
+        }
 
         $cekApakahAdaId = User::where('id', '=', $userId)->exists();
-
         $dataUser = new User;
         $dataUser->id = $userId;
         $dataUser->nama = $nama;
@@ -67,13 +76,18 @@ class LoginController extends Controller
         $dataUser->email = $email;
         $dataUser->nidn = $nidn;
         $dataUser->nip = $nip;
+        $dataUser->jabatan_id = $jabatan["struktur_jabatan_id"];
         $dataUser->jabatan_fungsional = $jabatanFungsional;
+        //$dataUser->remember_token = $token;
         $dataUser->keaktifan = $keaktifanDosen;
 
         // Cek apakah data sudah ada di dalam database, jika belum akan dibuat data baru di dalam database
         if (!$cekApakahAdaId) {
             $dataUser->save();
         }
+        //else{
+        //    $dataUser->where('id', '=', $userId)->update(['remember_token'=>$token]);
+        //}
 
         Auth::login($dataUser);
         return redirect('/');

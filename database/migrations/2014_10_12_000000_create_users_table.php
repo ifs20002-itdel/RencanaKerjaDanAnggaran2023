@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('nidn');
             $table->string('nip');
+            $table->unsignedBigInteger('jabatan_id');
+            $table->foreign('jabatan_id')->references('id')->on('jabatan')->onDelete('cascade');
             $table->string('jabatan_fungsional');
             $table->string('keaktifan');
             $table->rememberToken();
