@@ -73,7 +73,7 @@
                                     Fakultas Teknik Industri
                                     @elseif (Auth::user()->prodi == 'S1 Teknik Bioproses')
                                     Fakultas Bioteknologi
-                                    @elseif (Auth::user()->prodi == 'DIII Teknologi Komputer' || Auth::user()->prodi == 'DII Teknologi Informasi' || Auth::user()->prodi == 'DIV Teknologi Rekayasa Perangkat Lunak')
+                                    @elseif (Auth::user()->prodi == 'DIII Teknologi Komputer' || Auth::user()->prodi == 'DIII Teknologi Informasi' || Auth::user()->prodi == 'DIV Teknologi Rekayasa Perangkat Lunak')
                                     Fakultas Vokasi
                                     @endif   
                                 </td>
