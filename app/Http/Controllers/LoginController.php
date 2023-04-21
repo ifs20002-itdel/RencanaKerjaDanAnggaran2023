@@ -27,16 +27,13 @@ class LoginController extends Controller
         ])->body();
 
         $json = json_decode($response, true);
-
         if ($json['result'] == true) {
             $token = $json['token'];
-
             return $this->getDataDosen($json['user']['user_id'], $token);
         } else {
-            return Redirect::back()
-                ->withInput()
-                ->withErrors(['password' => 'salah']);
+            return redirect()->back()->withInput()->withErrors(['message' => 'Incorrect username or password']);
         }
+        
 
     }
 
