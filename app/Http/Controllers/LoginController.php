@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Penggunaan;
 use App\Models\Pengajuan;
+use App\Models\Jabatan;
 
 
 class LoginController extends Controller
@@ -29,6 +30,7 @@ class LoginController extends Controller
         $json = json_decode($response, true);
         if ($json['result'] == true) {
             $token = $json['token'];
+            $jabatan = $json['user']['jabatan'][0];
             return $this->getDataDosen($json['user']['user_id'], $token);
         } else {
             return redirect()->back()->withInput()->withErrors(['message' => 'Incorrect username or password']);
@@ -37,7 +39,7 @@ class LoginController extends Controller
 
     }
 
-    function getDataDosen($userId, $token) {
+    function getDataDosen($userId, $token, $jabatan) {
         $responseDataDosen = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/dosen?userid='.$userId)->body();
         $jsonDataDosen = json_decode($responseDataDosen, true);
         
@@ -53,6 +55,15 @@ class LoginController extends Controller
         $responseStatusKeaktifan = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?pegawaiid='.$pegawaiId)->body();
         $jsonKeaktifan = json_decode($responseStatusKeaktifan, true);
         $keaktifanDosen = $jsonKeaktifan['data']['pegawai'][0]['status_pegawai'];
+
+        $cekApakahAdaJabatan = Jabatan::where('id', '=', $jabatan["struktur_jabatan_id"])->exists();   
+        $jabatanSaatIni = new Jabatan;
+        $jabatanSaatIni->id = $jabatan["struktur_jabatan_id"];
+        $jabatanSaatIni->jabatan = $jabatan["jabatan"];
+
+        if(!$cekApakahAdaJabatan){
+            $jabatanSaatIni->save();
+        }
         
 
         $cekApakahAdaId = User::where('id', '=', $userId)->exists();
@@ -64,6 +75,7 @@ class LoginController extends Controller
         $dataUser->email = $email;
         $dataUser->nidn = $nidn;
         $dataUser->nip = $nip;
+        $dataUser->jabatan_id = $jabatan["struktur_jabatan_id"];
         $dataUser->jabatan_fungsional = $jabatanFungsional;
         $dataUser->keaktifan = $keaktifanDosen;
 
@@ -79,7 +91,8 @@ class LoginController extends Controller
     public function profile(){
         $Pengajuan = Pengajuan::all();
         $Penggunaan = Penggunaan::all();
-        return view('pages.profile', compact('Pengajuan', 'Penggunaan'));
+        $Jabatan = Jabatan::all();
+        return view('pages.profile', compact('Pengajuan', 'Penggunaan', 'Jabatan'));
     }
 
     function logout(Request $request) {
