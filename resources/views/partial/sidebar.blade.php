@@ -36,7 +36,7 @@
           </a>
         </li>
 
-        @if (Auth::user()->jabatan_fungsional == 'Lektor Kepala')
+      
             <!--JenisPenggunaan-->
             <li class="nav-item">
               <a href="/addJenisPenggunaan" class="nav-link">
@@ -44,7 +44,7 @@
                 <p>Add Jenis Anggaran</p>
               </a>
             </li>
-        @endif
+        
 
         <li class="nav-item">
           <a href="/listJenisAnggaran" class="nav-link">

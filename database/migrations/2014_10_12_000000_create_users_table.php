@@ -13,17 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->integer('pegawai_id');
             $table->string('nama');
-            $table->string('prodi');
-            $table->string('email');
-            $table->string('nidn');
             $table->string('nip');
-            $table->unsignedBigInteger('jabatan_id');
-            $table->foreign('jabatan_id')->references('id')->on('jabatan')->onDelete('cascade');
-            $table->string('jabatan_fungsional');
-            $table->string('keaktifan');
+            $table->string('alias');
+            $table->string('email');
+            $table->string('username');
+            $table->string('status');
             $table->rememberToken();
             $table->timestamps();
         });

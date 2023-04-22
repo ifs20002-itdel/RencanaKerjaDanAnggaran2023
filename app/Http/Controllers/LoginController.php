@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Penggunaan;
 use App\Models\Pengajuan;
-use App\Models\Jabatan;
 
 
 class LoginController extends Controller
@@ -30,54 +29,38 @@ class LoginController extends Controller
         $json = json_decode($response, true);
         if ($json['result'] == true) {
             $token = $json['token'];
-            $jabatan = $json['user']['jabatan'][0];
-            return $this->getDataDosen($json['user']['user_id'], $token);
+            return $this->getDataPegawai($json['user']['user_id'], $token);
         } else {
             return redirect()->back()->withInput()->withErrors(['message' => 'Incorrect username or password']);
         }
-        
 
     }
 
-    function getDataDosen($userId, $token, $jabatan) {
-        $responseDataDosen = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/dosen?userid='.$userId)->body();
-        $jsonDataDosen = json_decode($responseDataDosen, true);
+    function getDataPegawai($userId, $token) {
+        $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.$userId)->body();
+        $jsonDataPegawai = json_decode($responseDataPegawai, true);
         
-        $nama = $jsonDataDosen['data']['dosen'][0]['nama'];
-        $prodi = $jsonDataDosen['data']['dosen'][0]['prodi'];
-        $email = $jsonDataDosen['data']['dosen'][0]['email'];
-        $nidn = $jsonDataDosen['data']['dosen'][0]['nidn'];
-        $nip = $jsonDataDosen['data']['dosen'][0]['nip'];   
-        $jabatanFungsional = $jsonDataDosen['data']['dosen'][0]['jabatan_akademik_desc'];
-        $pegawaiId = $jsonDataDosen['data']['dosen'][0]['pegawai_id'];
+        $pegawaiId = $jsonDataPegawai['data']['pegawai'][0]['pegawai_id'];
+        $nip = $jsonDataPegawai['data']['pegawai'][0]['nip'];
+        $nama = $jsonDataPegawai['data']['pegawai'][0]['nama'];
+        $email = $jsonDataPegawai['data']['pegawai'][0]['email'];
+        $username = $jsonDataPegawai['data']['pegawai'][0]['user_name'];
+        $alias = $jsonDataPegawai['data']['pegawai'][0]['alias '];
+        $status = $jsonDataPegawai['data']['pegawai'][0]['status_pegawai'];
 
-
-        $responseStatusKeaktifan = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?pegawaiid='.$pegawaiId)->body();
-        $jsonKeaktifan = json_decode($responseStatusKeaktifan, true);
-        $keaktifanDosen = $jsonKeaktifan['data']['pegawai'][0]['status_pegawai'];
-
-        $cekApakahAdaJabatan = Jabatan::where('id', '=', $jabatan["struktur_jabatan_id"])->exists();   
-        $jabatanSaatIni = new Jabatan;
-        $jabatanSaatIni->id = $jabatan["struktur_jabatan_id"];
-        $jabatanSaatIni->jabatan = $jabatan["jabatan"];
-
-        if(!$cekApakahAdaJabatan){
-            $jabatanSaatIni->save();
-        }
-        
-
+        //Table User
         $cekApakahAdaId = User::where('id', '=', $userId)->exists();
-
+        //inpu data in to table users
         $dataUser = new User;
         $dataUser->id = $userId;
+        $dataUser->pegawai_id = $pegawaiId;
         $dataUser->nama = $nama;
-        $dataUser->prodi = $prodi;
-        $dataUser->email = $email;
-        $dataUser->nidn = $nidn;
         $dataUser->nip = $nip;
-        $dataUser->jabatan_id = $jabatan["struktur_jabatan_id"];
-        $dataUser->jabatan_fungsional = $jabatanFungsional;
-        $dataUser->keaktifan = $keaktifanDosen;
+        $dataUser->alias = $alias;
+        $dataUser->email = $email;
+        $dataUser->username = $username;
+        $dataUser->status = $status;
+        
 
         // Cek apakah data sudah ada di dalam database, jika belum akan dibuat data baru di dalam database
         if (!$cekApakahAdaId) {
@@ -91,8 +74,7 @@ class LoginController extends Controller
     public function profile(){
         $Pengajuan = Pengajuan::all();
         $Penggunaan = Penggunaan::all();
-        $Jabatan = Jabatan::all();
-        return view('pages.profile', compact('Pengajuan', 'Penggunaan', 'Jabatan'));
+        return view('pages.profile', compact('Pengajuan', 'Penggunaan'));
     }
 
     function logout(Request $request) {
