@@ -37,7 +37,7 @@
       <!-- Navbar Search -->
       <li class="nav-item dropdown mr-2">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
+          <i class="far fa-bell" style="color:white"></i>
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -63,7 +63,7 @@
       </li>
       
       <li class="nav-item dropdown">
-        <a class="nav-link nama" style="color: black" data-toggle="dropdown" href="#">
+        <a class="nav-link nama" style="color: white; font-size:14px" data-toggle="dropdown" href="#">
           <i class="fa-solid fa-user mr-2"></i>
           {{(Auth::user()->nama)}}
           <i class="right fas fa-angle-down ml-2"></i>
@@ -77,7 +77,7 @@
             <i class="fa-solid fa-person-chalkboard mr-2"></i>Profile
           </a>
           <div class="dropdown-divider"></div>
-          <a href=""><hr></a>
+          <a href=""></a>
           <div class="dropdown-divider"></div>
           <a href="/user/logout" class="dropdown-item text-center">
             <i class="fa-solid fa-right-from-bracket mr-2"></i> Logout
