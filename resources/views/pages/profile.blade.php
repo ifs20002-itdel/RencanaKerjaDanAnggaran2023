@@ -39,61 +39,27 @@
               <div class="tab-content">
                 <div class="active tab-pane" id="activity">
                   <div class="post">
-                    <div class="ml-5">
+                    <h5 class="ml-3">User Info</h4>
+                    <div class="ml-3">
 
-                        <table class="table mt-4">
+                        <table class="table mt-3 mb-1">
                               <tr>
                                 <th>Nama</th>
                                 <td>{{ Auth::user()->nama }}</td>
                               </tr>
-                              @foreach ($Jabatan as $item)
-                                  @if(Auth::user()->jabatan_id == $item->id)
-                                  <tr>
-                                    <th>Jabatan</th>
-                                    <td>{{$item->jabatan}}</td>
-                                  </tr>
-                                  @endif
-                              @endforeach
                               <tr>
                                 <th>NIP</th>
                                 <td>{{ Auth::user()->nip }}</td>
                               </tr>
 
                               <tr>
-                                <th>NIDN</th>
-                                <td>{{ Auth::user()->nidn}}</td>
+                                <th>Alias</th>
+                                <td>{{ Auth::user()->alias}}</td>
                               </tr>
-
-                              <tr>
-                                <th>Fakultas</th>
-                                <td>
-                                    @if (Auth::user()->prodi == 'S1 Informatika' || Auth::user()->prodi == 'S1 Sistem Informasi' || Auth::user()->prodi == 'S1 Teknik Elektro')
-                                    Fakultas Informatika dan Teknik Elektro
-                                    @elseif (Auth::user()->prodi == 'S1 Manajemen Rekayasa')
-                                    Fakultas Teknik Industri
-                                    @elseif (Auth::user()->prodi == 'S1 Teknik Bioproses')
-                                    Fakultas Bioteknologi
-                                    @elseif (Auth::user()->prodi == 'DIII Teknologi Komputer' || Auth::user()->prodi == 'DIII Teknologi Informasi' || Auth::user()->prodi == 'DIV Teknologi Rekayasa Perangkat Lunak')
-                                    Fakultas Vokasi
-                                    @endif   
-                                </td>
-                              </tr>
-
-                              <tr>
-                                <th>Program Studi</th>
-                                <td>{{ Auth::user()->prodi }}</td>
-                              </tr>
-                              
-
-                              <tr>
-                                <th>Jabatan Fungsional</th>
-                                <td>{{ Auth::user()->jabatan_fungsional }}</td>
-                              </tr>
-
                               <tr>
                                 <th>Status Keaktifan</th>
                                 <td>
-                                    @if (Auth::user()->keaktifan == 'A')
+                                    @if (Auth::user()->status == 'A')
                                     Aktif
                                     @else
                                     Keluar
