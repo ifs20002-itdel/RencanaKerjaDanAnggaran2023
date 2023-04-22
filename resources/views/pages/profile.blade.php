@@ -56,6 +56,7 @@
                                 <th>Alias</th>
                                 <td>{{ Auth::user()->alias}}</td>
                               </tr>
+
                               <tr>
                                 <th>Status Keaktifan</th>
                                 <td>

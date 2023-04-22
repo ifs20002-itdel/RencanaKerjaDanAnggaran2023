@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Penggunaan;
 use App\Models\Pengajuan;
+use GuzzleHttp\Message\Response;
 
+use App\Models\Unit;
 
 class LoginController extends Controller
 {
@@ -36,6 +38,7 @@ class LoginController extends Controller
 
     }
 
+    
     function getDataPegawai($userId, $token) {
         $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.$userId)->body();
         $jsonDataPegawai = json_decode($responseDataPegawai, true);
