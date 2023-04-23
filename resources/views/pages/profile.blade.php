@@ -57,6 +57,16 @@
                                 <td>{{ Auth::user()->alias}}</td>
                               </tr>
 
+                              @foreach ($jsonDataUnit as $item)
+                               @if (Auth::user()->pegawai_id == $item->pegawai_id)
+                               <tr>
+                                <th>Unit</th>
+                                <td>{{$item->name}}</td>
+                              </tr>  
+                               @endif
+                                  
+                              @endforeach
+
                               <tr>
                                 <th>Status Keaktifan</th>
                                 <td>

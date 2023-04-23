@@ -41,6 +41,27 @@
                     @enderror
                 </div>
 
+                <div class="form-group">
+
+                    {{-- @foreach ($dataUnit ('data') as $item)
+                    <h4>{{$item['name']}}</h4>
+                     @endforeach --}}
+
+                    @foreach ($dataUnit['data']['unit'] as $item)
+
+                    <label for="unit{{$item['unit_id']}}">{{$item['name']}}</label>
+                    <input type="checkbox" id="unit{{$item['unit_id']}}">
+
+                   @endforeach
+                 
+                   
+                    {{-- {{json_decode($dataUnit->data)}} --}}
+                 
+
+
+                </div>
+
+
             </div>
 
             <div class="card-footer">

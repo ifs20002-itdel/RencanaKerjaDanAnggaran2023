@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('username');
             $table->string('status');
-            $table->rememberToken();
+            $table->longText('remember_token');
             $table->timestamps();
         });
     }

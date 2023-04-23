@@ -65,12 +65,14 @@
       <li class="nav-item dropdown">
         <a class="nav-link nama" style="color: white; font-size:14px" data-toggle="dropdown" href="#">
           <i class="fa-solid fa-user mr-2"></i>
-          {{(Auth::user()->nama)}}
+
+          {{--(Auth::user()->nama)--}}
+
           <i class="right fas fa-angle-down ml-2"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
-          <span class="dropdown-item dropdown-header">{{Auth::user()->jabatan_fungsional}}</span>
+          <span class="dropdown-item dropdown-header">{{--Auth::user()->jabatan_fungsional--}}</span>
            
           <div class="dropdown-divider"></div>
           <a href="/profile" class="dropdown-item text-center">

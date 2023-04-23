@@ -39,7 +39,13 @@
         </div>
         <div class="ml-3">
         <h4>Selamat Datang !</h4>
-          <h4 class="card-title">{{Auth::user()->nama}}</h4>
+
+        @foreach (session('user')['jabatan'] as $item)
+            <h4>{{$item['jabatan']}}</h4>
+        @endforeach
+        <h4 class="card-title">{{--session('user')['jabatan']['jabatan']--}}</h4>
+        
+        
         
         </div>
       </div>

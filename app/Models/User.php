@@ -8,12 +8,24 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+
+
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, AuthenticatableTrait;
 
-    protected $table = "users";
-    protected $fillable = ["id", "pegawai_id", "nama", "nip", "alias", "email", "username", "status", "remember_token"];
+    // protected $fillable = ["id", "pegawai_id", "nama", "nip", "alias", "email", "username", "status", "remember_token"];
+    protected $fillable = ['user_id', 'username'];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        if (! empty($attributes)) {
+            $this->fill($attributes);
+        }
+    }
 
     public function pengajuan()
     {

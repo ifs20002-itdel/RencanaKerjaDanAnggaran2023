@@ -27,7 +27,7 @@ Route::middleware('guest')->group(function(){
 
 });
 
-Route::middleware('auth')->group(function() {
+//Route::middleware('auth')->group(function() {
     Route::get('/', function(){
         return view('welcomming');
       
@@ -165,4 +165,4 @@ Route::middleware('auth')->group(function() {
     //Canceled
     Route::get('/canceled/{id}', [PengajuanController::class, 'canceled']);
 
- });
+ //});

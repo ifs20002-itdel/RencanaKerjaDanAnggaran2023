@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use App\Models\Penggunaan;
 use App\Models\Pengajuan;
@@ -25,7 +26,17 @@ class JenisPenggunaanController extends Controller
     //Operasional Pendidikan
         //A.Dosen
         public function biayaDosenCreate(){
-            return view('workplan.jenisPenggunaan.pendidikan.a.create');
+            $token =  session('token');
+            $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/unit')->body();
+        //    $response = Http::withHeaders([
+        //        'Authorization'=>'Bearer'.$token,
+        //    ])->get('https://cis-dev.del.ac.id/api/library-api/unit');
+        //     if($response->){
+               
+        //    }
+            return view('workplan.jenisPenggunaan.pendidikan.a.create',[
+                'dataUnit' => json_decode($responseDataPegawai, true)
+            ]);
         }
 
         public function biayaDosenStore(Request $request){
