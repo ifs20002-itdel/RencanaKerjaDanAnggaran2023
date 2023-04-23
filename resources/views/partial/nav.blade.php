@@ -66,7 +66,22 @@
         <a class="nav-link nama" style="color: white; font-size:14px" data-toggle="dropdown" href="#">
           <i class="fa-solid fa-user mr-2"></i>
 
-          {{--(Auth::user()->nama)--}}
+         
+          <?php
+            //GetDataPegawai
+            $token = session('token');
+            $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.session('user')['user_id'])->body();
+            $pegawai = json_decode($responseDataPegawai, true);
+
+          ?>
+
+          @foreach ($pegawai['data']['pegawai'] as $item)
+          @if($item['user_id'] == session('user')['user_id'])
+
+            {{$item['nama']}}
+                   
+          @endif
+          @endforeach    
 
           <i class="right fas fa-angle-down ml-2"></i>
         </a>

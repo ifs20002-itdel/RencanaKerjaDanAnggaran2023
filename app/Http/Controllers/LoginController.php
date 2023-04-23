@@ -28,7 +28,11 @@ class LoginController extends Controller
             'password' => $password
         ])->body();
 
+        //Token
         $json = json_decode($response, true);
+        $userId = $json['user']['user_id'];
+
+
         if ($json['result'] == true) {
             $user = $json['user'];
              $token = $json['token'];
@@ -38,6 +42,8 @@ class LoginController extends Controller
             session(['user' => $user]);
             session(['token' => $token]);
             session(['refresh_token' => $refreshToken]);
+            
+            
 
             //Redirect to the dashboard or any other page
             return redirect('/');
@@ -49,6 +55,9 @@ class LoginController extends Controller
         } else {
             return redirect()->back()->withInput()->withErrors(['message' => 'Incorrect username or password']);
         }
+        //GetDataPegawai
+        $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.$userId)->body();
+
 
     }
 

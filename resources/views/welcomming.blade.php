@@ -40,12 +40,20 @@
         <div class="ml-3">
         <h4>Selamat Datang !</h4>
 
-        @foreach (session('user')['jabatan'] as $item)
-            <h4>{{$item['jabatan']}}</h4>
-        @endforeach
-        <h4 class="card-title">{{--session('user')['jabatan']['jabatan']--}}</h4>
-        
-        
+        <?php
+          //GetDataPegawai
+          $token = session('token');
+          $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.session('user')['user_id'])->body();
+          $pegawai = json_decode($responseDataPegawai, true);
+        ?>
+
+        @foreach ($pegawai['data']['pegawai'] as $item)
+        @if($item['user_id'] == session('user')['user_id'])
+
+          <h4>{{$item['nama']}}</h4>
+                
+        @endif
+        @endforeach    
         
         </div>
       </div>
