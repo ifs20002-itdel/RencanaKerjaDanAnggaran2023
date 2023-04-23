@@ -27,7 +27,18 @@
 
         <li class="nav-header mt-2">Anggaran</li>
 
+
+        {{-- Add WorkGroup --}}
         <li class="nav-item mt-2">
+          <a href="#" class="nav-link">
+            <i class="fa-solid fa-people-group nav-icon"></i>
+            <p>
+              Add WorkGroup
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a href="/jp" class="nav-link">
           <i class="fa-solid fa-plus nav-icon"></i>
             <p>

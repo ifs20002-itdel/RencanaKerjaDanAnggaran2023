@@ -92,7 +92,7 @@
                               </tr>
 
                               <tr>
-                                <th>Status Keaktifan</th>
+                                <th>Status</th>
                                 <td>
                                     @if ($item['status_pegawai'] == 'A')
                                     Aktif
@@ -151,7 +151,6 @@
                         @endforeach
                       </div>
 
-            
                   </div>
                   <!-- /.post -->
                 </div>

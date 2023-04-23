@@ -72,7 +72,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     <div class="float-right d-none d-sm-block" style="font-size:14px">
       <b>Rencana Kerja Dan Anggaran</b>
     </div>
-    <strong style="font-size:14px">Copyright &copy; 2023 -</strong> <a href="https://coda.io/d/Kelompok-RKA_dFKRDQbWVRg/RKA-Rencana-Kerja-dan-Anggaran-IT-Del_su8Ub" target="_blank" style="font-size:14px"> Kelompok 2</a> 
+    <strong style="font-size:14px">Copyright &copy; 2023 -</strong> <a href="https://coda.io/d/Kelompok-RKA_dFKRDQbWVRg/RKA-Rencana-Kerja-dan-Anggaran-IT-Del_su8Ub" target="_blank" style="font-size:14px"> Implementation Team - Kelompok 2</a> 
   </footer>
 
   <!-- Control Sidebar -->
