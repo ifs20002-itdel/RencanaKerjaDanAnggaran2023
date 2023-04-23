@@ -55,9 +55,7 @@ class LoginController extends Controller
         } else {
             return redirect()->back()->withInput()->withErrors(['message' => 'Incorrect username or password']);
         }
-        //GetDataPegawai
-        $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.$userId)->body();
-
+       
 
     }
 
@@ -101,13 +99,9 @@ class LoginController extends Controller
     //}
 
     public function profile(){
-        $token = User::where('remember_token');
-        $responseDataUnit = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/unit')->body();
-        $jsonDataUnit = json_decode($responseDataUnit, true);
-
         $Pengajuan = Pengajuan::all();
         $Penggunaan = Penggunaan::all();
-        return view('pages.profile', compact('Pengajuan', 'Penggunaan', 'jsonDataUnit'));
+        return view('pages.profile', compact('Pengajuan', 'Penggunaan'));
 
 
 
