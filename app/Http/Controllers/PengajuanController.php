@@ -85,7 +85,7 @@ class PengajuanController extends Controller
 
             $Pengajuan->status = $request->status;
 
-            $Pengajuan->user_id = Auth::user()->id;
+            $Pengajuan->user_id = session('user')['user_id'];
             $Pengajuan->penggunaan_id = $request->penggunaan_id;
             $Pengajuan->save();
             

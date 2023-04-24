@@ -30,7 +30,7 @@
 
         {{-- Add WorkGroup --}}
         <li class="nav-item mt-2">
-          <a href="#" class="nav-link">
+          <a href="/wgcreate" class="nav-link">
             <i class="fa-solid fa-people-group nav-icon"></i>
             <p>
               Add WorkGroup
@@ -63,6 +63,9 @@
             <p>Jenis Anggaran</p>
           </a>
         </li>
+
+        <br>
+      
 
         <li class="nav-header mt-3">Work Plan</li>
         <li class="nav-item">

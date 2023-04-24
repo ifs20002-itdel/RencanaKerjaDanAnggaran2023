@@ -76,18 +76,37 @@
           ?>
 
           @foreach ($pegawai['data']['pegawai'] as $item)
+
           @if($item['user_id'] == session('user')['user_id'])
 
             {{$item['nama']}}
                    
-          @endif
-          @endforeach    
-
           <i class="right fas fa-angle-down ml-2"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
-          <span class="dropdown-item dropdown-header">{{--Auth::user()->jabatan_fungsional--}}</span>
+          <?php
+            //GetDataPegawai
+            $token = session('token');
+            $responseListJabatan = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/list-pejabat?pegawaiid='.$item['pegawai_id'])->body();
+            $pejabat = json_decode($responseListJabatan, true);
+
+          ?>
+
+           
+              @foreach ($pejabat['data']['pejabat'] as $key)
+                 @if($key['pegawai_id'] == $item['pegawai_id'])
+                 
+                    <span class="dropdown-item dropdown-header"> {{$key['jabatan']}}</span>
+                @endif
+              @endforeach        
+           @endif
+
+            
+
+           @endforeach   
+
+         
            
           <div class="dropdown-divider"></div>
           <a href="/profile" class="dropdown-item text-center">

@@ -162,7 +162,7 @@
                         
                         <div class="d-lg-none">{{ $byk = 0 }}</div>   
                         @foreach ($Pengajuan as $item)
-                            @if ($item->user_id == Auth::user()->id)
+                            @if ($item->user_id == session('user')['user_id'])
                             <div class="d-lg-none">{{ $byk+=1 }}</div>
                             <span class="hidden"></span>
                             <div class="col-12 col-sm-4 my-2">
@@ -195,7 +195,7 @@
                                   </div>                                                          
                                 </div>
                                               
-                                @if($item->user_id == Auth::user()->id && $item->status == 'In Progress')
+                                @if($item->user_id == session('user')['user_id'] && $item->status == 'In Progress')
                                                 
                                 <div class="card-footer">
                                     <div class="text-right">
@@ -227,7 +227,7 @@
                                                                 
                                 @endif
     
-                                @if(Auth::user()->jabatan_fungsional == 'Lektor Kepala' && $item->status == 'In Progress')
+                                {{-- @if(Auth::user()->jabatan_fungsional == 'Lektor Kepala' && $item->status == 'In Progress')
                                      
                                 <div class="card-footer">
                                     <div class="text-right">
@@ -240,7 +240,7 @@
                                         </a>   
                                     </div>            
                                 </div>
-                                @endif                                                                               
+                                @endif                                                                                --}}
                               </div>                            
                             </div>                                                           
                             @endif                        

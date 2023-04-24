@@ -24,7 +24,7 @@
 
                 <input type="hidden" name="jenis" class="form-control" value="1A">
                 <input type="hidden" name="status" class="form-control" value="In Progress">
-                <input type="hidden" name="pemohon" class="form-control" value="{{Auth::user()->nama}}">
+                <input type="hidden" name="pemohon" class="form-control" value="{{session('user')['user_id']}}">
 
                 <div class="form-group">
                     <label>Jenis Penggunaan Anggaran</label>

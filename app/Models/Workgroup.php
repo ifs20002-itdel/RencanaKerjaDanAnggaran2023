@@ -9,6 +9,16 @@ class Workgroup extends Model
 {
     use HasFactory;
     protected $table = "workgroup";
-    protected $fillable = ["id", "nama", "unit_id"];
+    protected $fillable = ["id", "nama", "unit", "controller"];
+
+    public function setCategoryAttribute($value)
+    {
+        $this->attributes['unit'] = json_encode($value);
+    }
+
+    public function getCategoryAttribute($value)
+    {
+        return $this->attributes['unit'] = json_decode($value);
+    }
 
 }

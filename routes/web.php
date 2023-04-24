@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\JenisPenggunaanController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\JPenggunaanController;
+use App\Http\Controllers\WorkgroupController;
 
 
 /*
@@ -39,6 +40,10 @@ Route::middleware('guest')->group(function(){
 
     //ListJenisPenggunaan
     Route::get('/listJenisAnggaran', [JenisPenggunaanController::class, 'listJenisPenggunaan']);    
+
+    //WORKGROUP
+    Route::get('/wgcreate', [WorkgroupController::class, 'wgindex']);
+    Route::post('/workgroup', [WorkgroupController::class, 'wgstore']);
 
     
     //JENIS PENGGUNAAN (NEW)

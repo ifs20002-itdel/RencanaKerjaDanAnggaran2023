@@ -45,15 +45,22 @@
           $token = session('token');
           $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.session('user')['user_id'])->body();
           $pegawai = json_decode($responseDataPegawai, true);
-        ?>
+        
 
+        {{-- Store the new refresh token in a variable --}}
+        $newRefreshToken = session('refresh_token');;
+
+        {{-- Update the refresh token in the session --}}
+        session(['refresh_token' => $newRefreshToken]);
+        ?>
+       
         @foreach ($pegawai['data']['pegawai'] as $item)
         @if($item['user_id'] == session('user')['user_id'])
 
           <h4>{{$item['nama']}}</h4>
                 
         @endif
-        @endforeach    
+        @endforeach
         
         </div>
       </div>

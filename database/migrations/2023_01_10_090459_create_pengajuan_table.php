@@ -25,8 +25,6 @@ return new class extends Migration
             $table->string('finish');
             $table->string('pemohon');
             $table->string('status');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
 
             $table->unsignedBigInteger('penggunaan_id');
             $table->foreign('penggunaan_id')->references('id')->on('penggunaan')->onDelete('cascade');
