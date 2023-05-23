@@ -30,7 +30,7 @@
 
         {{-- Add WorkGroup --}}
         <li class="nav-item mt-2">
-          <a href="/wgcreate" class="nav-link">
+          <a href="/workgroup" class="nav-link">
             <i class="fa-solid fa-people-group nav-icon"></i>
             <p>
               Add WorkGroup

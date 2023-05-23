@@ -16,7 +16,7 @@
             <h3 class="card-title">Form Menambahkan Struktur Organisasi Kerja</h3>
         </div>
                 
-        <form action="/workgroup" method="POST">
+        <form action="/workgroup/store" method="POST">
             @csrf
             <div class="card-body">     
                 <div class="form-group">
@@ -42,7 +42,7 @@
                         $kepala = json_decode($responseDataPejabat, true);
                         ?>
                         @foreach ($kepala['data']['pejabat'] as $controller)
-                            <option value="{{$controller['pegawai_id']}}">{{$controller['jabatan']}}</option>
+                            <option name="controller" value="{{$controller['jabatan_id']}}">{{$controller['jabatan']}}</option>
                         @endforeach
                     </select>
 
@@ -67,8 +67,8 @@
                         <div class="col-12 col-sm-3 my-2">
                             <table>
                                 <tr>
-                                    <th class="mr-5"><input class="mr-1" name="unit[]" type="checkbox" id="unit{{$item['unit_id']}}"></th>
-                                    <th><label for="unit{{$item['unit_id']}}">{{$item['name']}}</label></th>
+                                    <th class="mr-5"><input class="mr-1" name="unit[]" type="checkbox" id="unit{{$item['unit_id']}}" value="{{$item['name']}}"></th>
+                                    <th><label for="unit{{$item['unit_id']}}" >{{$item['name']}}</label></th>
                                 </tr>
                                
                             </table>

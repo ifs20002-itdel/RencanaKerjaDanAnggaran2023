@@ -42,8 +42,9 @@ Route::middleware('guest')->group(function(){
     Route::get('/listJenisAnggaran', [JenisPenggunaanController::class, 'listJenisPenggunaan']);    
 
     //WORKGROUP
-    Route::get('/wgcreate', [WorkgroupController::class, 'wgindex']);
-    Route::post('/workgroup', [WorkgroupController::class, 'wgstore']);
+    Route::get('/workgroup', [WorkgroupController::class, 'wgindex']);
+    Route::get('/workgroup/create', [WorkgroupController::class, 'wgcreate']);
+    Route::post('/workgroup/store', [WorkgroupController::class, 'wgstore']);
 
     
     //JENIS PENGGUNAAN (NEW)
