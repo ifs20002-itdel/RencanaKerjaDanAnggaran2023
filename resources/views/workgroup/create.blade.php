@@ -59,34 +59,25 @@
                 $unit = json_decode($responseDataUnit, true);
               ?>
 
-                <div class="form-group ml-2">
-                    <div class="row"> 
-                        @foreach ($unit['data']['unit'] as $item)
-                        @if ($item['name']!= 'tes' && $item['name']!='tess' )
-                        
-                        <div class="col-12 col-sm-3 my-2">
-                            <table>
-                                <tr>
-                                    <th class="mr-5"><input class="mr-1" name="unit[]" type="checkbox" id="unit{{$item['unit_id']}}" value="{{$item['name']}}"></th>
-                                    <th><label for="unit{{$item['unit_id']}}" >{{$item['name']}}</label></th>
-                                </tr>
-                               
-                            </table>
-                           
-                           
-                        </div>
-                        @endif
-                        @endforeach
-                        @error('unit')
-                        <p class="text-danger font-weight-bold">{{$message}}</p>
-                        @enderror
-                    </div>
-                </div>
+<div class="form-group ml-1">
+  <div class="row">
+    <div class="col-12 col-sm-7 my-2">
+      <label>Select Units:</label>
+      @foreach ($unit['data']['unit'] as $item)
+        @if ($item['name'] != 'tes' && $item['name'] != 'tess')
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="unit[]" id="unit{{ $item['unit_id'] }}" value="{{ $item['name'] }}">
+            <label class="form-check-label" for="unit{{ $item['unit_id'] }}">{{ $item['name'] }}</label>
+          </div>
+        @endif
+      @endforeach
+      @error('unit')
+        <p class="text-danger font-weight-bold">{{ $message }}</p>
+      @enderror
+    </div>
+  </div>
+</div>
 
-
-
-                    
-                </div>
 
             <div class="card-footer">
                 <a href="/workgroup" class="btn btn-danger float-right mr-2 ml-4">Batalkan</a>
@@ -98,8 +89,15 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
 <script>
     $(document).ready(function(){
+        $(document).ready(function() {
+    $('.selectpicker').selectpicker();
+  });
+
         $('#jabatan').select2({
 
         });
