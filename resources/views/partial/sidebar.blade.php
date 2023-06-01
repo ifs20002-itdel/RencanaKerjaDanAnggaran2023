@@ -40,7 +40,7 @@
 
         <li class="nav-item">
           <a href="/jp" class="nav-link">
-          <i class="fa-solid fa-plus-square nav-icon"></i>
+          <i class="fa-solid fa-line-chart nav-icon"></i>
             <p>
               Mata Anggaran
             </p>
@@ -51,7 +51,7 @@
             <!--JenisPenggunaan-->
             <li class="nav-item">
               <a href="/addJenisPenggunaan" class="nav-link">
-                <i class="fa-solid fa-plus nav-icon"></i>
+                <i class="fa-solid fa-plus-square nav-icon"></i>
                 <p>Add Jenis Anggaran</p>
               </a>
             </li>
@@ -59,7 +59,7 @@
 
         <li class="nav-item">
           <a href="/listJenisAnggaran" class="nav-link">
-            <i class="fa-sharp fa-solid fa-hand-holding-dollar nav-icon"></i>
+            <i class="fa-sharp fa-solid fa-print nav-icon"></i>
             <p>Jenis Anggaran</p>
           </a>
         </li>
