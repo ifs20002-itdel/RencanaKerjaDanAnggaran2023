@@ -26,7 +26,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   </style>
 </head>
 
-<body class="hold-transition sidebar-mini layout-boxed">
+<body class="hold-transition layout-boxed layout-footer-fixed">
 <!-- Site wrapper -->
 <div class="wrapper">
 
