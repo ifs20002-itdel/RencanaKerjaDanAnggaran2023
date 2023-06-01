@@ -14,8 +14,8 @@
 }
 
 .card-body {
-  border-radius: 75px;
-  padding: 3rem;
+  border-radius: 20px;
+  padding: 1.25rem;
   background-image: url('layout/dist/img/bg2.svg');
 }
 
