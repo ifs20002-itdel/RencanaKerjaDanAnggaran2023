@@ -27,6 +27,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 </head>
 
 <body class="hold-transition sidebar-mini layout-boxed">
+
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -70,6 +71,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
       </div>
     </section>
     <!-- /.content -->
+    <br>
   </div>
   <!-- /.content-wrapper -->
 
