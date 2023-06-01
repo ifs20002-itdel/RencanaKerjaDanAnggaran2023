@@ -43,7 +43,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      
       <div class="container-fluid">
         <div class="row ml-1 mb-2" style="font-size:13px">
           <ol class="breadcrumb float-sm-right">

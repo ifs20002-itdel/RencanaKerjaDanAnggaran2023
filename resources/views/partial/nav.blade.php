@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>  
-  <nav class="main-header navbar navbar-expand navbar-light" style="background-color: #3C8DBC;">
+  <nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #3C8DBC;">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
