@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('workgroup', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('unit');
+            $table->longText('unit');
             $table->integer('controller');
             $table->timestamps();
         });

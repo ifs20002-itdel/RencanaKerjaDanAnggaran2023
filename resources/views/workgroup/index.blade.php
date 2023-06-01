@@ -56,7 +56,7 @@
     @empty
     <div class="card col-lg-12 col-6">
       <div class="card-body">
-        <p class="text-center"> Data Jenis Penggunaan Belum ada</p>
+        <p class="text-center"> Workgroup Belum Ditambahkan</p>
       </div>
     </div>
     
