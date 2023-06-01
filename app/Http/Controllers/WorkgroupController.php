@@ -52,9 +52,6 @@ class WorkgroupController extends Controller
         $workgroup->unit = $inputJson;
 
         $workgroup->save();
-     
-
-
         
         return redirect('/workgroup');
 

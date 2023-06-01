@@ -31,10 +31,9 @@
             <!--COntent-->
             <p>Controller: {{ $data['controller'] }}</p>
             <p>Unit:</p>
-            
            
          @foreach ($data['unit'] as $unitKey => $unitValue)
-            <li>{{ $unitKey }}: {{ $unitValue }}</li>
+            <li>{{ $unitValue }}</li>
         @endforeach
             
  
