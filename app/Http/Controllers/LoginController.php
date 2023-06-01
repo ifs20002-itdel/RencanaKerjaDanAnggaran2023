@@ -50,7 +50,7 @@ class LoginController extends Controller
             // Auth::login($user);
             // return redirect('/');
             // return $this->getDataPegawai($json['user']['user_id'], $token);
-        } else if($json['result'] != true) {
+        }else if($json['result'] != true) {
             return redirect('/user/login');
         }else{
             return redirect()->back()->withInput()->withErrors(['message' => 'Incorrect username or password']);

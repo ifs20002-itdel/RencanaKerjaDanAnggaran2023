@@ -28,8 +28,22 @@
         </div>
 
         <div class="card-body">
+
+        <?php
+          //GetDataPejabat
+          $token = session('token');
+          $responseDataPejabat = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/list-pejabat?jabatanid='.$data['controller'])->body();
+          $pejabat = json_decode($responseDataPejabat, true);
+          session(['pejabat' => $pejabat]);
+        ?>
+      {{-- @foreach ($pejabat['data']['pejabat'] as $kepalaGroup) --}}
+        @foreach (session('pejabat')['data']['pejabat'] as $kepalaGroup)
+        @if($kepalaGroup['jabatan_id'] == $data['controller'])
+          <p>Controller: {{$kepalaGroup['nama']}}</p>
+        @endif
+        @endforeach
             <!--COntent-->
-            <p>Controller: {{ $data['controller'] }}</p>
+            {{-- <p>Controller: {{ $data['controller'] }}</p> --}}
             <p>Unit:</p>
            
          @foreach ($data['unit'] as $unitKey => $unitValue)

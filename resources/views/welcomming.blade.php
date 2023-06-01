@@ -48,7 +48,7 @@
         
 
         {{-- Store the new refresh token in a variable --}}
-        $newRefreshToken = session('refresh_token');;
+        $newRefreshToken = session('refresh_token');
 
         {{-- Update the refresh token in the session --}}
         session(['refresh_token' => $newRefreshToken]);
