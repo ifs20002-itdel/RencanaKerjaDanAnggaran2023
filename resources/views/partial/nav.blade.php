@@ -74,7 +74,6 @@
             $pejabat = json_decode($responseListJabatan, true);
 
           ?>
-
            
               @foreach ($pejabat['data']['pejabat'] as $key)
                  @if($key['pegawai_id'] == $item['pegawai_id'])
