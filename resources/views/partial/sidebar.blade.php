@@ -4,7 +4,6 @@
       <img src="{{asset("layout/dist/img/del.png")}}" alt="ITDel Logo" class="brand-image" style="opacity: 1">
       <span class="brand-text font-weight-bolder d-flex flex-row" style="color: white">RKA - IT DEL 2023</span>
     </a>
- 
 
   <!-- Sidebar -->
   <div class="sidebar" style="font-size:14.5px;">
@@ -25,7 +24,7 @@
         </li>
 
 
-        <li class="nav-header mt-2">Anggaran</li>
+        <li class="nav-header mt-2 ml-2" style="color:white; font-size:17px">ANGGARAN</li>
 
 
         {{-- Add WorkGroup --}}
@@ -67,7 +66,7 @@
         <br>
       
 
-        <li class="nav-header mt-3">Work Plan</li>
+        <li class="nav-header mt-3 ml-2" style="color:white; font-size:17px">WORK PLAN</li>
         <li class="nav-item">
           <a href="/RKA" class="nav-link">
             <i class="fa-sharp fa-solid fa-clipboard-list nav-icon"></i>
