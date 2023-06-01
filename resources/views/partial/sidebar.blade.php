@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-1">
+<aside class="main-sidebar sidebar-dark-primary elevation-1" style="background-color: #333333;">
   <!-- Brand Logo -->
     <a href="{{asset("/")}}" class="brand-link" style="border-right: 0.5px black; background-image: url('layout/dist/img/bg.svg')">
       <img src="{{asset("layout/dist/img/del.png")}}" alt="ITDel Logo" class="brand-image" style="opacity: 1">
