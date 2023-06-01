@@ -25,10 +25,17 @@ Route::middleware('guest')->group(function(){
     Route::get('/user/login', function() {
         return view('login');
     })->name('login');
+    
 
 });
 
-//Route::middleware('auth')->group(function() {
+Route::get('/user/logout', function(){
+    session()->forgot('user');
+    return redirect('/user/login');
+});
+
+
+Route::group(['middleware' => ['customAuth']], function() {
     Route::get('/', function(){
         return view('welcomming');
       
@@ -108,8 +115,8 @@ Route::middleware('guest')->group(function(){
      Route::get('/jpPrasarana/{jenis_penggunaan_id}/edit', [JenisPenggunaanController::class, 'PrasaranaEdit']);
   
 
-//Pengajuan
-//=====================================================================================================================================================
+    //Pengajuan
+    //=====================================================================================================================================================
      //Ajukan Rencana Kerja Dan Anggaran
      //JenisPenggunaan
     Route::get('/pengajuan', [PengajuanController::class, 'Pengajuan']);
@@ -171,4 +178,4 @@ Route::middleware('guest')->group(function(){
     //Canceled
     Route::get('/canceled/{id}', [PengajuanController::class, 'canceled']);
 
- //});
+});

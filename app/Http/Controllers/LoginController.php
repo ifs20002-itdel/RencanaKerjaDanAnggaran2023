@@ -6,6 +6,7 @@ use App\Helpers\AuthUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Penggunaan;
@@ -33,24 +34,25 @@ class LoginController extends Controller
 
         if ($json['result'] == true) {
             $user = $json['user'];
-             $token = $json['token'];
-             $refreshToken = $json['refresh_token'];
+            $token = $json['token'];
+            $refreshToken = $json['refresh_token'];
 
             //Store the user data in session
             session(['user' => $user]);
             session(['token' => $token]);
             session(['refresh_token' => $refreshToken]);
-            
-            
 
             //Redirect to the dashboard or any other page
+            
             return redirect('/');
             // $token = $json['token'];
             // $user = new User($response->user);
             // Auth::login($user);
             // return redirect('/');
             // return $this->getDataPegawai($json['user']['user_id'], $token);
-        } else {
+        } else if($json['result'] != true) {
+            return redirect('/user/login');
+        }else{
             return redirect()->back()->withInput()->withErrors(['message' => 'Incorrect username or password']);
         }
        
@@ -107,6 +109,7 @@ class LoginController extends Controller
 
     function logout(Request $request) {
         Auth::logout();
+        Session::flush();
         return redirect('/user/login');
     }
 
