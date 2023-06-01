@@ -18,7 +18,8 @@
               <form action="/jp/{{$item->id}}" method="POST">
                 @csrf
                 @method('delete')
-                <button type="submit" class="btn btn-link text-danger text-gradient px-2 mb-0"><i class="far fa-trash-alt me-2 mr-1"></i>Delete</button>
+                <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                 <a class="btn btn-link text-dark px-2 mb-0" href="/jp/{{$item->id}}/edit"><i class="fas fa-pencil-alt text-dark me-2 mr-1" aria-hidden="true"></i>Edit</a>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>

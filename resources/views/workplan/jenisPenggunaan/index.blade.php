@@ -63,7 +63,8 @@
                                     <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                                     </form>
                                 </div>
                             </td>
@@ -135,8 +136,8 @@
                                     <a href="/jpTenagaKependidikan/{{$item->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square mr-1"></i>Edit</a>
                                     <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                         @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                        button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                                     </form>
                                 </div>
                             </td>
@@ -207,7 +208,8 @@
                                     <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                                     </form>
                                 </div>
                             </td>
@@ -278,7 +280,8 @@
                                     <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                                     </form>
                                 </div>
                             </td>
@@ -358,7 +361,8 @@
                             <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                             </form>
                         </div>
                     </td>
@@ -434,7 +438,8 @@
                             <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                             </form>
                         </div>
                     </td>
@@ -510,7 +515,8 @@
                             <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                             </form>
                         </div>
                     </td>
@@ -586,7 +592,8 @@
                             <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                             </form>
                         </div>
                     </td>
@@ -662,7 +669,8 @@
                             <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                             </form>
                         </div>
                     </td>
@@ -737,8 +745,9 @@
                             <a href="/jpPrasarana/{{$item->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square mr-1"></i>Edit</a>
                             <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                                 @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-sm btn-danger ml-4"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+@method('delete')
+                                    <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash mr-1"></i>Delete</button>
                             </form>
                         </div>
                     </td>
