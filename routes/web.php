@@ -52,7 +52,8 @@ Route::group(['middleware' => ['customAuth']], function() {
     Route::get('/workgroup', [WorkgroupController::class, 'wgindex']);
     Route::get('/workgroup/create', [WorkgroupController::class, 'wgcreate']);
     Route::post('/workgroup/store', [WorkgroupController::class, 'wgstore']);
-
+    Route::get('/workgroup/{workgroup_id}/edit', [WorkgroupController::class, 'wgedit']);
+    Route::delete('/workgroup/{workgroup_id}', [WorkgroupController::class, 'wgdestroy']);
     
     //JENIS PENGGUNAAN (NEW)
         //CREATE

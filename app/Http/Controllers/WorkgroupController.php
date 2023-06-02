@@ -18,6 +18,7 @@ class WorkgroupController extends Controller
         foreach ($workgroup as $group) {
             $unit = json_decode($group->unit, true);
             $workgroupData[$group->id] = [
+                'id' => $group->id,
                 'nama' => $group->nama,
                 'controller' => $group->controller,
                 'unit' => $unit,
@@ -55,6 +56,29 @@ class WorkgroupController extends Controller
         
         return redirect('/workgroup');
 
+    }
+
+    public function wgedit($id){
+
+        $workgroup = Workgroup::get()->where('id', $id)->first();
+        $workgroupData = [];
+
+        foreach ($workgroup as $group) {
+            $unit = json_decode($group->unit, true);
+            $workgroupData[$group->id] = [
+                'id' => $group->id,
+                'nama' => $group->nama,
+                'controller' => $group->controller,
+                'unit' => $unit,
+            ];
+        }
+        
+        return view('workgroup.edit', compact('workgroupData')); //namaVariabel
+    }
+
+    public function wgdestroy($id){
+        DB::table('workgroup')->where('id', '=', $id)->delete();
+        return redirect('/workgroup');
     }
 
 
