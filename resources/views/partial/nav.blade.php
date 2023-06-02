@@ -50,23 +50,12 @@
         </a>
         <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right">
 
-          <?php
-            //GetDataPegawai
-            $token = session('token');
-            $responseListJabatan = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/list-pejabat?pegawaiid='.$item['pegawai_id'])->body();
-            $pejabat = json_decode($responseListJabatan, true);
+          @if(isset(session('user')['jabatan'][0]['jabatan']))
+          <span class="dropdown-item dropdown-header">{{ session('user')['jabatan'][0]['jabatan'] }}</span>
+          @endif
 
-          ?>
-           
-              @foreach ($pejabat['data']['pejabat'] as $key)
-                 @if($key['pegawai_id'] == $item['pegawai_id'])
-                 
-                    <span class="dropdown-item dropdown-header"> {{$key['jabatan']}}</span>
-                @endif
-              @endforeach        
+             
            @endif
-
-            
 
            @endforeach   
 
