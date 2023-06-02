@@ -2,7 +2,7 @@
 @section('title', 'Workgroup')
 
 @section('breadcrumb1')
-    <li class="breadcrumb-item">Group</li>
+    <li class="breadcrumb-item">Workgroup</li>
 @endsection
 
 @section('judulTengah', 'Workgroup')
@@ -26,13 +26,13 @@
             </div>
         </div>
 
-        <div class="card-body mt-1">
+        <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">Controller</th>
-                  <th scope="col">Unit</th>
+                  <th>Controller</th>
+                  <th>Unit</th>
                 </tr>
               </thead>
               <tbody>

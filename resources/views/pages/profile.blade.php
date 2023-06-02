@@ -82,6 +82,12 @@
                                 <td>{{$item['nama']}}</td>
                               </tr>
                               <tr>
+                                <th>Jabatan</th>
+                                <td>@if(isset(session('user')['jabatan'][0]['jabatan']))
+                                  {{ session('user')['jabatan'][0]['jabatan'] }}
+                                  @endif</td>
+                              </tr>
+                              <tr>
                                 <th>NIP</th>
                                 <td>{{ $item['nip'] }}</td>
                               </tr>
@@ -101,12 +107,8 @@
                                     @endif
                                 </td>
                               </tr>
- 
-                              <tr>
-                                <td></td>
-                                <td></td>
-                              </tr>
                           </table>
+                          <br>
                       @endif
                       @endforeach
                     </div>
@@ -140,12 +142,7 @@
                                  @endif
                                     
                                 @endforeach
-  
-                                
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
+          
                             </table>
                         @endif
                         @endforeach

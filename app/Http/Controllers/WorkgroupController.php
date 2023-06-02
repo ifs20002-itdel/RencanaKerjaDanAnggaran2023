@@ -59,22 +59,46 @@ class WorkgroupController extends Controller
     }
 
     public function wgedit($id){
-
-        $workgroup = Workgroup::get()->where('id', $id)->first();
-        $workgroupData = [];
-
-        foreach ($workgroup as $group) {
-            $unit = json_decode($group->unit, true);
-            $workgroupData[$group->id] = [
-                'id' => $group->id,
-                'nama' => $group->nama,
-                'controller' => $group->controller,
-                'unit' => $unit,
-            ];
-        }
-        
-        return view('workgroup.edit', compact('workgroupData')); //namaVariabel
+        $workgroup = DB::table('workgroup')->where('id', $id)->first();
+        $unit = json_decode($workgroup->unit, true);
+        $workgroupData = [
+            'id' => $workgroup->id,
+            'nama' => $workgroup->nama,
+            'controller' => $workgroup->controller,
+            'unit' => $unit,
+        ];
+    
+        return view('workgroup.edit', compact('workgroupData'));
     }
+
+
+    public function wgupdate(Request $request, $id){
+        $request->validate([
+            'nama' => 'required',
+            'controller' => 'required',
+            'unit' => 'required',
+        ], 
+        [
+            'nama.required' => 'Nama Organisasi harus diisi',
+            'controller.required' => 'Pilih Controller',
+            'unit.required' => 'Silahkan Pilih Unit',
+        ]);
+
+        $input = $request->input('unit');
+        $inputJson = json_encode($input, true);
+
+        $workgroup = Workgroup::find($id);
+        $workgroup->nama = $request->nama;
+        $workgroup->controller = $request->controller;
+        $workgroup->unit = $inputJson;
+
+        $workgroup->save();
+    
+        return redirect('/workgroup');
+    }
+
+
+
 
     public function wgdestroy($id){
         DB::table('workgroup')->where('id', '=', $id)->delete();
