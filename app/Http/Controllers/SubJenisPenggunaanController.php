@@ -34,4 +34,9 @@ class SubJenisPenggunaanController extends Controller
 
         return redirect('/jp');
     }
+
+    public function destroy($id){
+        DB::table('subjenispenggunaan')->where('id', '=', $id)->delete();
+        return redirect('/jp');
+    }
 }

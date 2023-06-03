@@ -70,7 +70,7 @@ Route::group(['middleware' => ['customAuth']], function() {
     //SUB JENIS PENGGUNAAN (NEW)
         Route::get('/subjenispenggunaan/{jenispenggunaan_id}/create', [SubJenisPenggunaanController::class, 'create']);
         Route::post('/subjenispenggunaan', [SubJenisPenggunaanController::class, 'store']);
-
+        Route::delete('/subjenispenggunaan/{subjenispenggunaan_id}', [SubJenisPenggunaanController::class, 'destroy']);
 
     //JenisPenggunaan
     Route::get('/addJenisPenggunaan', [JenisPenggunaanController::class, 'addJenisPenggunaan']);

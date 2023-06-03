@@ -8,19 +8,23 @@
 @section('judulTengah', 'Mata Anggaran RKA')
 
 @section('content')
+
 <a href="/jpcreate"><button type="submit" class="btn btn-success mb-3"><i class="fa-regular fa-plus mr-2"></i>Jenis Penggunaan</button></a>
-<span class="invisible">{{ $byk = 0 }}</span>
+
+<?php
+$byk = 0;
+?>
   @forelse ($Jenispenggunaan as $item)
-    <div class="card col-lg-12 col-6">
+    <div class="card col-lg-12 col-6 mb-5">
         <div class="card-header">
-            <h3 class="card-title font-weight-bold mt-2 ">{{$byk+=1}}. {{$item->namaJenisPenggunaan}}</h3>
+            <h3 class="card-title font-weight-bold ">{{$byk+=1}}. {{$item->namaJenisPenggunaan}}</h3>
             <div class="card-tools">
               <form action="/jp/{{$item->id}}" method="POST">
                 @csrf
                 @method('delete')
-                <button type="submit" class="btn btn-link text-danger text-gradient px-2" onclick="return confirm('Yakin Untuk Menghapus?')">
+                <button type="submit" class="btn btn-tool text-danger text-gradient px-2" onclick="return confirm('Yakin Untuk Menghapus?')">
                 <i class="fa-solid fa-trash mr-1"></i>Delete</button>
-                <a type="button" class="btn btn-link text-dark px-2" href="/jp/{{$item->id}}/edit"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit</a>
+                <a type="button" class="btn btn-tool text-dark" href="/jp/{{$item->id}}/edit"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit</a>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
                 </button> 
@@ -29,9 +33,57 @@
             </div>
         
         </div>
-
+     
         <div class="card-body">
-            
+
+        <!--SubJenisPenggunaan-->
+        <?php
+        $bykSub = '@';
+        ?>
+        @foreach($Subjenispenggunaan as $subJenis)
+        @if($subJenis->jenispenggunaan_id == $item->id)
+        <div class="card col-lg-12 col-6">
+          <div class="card-header">
+            <?php
+            $bykSub;
+            ?>
+              <h3 class="card-title">{{ $bykSub = chr(ord($bykSub) + 1) }}. {{$subJenis->namaSubJenisPenggunaan}}</h3>
+              <div class="card-tools">  
+
+                <form action="/subjenispenggunaan/{{$subJenis->id}}" method="POST">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn btn-tool text-danger" onclick="return confirm('Yakin Untuk Menghapus?')">
+                  <i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                  <a type="button" class="btn btn-tool text-dark" href="/subjenispenggunaan/{{$subJenis->id}}/edit"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit</a>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                      <i class="fas fa-minus"></i>
+                  </button> 
+                </form>
+
+              </div>
+          
+          </div>
+      
+          <div class="card-body">
+              <!--Table A-->
+              
+                <!--/.Table A-->
+                <br>
+
+              <!--Tambah Data-->
+              <div class="card-footer">
+                  <a href="/jpDosen/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+              </div>
+              <!--/.Tambah Data-->
+      
+        </div>
+      </div>
+      @endif
+      <!--/SubJenisPenggunaan-->
+     
+      @endforeach
+
         </div>
 
         <div class="card-footer">

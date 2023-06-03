@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Jenispenggunaan;
+use App\Models\SubJenisPenggunaan;
 use App\Models\Jabatan;
 
 class JPenggunaanController extends Controller
 {
     public function JPenggunaan(){
+      
         return view('workplan.jPenggunaan.index');
     }
 
@@ -34,7 +36,8 @@ class JPenggunaanController extends Controller
 
     public function JPenggunaanIndex(){
         $Jenispenggunaan = DB::table('jenispenggunaan')->get();
-        return view('workplan.jPenggunaan.index', compact('Jenispenggunaan'));
+        $Subjenispenggunaan = SubJenisPenggunaan::all();
+        return view('workplan.jPenggunaan.index', compact('Jenispenggunaan', 'Subjenispenggunaan'));
     }
 
     public function JPEdit($id){
