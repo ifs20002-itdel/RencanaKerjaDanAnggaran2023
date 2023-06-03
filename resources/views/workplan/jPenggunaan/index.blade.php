@@ -9,8 +9,36 @@
 
 @section('content')
 
-<a href="/jpcreate"><button type="submit" class="btn btn-success mb-3"><i class="fa-regular fa-plus mr-2"></i>Jenis Penggunaan</button></a>
+<button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#myModal"><i class="fa-regular fa-plus mr-2"></i>Jenis Penggunaan</button>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Tambah Jenis Penggunaan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/jp" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input type="text" name="namaJenisPenggunaan" class="form-control" placeholder="Cth. Biaya Operasional Pendidikan" value="{{old('namaJenisPenggunaan')}}">
+                        @error('namaJenisPenggunaan')
+                        <p class="text-danger font-weight-bold">{{$message}}</p>
+                        @enderror
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batalkan</button>
+                    <button type="submit" class="btn btn-dark">Tambahkan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <?php
 $byk = 0;
 ?>
@@ -100,4 +128,10 @@ $byk = 0;
     
     
     @endforelse
+    <script>
+    function openPopupForm() {
+        var popupForm = document.getElementById("popupForm");
+        popupForm.style.display = "block";
+    }
+</script>
 @endsection
