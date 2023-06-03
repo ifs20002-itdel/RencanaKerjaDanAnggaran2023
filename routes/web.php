@@ -7,6 +7,7 @@ use App\Http\Controllers\JenisPenggunaanController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\JPenggunaanController;
 use App\Http\Controllers\WorkgroupController;
+use App\Http\Controllers\SubJenisPenggunaanController;
 
 
 /*
@@ -65,6 +66,10 @@ Route::group(['middleware' => ['customAuth']], function() {
         Route::get('/jp/{jenispenggunaan_id}/edit', [JPenggunaanController::class, 'JPEdit']);
         Route::put('/jp/{jenispenggunaan_id}', [JPenggunaanController::class, 'JPUpdate']);
         Route::delete('/jp/{jenispenggunaan_id}', [JPenggunaanController::class, 'JPDestroy']);
+
+    //SUB JENIS PENGGUNAAN (NEW)
+        Route::get('/subjenispenggunaan/{jenispenggunaan_id}/create', [SubJenisPenggunaanController::class, 'create']);
+        Route::post('/subjenispenggunaan', [SubJenisPenggunaanController::class, 'store']);
 
 
     //JenisPenggunaan

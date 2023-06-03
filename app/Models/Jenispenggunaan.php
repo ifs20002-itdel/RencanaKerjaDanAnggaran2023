@@ -11,4 +11,9 @@ class Jenispenggunaan extends Model
     protected $table = "jenispenggunaan";
     protected $fillable = ["nama"];
 
+    public function subjenispenggunaan()
+    {
+        return $this->hasMany('App\Models\SubJenisPenggunaan');
+    }
+
 }
