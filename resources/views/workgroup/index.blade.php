@@ -9,10 +9,11 @@
 
 @section('content')
 <a href="/workgroup/create"><button type="submit" class="btn btn-success mb-3"><i class="fa-regular fa-plus mr-2"></i>Workgroup</button></a>
-@forelse ($workgroupData as $id => $data)
-    <div class="card col-lg-12 col-6">
+<span class="invisible">{{ $byk = 0 }}</span>
+    @forelse ($workgroupData as $id => $data)
+      <div class="card col-lg-12 col-6">
         <div class="card-header">
-            <h2 class="card-title font-weight-bold mt-2">{{$data['nama']}}</h2>
+            <h2 class="card-title font-weight-bold mt-2">{{$byk+=1}}. {{$data['nama']}}</h2>
             <div class="card-tools">
               <form action="/workgroup/{{$data['id']}}" method="POST">
                 @csrf
@@ -66,6 +67,7 @@
               </tbody>
             </table>
           </div>
+        </div>
     </div>
     @empty
     <div class="card col-lg-12 col-6">
