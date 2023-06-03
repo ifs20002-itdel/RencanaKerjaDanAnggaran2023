@@ -52,10 +52,36 @@ $byk = 0;
                 @method('delete')
                 <button type="submit" class="btn btn-tool text-danger text-gradient px-2" onclick="return confirm('Yakin Untuk Menghapus?')">
                 <i class="fa-solid fa-trash mr-1"></i>Delete</button>
-                <a type="button" class="btn btn-tool text-dark" href="/jp/{{$item->id}}/edit"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit</a>
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                </button> 
+                <button type="button" class="btn btn-tool text-dark" data-toggle="modal" data-target="#editModal{{$item->id}}"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit</button>
+                <div class="modal fade" id="editModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{$item->id}}">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="editModalLabel{{$item->id}}">Edit Jenis Penggunaan</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <form action="/jp/{{$item->id}}" method="POST">
+                              @csrf
+                              @method('PUT')
+                              <div class="modal-body">
+                                  <div class="form-group">
+                                      <label>Nama</label>
+                                      <input type="text" name="namaJenisPenggunaan" class="form-control" placeholder="Cth. Biaya Operasional Pendidikan" value="{{$item->namaJenisPenggunaan}}">
+                                      @error('namaJenisPenggunaan')
+                                      <p class="text-danger font-weight-bold">{{$message}}</p>
+                                      @enderror
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <a href="/jp" class="btn btn-danger float-right mr-2 ml-4">Batalkan</a>
+                                  <button type="submit" class="btn btn-dark float-right mr-4">Update</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
               </form>
               
             </div>
