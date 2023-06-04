@@ -15,6 +15,19 @@ return new class extends Migration
     {
         Schema::create('mataanggaran', function (Blueprint $table) {
             $table->id();
+            $table->string('mataAnggaran');
+            $table->string('namaAnggaran');
+            //Workgroup
+            $table->unsignedBigInteger('workgroup_id');
+            $table->foreign('workgroup_id')->references('id')->on('workgroup')->onDelete('cascade');
+            //JenisPenggunaan
+            $table->unsignedBigInteger('jenispenggunaan_id');
+            $table->foreign('jenispenggunaan_id')->references('id')->on('jenispenggunaan')->onDelete('cascade');
+            //SubJenisPenggunaan
+            $table->unsignedBigInteger('subjenispenggunaan_id')->nullable();
+            $table->foreign('subjenispenggunaan_id')->references('id')->on('subjenispenggunaan')->onDelete('cascade');
+
+            
             $table->timestamps();
         });
     }
