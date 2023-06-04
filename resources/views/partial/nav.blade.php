@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>  
-  <nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #3C8DBC; background-image: url('{{ asset('layout/dist/img/bg.svg') }}'); filter: saturate(140%);">
+  <nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #3C8DBC; background-image: url('{{ asset('layout/dist/img/bg.svg') }}'); filter: contrast(140%);">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -28,7 +28,7 @@
       </li>
       
       <li class="nav-item dropdown">
-        <a class="nav-link nama" style="color: white; font-size:15px" data-toggle="dropdown" href="#">
+        <a class="nav-link nama" style="color: white; font-size:14px" data-toggle="dropdown" href="#">
           <i class="fa-solid fa-user mr-2"></i>
 
          
@@ -50,23 +50,12 @@
         </a>
         <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right">
 
-          <?php
-            //GetDataPegawai
-            $token = session('token');
-            $responseListJabatan = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/list-pejabat?pegawaiid='.$item['pegawai_id'])->body();
-            $pejabat = json_decode($responseListJabatan, true);
+          @if(isset(session('user')['jabatan'][0]['jabatan']))
+          <span class="dropdown-item dropdown-header">{{ session('user')['jabatan'][0]['jabatan'] }}</span>
+          @endif
 
-          ?>
-           
-              @foreach ($pejabat['data']['pejabat'] as $key)
-                 @if($key['pegawai_id'] == $item['pegawai_id'])
-                 
-                    <span class="dropdown-item dropdown-header"> {{$key['jabatan']}}</span>
-                @endif
-              @endforeach        
+             
            @endif
-
-            
 
            @endforeach   
 
