@@ -68,9 +68,12 @@ Route::group(['middleware' => ['customAuth']], function() {
         Route::delete('/jp/{jenispenggunaan_id}', [JPenggunaanController::class, 'JPDestroy']);
 
     //SUB JENIS PENGGUNAAN (NEW)
-        Route::get('/subjenispenggunaan/{jenispenggunaan_id}/create', [SubJenisPenggunaanController::class, 'create']);
+        Route::get('/subjenispenggunaan/create', [SubJenisPenggunaanController::class, 'create']);
         Route::post('/subjenispenggunaan', [SubJenisPenggunaanController::class, 'store']);
+        Route::get('/subjenispenggunaan/{subjenispenggunaan_id}/edit', [SubJenisPenggunaanController::class, 'edit']);
+        Route::put('/subjenispenggunaan/{subjenispenggunaan_id}', [SubJenisPenggunaanController::class, 'update']);
         Route::delete('/subjenispenggunaan/{subjenispenggunaan_id}', [SubJenisPenggunaanController::class, 'destroy']);
+
 
     //JenisPenggunaan
     Route::get('/addJenisPenggunaan', [JenisPenggunaanController::class, 'addJenisPenggunaan']);

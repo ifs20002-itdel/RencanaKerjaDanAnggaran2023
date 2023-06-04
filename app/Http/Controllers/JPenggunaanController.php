@@ -31,7 +31,7 @@ class JPenggunaanController extends Controller
                 'namaJenisPenggunaan' => $request['namaJenisPenggunaan']
             ]
         );
-        return redirect('/jp');
+        return redirect('/jp')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function JPenggunaanIndex(){
