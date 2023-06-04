@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>  
-  <nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #3C8DBC; background-image: url('{{ asset('layout/dist/img/bg.svg') }}'); filter: contrast(108%);">
+  <nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #3C8DBC; background-image: url('{{ asset('layout/dist/img/bg.svg') }}'); filter: saturate(140%);">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -28,7 +28,7 @@
       </li>
       
       <li class="nav-item dropdown">
-        <a class="nav-link nama" style="color: white; font-size:14px" data-toggle="dropdown" href="#">
+        <a class="nav-link nama" style="color: white; font-size:15px" data-toggle="dropdown" href="#">
           <i class="fa-solid fa-user mr-2"></i>
 
          

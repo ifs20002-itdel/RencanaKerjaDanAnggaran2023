@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-1" style="background-color: #242424;">
 
   <!-- Brand Logo -->
-  <a href="{{asset("/")}}" class="brand-link" style="border-right: 0.5px black; background-image: url('{{ asset('layout/dist/img/bg.svg') }}');filter: saturate(124%);">
+  <a href="{{asset("/")}}" class="brand-link" style="border-right: 0.5px black; background-image: url('{{ asset('layout/dist/img/bg.svg') }}');filter: saturate(140%) contrast(115%);">
     <img src="{{ asset("layout/dist/img/del.png") }}" alt="ITDel Logo" class="brand-image text-outline" style="opacity: 1;text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;">
     <span class="brand-text font-weight-bolder d-flex flex-row text-outline" style="color: white; text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;">RKA - IT DEL 2023</span>
   </a>
