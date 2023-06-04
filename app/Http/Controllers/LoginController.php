@@ -9,108 +9,66 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Penggunaan;
 use App\Models\Pengajuan;
 use GuzzleHttp\Message\Response;
-
 use App\Models\Unit;
 
 class LoginController extends Controller
 {
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'usernameLogin' => 'required',
+            'passwordLogin' => 'required',
+        ]);
 
-    public function login(Request $request){
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        $username = $request->usernameLogin;
-        $password = $request->passwordLogin;
-
+        $username = $request->input('usernameLogin');
+        $password = $request->input('passwordLogin');
 
         $response = Http::asForm()->post('https://cis-dev.del.ac.id/api/jwt-api/do-auth', [
             'username' => $username,
-            'password' => $password
+            'password' => $password,
         ])->body();
 
-        //Token
         $json = json_decode($response, true);
 
         if ($json['result'] == true) {
+            // Successful login logic
             $user = $json['user'];
             $token = $json['token'];
             $refreshToken = $json['refresh_token'];
 
-            //Store the user data in session
+            // Store the user data in session
             session(['user' => $user]);
             session(['token' => $token]);
             session(['refresh_token' => $refreshToken]);
 
-            //Redirect to the dashboard or any other page
-            
             return redirect('/');
-            // $token = $json['token'];
-            // $user = new User($response->user);
-            // Auth::login($user);
-            // return redirect('/');
-            // return $this->getDataPegawai($json['user']['user_id'], $token);
-        }else if($json['result'] != true) {
-            return redirect('/user/login');
-        }else{
-            return redirect()->back()->withInput()->withErrors(['message' => 'Incorrect username or password']);
+        } else {
+            // Failed login logic
+            return redirect('/user/login')->withErrors(['message' => 'Incorrect username or password']);
         }
-       
-
     }
 
-    // function getDataPegawai($userId, $token) {
-    //     $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.$userId)->body();
-    //     $jsonDataPegawai = json_decode($responseDataPegawai, true);
-        
-    //     $pegawaiId = $jsonDataPegawai['data']['pegawai'][0]['pegawai_id'];
-    //     $nip = $jsonDataPegawai['data']['pegawai'][0]['nip'];
-    //     $nama = $jsonDataPegawai['data']['pegawai'][0]['nama'];
-    //     $email = $jsonDataPegawai['data']['pegawai'][0]['email'];
-    //     $username = $jsonDataPegawai['data']['pegawai'][0]['user_name'];
-    //     $alias = $jsonDataPegawai['data']['pegawai'][0]['alias '];
-    //     $status = $jsonDataPegawai['data']['pegawai'][0]['status_pegawai'];
-
-    //     //Table User
-    //     $cekApakahAdaId = User::where('id', '=', $userId)->exists();
-    //     //inpu data in to table users
-    //     $dataUser = new User;
-    //     $dataUser->id = $userId;
-    //     $dataUser->pegawai_id = $pegawaiId;
-    //     $dataUser->nama = $nama;
-    //     $dataUser->nip = $nip;
-    //     $dataUser->alias = $alias;
-    //     $dataUser->email = $email;
-    //     $dataUser->username = $username;
-    //     $dataUser->status = $status;
-    //     $dataUser->remember_token = $token;
-        
-
-    //     // Cek apakah data sudah ada di dalam database, jika belum akan dibuat data baru di dalam database
-    //     if (!$cekApakahAdaId) {
-    //         $dataUser->save();
-    //     }else{
-    //        $dataUser->update(); 
-    //     }
-       
-
-    //     Auth::login($dataUser);
-    //     return redirect('/');
-    //}
-
-    public function profile(){
+    public function profile()
+    {
         $Pengajuan = Pengajuan::all();
         $Penggunaan = Penggunaan::all();
         return view('pages.profile', compact('Pengajuan', 'Penggunaan'));
-
-
-
     }
 
-    function logout(Request $request) {
+    public function logout(Request $request)
+    {
         Auth::logout();
         Session::flush();
         return redirect('/user/login');
     }
-
 }
