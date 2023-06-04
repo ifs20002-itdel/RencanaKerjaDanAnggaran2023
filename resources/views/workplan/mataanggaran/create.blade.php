@@ -23,29 +23,32 @@
 
             {{-- Jenis Penggunaan Anggaran --}}
                 <div class="form-group">
-                    <label>Jenis Penggunaan Anggaran</label>
-                    <select class="form-control" name="jenispenggunaan_id">
+                    <label for="jenispenggunaan_id">Jenis Penggunaan Anggaran</label>
+
+                    <select class="form-control" name="jenispenggunaan_id" id="jenispenggunaan_id" >
                         <?php 
                             $byk = 0;  
                             $bykSub = '@';
                         ?>
                        <option value="" disabled selected>--- Pilih Jenis Penggunaan Anggaran ---</option>
 
-                        @foreach ($jenispenggunaan as $key)
-                            <option value="{{$key->id}}">{{$byk +=1}}. {{$key->namaJenisPenggunaan}}</option>
-                        @endforeach
+                       @foreach($jenispenggunaan as $item)
+                            <option id="{{ $item->id }}" value="{{ $item->id }}">{{$byk+=1}}. {{ $item->namaJenisPenggunaan }}</option>
+                       @endforeach
                         
                     </select>
                     @error('jenispenggunaan_id')
                     <p class="text-danger font-weight-bold">{{$message}}</p>
                     @enderror
-                    <br>
+
                     {{-- /Jenis Penggunaan Anggaran --}}
                 </div>
 
                 <div class="form-group">
-                    <label>Sub Jenis Penggunaan Anggaran</label>
-                    <select class="form-control" name="subjenispenggunaan_id"></select>
+                    <label for="subjenispenggunaan_id">Sub Jenis Penggunaan Anggaran</label>
+                    <select class="form-control" name="subjenispenggunaan_id" id="subjenispenggunaan_id">
+                    
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -95,27 +98,34 @@
     </div>
 </div>
 
-
-
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('#jenispenggunaan_id').on('change', function () {
-            var jenispenggunaanId = this.value;
-            $('#subjenispenggunaan_id').html('');
-            $.ajax({
-                url: '{{ route('getSubJenisPenggunaan') }}?jenispenggunaan_id='+jenispenggunaanId,
-                type: 'get',
-                success: function (res) {
-                    $('#subjenispenggunaan_id').html('<option value="">Select State</option>');
+  $(document).ready(function () {
+    $('#jenispenggunaan_id').on('change', function () {
+        var jenispenggunaanId = this.value;
+        var bykSub = '@';
+        $('#subjenispenggunaan_id').html('');
+        
+        // Reset dropdown 2 jika dropdown 1 berubah
+        $('#subjenispenggunaan_id').prop('disabled', true).html('<option value="" selected>--- Pilih Sub Jenis Penggunaan Anggaran ---</option>');
+
+        $.ajax({
+            url: '{{ route('getSubJenisPenggunaan') }}?jenispenggunaan_id=' + jenispenggunaanId,
+            type: 'get',
+            success: function (res) {
+                if (res.length > 0) {
+                    $('#subjenispenggunaan_id').prop('disabled', false).html('<option value="">--- Pilih Sub Jenis Penggunaan Anggaran ---</option>');
                     $.each(res, function (key, value) {
-                        $('#subjenispenggunaan_id').append('<option value="' + value
-                            .id + '">' + value.namaSubJenisPenggunaan + '</option>');
+                        $('#subjenispenggunaan_id').append('<option value="' + value.id + '">' + (bykSub = String.fromCharCode(bykSub.charCodeAt(0) + 1)) + '. ' + value.namaSubJenisPenggunaan + '</option>');
                     });
+                } else {
+                    $('#subjenispenggunaan_id').prop('disabled', true).html('<option value="" selected>Data Sub Jenis Penggunaan Pada Jenis Penggunaan Ini Tidak Ada</option>');
                 }
-            });
+            }
         });
     });
-</script>
+});
 
+
+</script>
 
 @endsection
