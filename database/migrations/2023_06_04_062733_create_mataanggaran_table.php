@@ -26,7 +26,6 @@ return new class extends Migration
             //SubJenisPenggunaan
             $table->unsignedBigInteger('subjenispenggunaan_id')->nullable();
             $table->foreign('subjenispenggunaan_id')->references('id')->on('subjenispenggunaan')->onDelete('cascade');
-
             
             $table->timestamps();
         });

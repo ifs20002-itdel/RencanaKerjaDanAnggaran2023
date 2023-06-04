@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Jenispenggunaan;
 use App\Models\SubJenisPenggunaan;
-use App\Models\Jabatan;
+
 
 class JPenggunaanController extends Controller
 {

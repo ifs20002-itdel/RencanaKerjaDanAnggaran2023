@@ -20,5 +20,9 @@ class Workgroup extends Model
     {
         return $this->attributes['unit'] = json_decode($value);
     }
+    public function workgroup()
+    {
+        return $this->hasMany('App\Models\Workgroup');
+    }
 
 }

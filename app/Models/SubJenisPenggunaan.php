@@ -14,4 +14,8 @@ class SubJenisPenggunaan extends Model
     public function jenispenggunaan(){
         return $this->belongsTo('App\Models\Jenispenggunaan', 'jenispenggunaan_id');
     }
+    public function workgroup()
+    {
+        return $this->hasMany('App\Models\Workgroup');
+    }
 }
