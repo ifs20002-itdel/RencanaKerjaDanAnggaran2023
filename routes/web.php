@@ -78,6 +78,10 @@ Route::group(['middleware' => ['customAuth']], function() {
     //MATA ANGGARAN (NEW)
         Route::get('/mataanggaran/create', [MataAnggaranController::class, 'create']);
 
+        // Route::get('dropdown', [DropdownController::class, 'view'])->name('dropdownView');
+        Route::get('/getJenisPenggunaan', [MataAnggaranController::class, 'getJenisPenggunaan'])->name('getJenisPenggunaan');
+        Route::get('/getSubJenisPenggunaan', [MataAnggaranController::class, 'getSubJenisPenggunaan'])->name('getSubJenisPenggunaan');
+
     //JenisPenggunaan
     Route::get('/addJenisPenggunaan', [JenisPenggunaanController::class, 'addJenisPenggunaan']);
 
