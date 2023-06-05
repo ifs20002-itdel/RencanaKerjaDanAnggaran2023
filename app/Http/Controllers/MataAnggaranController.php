@@ -59,4 +59,48 @@ class MataAnggaranController extends Controller
 
     }
 
+    public function edit($id){
+        $jenispenggunaan = Jenispenggunaan::all();
+        $subjenispenggunaan = SubJenisPenggunaan::all();
+        $workgroup = Workgroup::all();
+        $mataanggaran = MataAnggaran::findOrFail($id);
+
+        return view('workplan.mataanggaran.edit', compact('jenispenggunaan', 'workgroup', 'mataanggaran', 'subjenispenggunaan'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'jenispenggunaan_id' => 'required',
+            'mataAnggaran' => 'required',
+            'namaAnggaran' => 'required',
+            'workgroup_id' => 'required',
+        ],
+        [
+            'jenispenggunaan_id' => 'Silahkan Pilih Jenis Penggunaan',
+            'mataAnggaran' => 'Mata Anggaran Harus Diisi',
+            'namaAnggaran' => 'Nama Anggaran Harus Diisi',
+            'workgroup_id' => 'Silahkan Pilih Workgroup',
+        ]);
+
+        $input = $request->input('workgroup_id');
+        $inputMataAnggaran = json_encode($input, true);
+
+        $mataanggaran = MataAnggaran::find($id);
+        $mataanggaran->jenispenggunaan_id = $request->jenispenggunaan_id;
+        $mataanggaran->subjenispenggunaan_id = $request->subjenispenggunaan_id;
+        $mataanggaran->mataAnggaran = $request->mataAnggaran;
+        $mataanggaran->namaAnggaran = $request->namaAnggaran;
+        $mataanggaran->workgroup_id = $inputMataAnggaran;
+
+        $mataanggaran->save();
+        
+        return redirect('/jp');
+
+    }
+
+    public function destroy($id){
+        $mataanggaran = MataAnggaran::find($id)->delete();
+        return redirect('/jp');
+    }
+
 }

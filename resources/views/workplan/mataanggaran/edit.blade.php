@@ -1,11 +1,11 @@
 @extends('layout.master')
-@section('title', 'Add Mata Anggaran')
+@section('title', 'Edit Mata Anggaran')
 @section('breadcrumb1')
     <li class="breadcrumb-item"><a href="/jp">Mata Anggaran</a></li>
 @endsection
 
 @section('breadcrumb2')
-    <li class="breadcrumb-item"><a href="/jp">Jenis Penggunaan</a>&nbsp;&nbsp;/ &nbsp; Add Mata Anggaran</li>
+    <li class="breadcrumb-item"><a href="/jp">{{$mataanggaran->mataAnggaran}}. {{$mataanggaran->namaAnggaran}} </a>&nbsp;&nbsp;/ &nbsp; Edit</li>
 @endsection
 
 @section('content')
@@ -15,10 +15,11 @@
 <div class="ml-5 col-lg-9 col-6">
     <div class="card card-dark">
         <div class="card-header">
-            <h3 class="card-title" style="font-size: 14px;">Form Menambahkan Mata Anggaran</h3>
+            <h3 class="card-title" style="font-size: 14px;">Form Edit Mata Anggaran</h3>
         </div>
-        <form action="/mataanggaran" method="POST">
+        <form action="/mataanggaran/{{$mataanggaran->id}}" method="POST">
             @csrf
+            @method('PUT')
             <div class="card-body">
 
             {{-- Jenis Penggunaan Anggaran --}}
@@ -33,7 +34,7 @@
                        <option value="" disabled selected>--- Pilih Jenis Penggunaan Anggaran ---</option>
 
                        @foreach($jenispenggunaan as $item)
-                            <option id="{{ $item->id }}" value="{{ $item->id }}">{{$byk+=1}}. {{ $item->namaJenisPenggunaan }}</option>
+                            <option id="{{ $item->id }}" value="{{ $item->id }}" {{ $item->id == $mataanggaran->jenispenggunaan_id ? 'selected' : '' }}>{{$byk+=1}}. {{ $item->namaJenisPenggunaan }}</option>
                        @endforeach
                         
                     </select>
@@ -46,14 +47,18 @@
 
                 <div class="form-group">
                     <label for="subjenispenggunaan_id" style="font-size: 14px;">Sub Jenis Penggunaan Anggaran</label>
-                    <select class="form-control" name="subjenispenggunaan_id" id="subjenispenggunaan_id">
-                    
+                    <select class="form-control" name="subjenispenggunaan_id" id="subjenispenggunaan_id" style="font-size: 14px;">
+
+                        @foreach($subjenispenggunaan as $item)
+                             <option id="{{ $item->id }}" value="{{ $item->id }}" {{ $item->id == $mataanggaran->subjenispenggunaan_id ? 'selected' : '' }}>{{$bykSub = chr(ord($bykSub) + 1) }}. {{ $item->namaSubJenisPenggunaan }}</option>
+                        @endforeach
+
                     </select>
                 </div>
 
                 <div class="form-group" style="font-size: 14px;">
                     <label style="font-size: 14px;">Mata Anggaran</label>
-                    <input type="text" name="mataAnggaran" class="form-control" style="font-size: 14px;" placeholder="Cth. A.II.2.1" value="{{old('mataAnggaran')}}">
+                    <input type="text" name="mataAnggaran" class="form-control" style="font-size: 14px;" placeholder="Cth. A.II.2.1" value="{{ $mataanggaran->mataAnggaran }}">
 
                     @error('mataAnggaran')
                     <p class="text-danger font-weight-bold">{{$message}}</p>
@@ -62,7 +67,7 @@
 
                 <div class="form-group">
                     <label style="font-size: 14px;">Nama Anggaran</label>
-                    <input type="text" style="font-size: 14px;" name="namaAnggaran" class="form-control" placeholder="Cth. Gaji Dosen" value="{{old('namaAnggaran')}}">
+                    <input type="text" style="font-size: 14px;" name="namaAnggaran" class="form-control" placeholder="Cth. Gaji Dosen" value="{{ $mataanggaran->namaAnggaran }}">
 
                     @error('namaAnggaran')
                     <p class="text-danger font-weight-bold">{{$message}}</p>
@@ -81,7 +86,7 @@
                         @else
                         @foreach ($workgroup as $group)
                         <div class="form-check ml-2">
-                            <input class="form-check-input" type="checkbox" name="workgroup_id[]" id="workgroup_id{{$group->id}}" value="{{$group->id}}">
+                            <input class="form-check-input" type="checkbox" name="workgroup_id[]" id="workgroup_id{{$group->id}}" value="{{$group->id}}" {{ in_array($group->id, json_decode($mataanggaran->workgroup_id)) ? 'checked' : '' }}>
                             <label class="form-check-label" for="workgroup_id{{$group->id}}" >{{ $group->nama }}</label>
                         </div>
                         @endforeach
@@ -95,8 +100,8 @@
             </div>
 
             <div class="card-footer">
-                <a href="/jp" class="btn btn-danger float-right mr-2 ml-4" style="font-size: 13px;" style="font-size: 14px;">Batalkan</a>
-                <button type="submit" class="btn btn-dark float-right mr-4" style="font-size: 13px;" style="font-size: 14px;">Tambahkan</button>
+                <a href="/jp" class="btn btn-danger float-right mr-2 ml-4" style="font-size: 13px;">Batalkan</a>
+                <button type="submit" class="btn btn-dark float-right mr-4" style="font-size: 13px;">Simpan</button>
             </div>
             
         </form>
