@@ -48,24 +48,24 @@ $byk = 0;
 
 {{-- MATA ANGGARAN LANGSUNG DENGAN JENIS PENGGUNAAN --}}
       @if ($item->subjenispenggunaan->count() == 0)
-        <table class="table col-lg-12 col-6">
-          <thead class="thead-light">
-            <tr>
-            <th scope="col" style="font-size: 11px;">No</th>
-            <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
-            <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
-            <th scope="col" style="font-size: 11px;">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
+                <table class="table col-lg-12 col-6" style="border-collapse: collapse; width: 100%; border: 1px solid black;">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">No</th>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Mata Anggaran</th>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Nama Anggaran</th>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Actions</th>
+                    </tr>
+                  </thead>
+                    <tbody>
               <?php
               $bykMata = 0  
               ?>
               @foreach ($item->mataanggaran as $mataAnggaran)
               <tr>
-                  <td style="width:5%">{{ $bykMata+=1 }}</td>
-                  <td style="width:15%">{{$mataAnggaran['mataAnggaran']}}</td>
-                  <td style="width:50%">{{$mataAnggaran['namaAnggaran']}}</td>
+                  <td style="width:5%; border: 1px solid black; padding: 8px;">{{ $bykMata+=1 }}</td>
+                  <td style="width:15%; border: 1px solid black; padding: 8px;">{{$mataAnggaran['mataAnggaran']}}</td>
+                  <td style="width:50%; border: 1px solid black; padding: 8px;">{{$mataAnggaran['namaAnggaran']}}</td>
                   
                   <td style="width:30%">
                       <div class="btn-group">
@@ -123,15 +123,15 @@ $byk = 0;
                   <!--Mata Anggaran-->
 
                   <!--Table MataAnggaran-->
-                  <table class="table col-lg-12 col-6">
-                    <thead class="thead-light" >
-                      <tr>
-                      <th scope="col" style="font-size: 11px;">No</th>
-                      <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
-                      <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
-                      <th scope="col" style="font-size: 11px;">Actions</th>
-                      </tr>
-                    </thead>
+                <table class="table col-lg-12 col-6" style="border-collapse: collapse; width: 100%; border: 1px solid black;">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">No</th>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Mata Anggaran</th>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Nama Anggaran</th>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Actions</th>
+                    </tr>
+                  </thead>
                     <tbody>
                         <?php
                         $bykMata = 0  
@@ -139,9 +139,9 @@ $byk = 0;
                         @foreach ($mataanggaran as $mata)
                         @if ($mata['subjenispenggunaan_id'] == $subJenis->id)
                         <tr>
-                          <td style="width:5%">{{ $bykMata+=1 }}</td>
-                          <td style="width:15%">{{$mata['mataAnggaran']}}</td>
-                          <td style="width:50%">{{$mata['namaAnggaran']}}</td>
+                          <td style="width:5%;border: 1px solid black; padding: 8px;">{{ $bykMata+=1 }}</td>
+                          <td style="width:15%;border: 1px solid black; padding: 8px;"">{{$mata['mataAnggaran']}}</td>
+                          <td style="width:50%;border: 1px solid black; padding: 8px;"">{{$mata['namaAnggaran']}}</td>
                           
                           <td style="width:30%">
                               <div class="btn-group">
