@@ -11,7 +11,7 @@
 <a href="/workgroup/create"><button type="submit" class="btn btn-success mb-3" style="font-size: 13.5px; border-radius:20px"><i class="fa-regular fa-plus mr-2"></i>Workgroup</button></a>
 <span class="invisible">{{ $byk = 0 }}</span>
     @forelse ($workgroupData as $id => $data)
-      <div class="card col-lg-12 col-6" style="font-size: 14px; border-radius:15px;">
+      <div class="card col-lg-12 col-6" style="font-size: 14px; border-radius:16px;">
         <div class="card-header">
             <h2 class="card-title font-weight-bold mt-2">{{$byk+=1}}. {{$data['nama']}}</h2>
             <div class="card-tools">

@@ -27,10 +27,10 @@ $byk = 0;
             @csrf
             @method('delete')
             <button type="button" class="btn btn-tool text-danger text-gradient px-2" onclick="confirmDelete({{$item->id}})" style="font-size: 14px;">
-              <i class="fa-solid fa-trash mr-1"></i>
+              <i class="fa-solid fa-trash mr-1"></i>Delete
             </button>
             <a type="button" class="btn btn-tool text-dark" href="/jp/{{$item->id}}/edit">
-              <i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>
+              <i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit
             </a>
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>
@@ -108,7 +108,7 @@ $byk = 0;
                   <td style="width:10%">
                       <div class="btn-group">
                         {{-- EDIT --}}
-                          <a href="/mataanggaran/{{$mataAnggaran->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                          <a href="/mataanggaran/{{$mataAnggaran->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square">Delete</i></a>
                           {{-- DELETE --}}
                           <form action="/mataanggaran/{{$mataAnggaran->id}}" method="POST">
                               @csrf
@@ -149,8 +149,8 @@ $byk = 0;
                     <form action="/subjenispenggunaan/{{$subJenis->id}}" method="POST">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-tool text-danger" onclick="return confirm('Yakin Untuk Menghapus?')"><i class="fa-solid fa-trash mr-1"></i></button>
-                        <a type="button" class="btn btn-tool text-dark" href="/subjenispenggunaan/{{$subJenis->id}}/edit"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i></a>
+                        <button type="submit" class="btn btn-tool text-danger" onclick="return confirm('Yakin Untuk Menghapus?')"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                        <a type="button" class="btn btn-tool text-dark" href="/subjenispenggunaan/{{$subJenis->id}}/edit"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit</a>
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i class="fas fa-minus"></i>
                         </button> 
@@ -198,8 +198,7 @@ $byk = 0;
                             {{-- BUTTON --}}
                             <td style="width:10%">
                                 <div class="btn-group">
-                                  {{-- EDIT --}}
-                                    <a href="/mataanggaran/{{$mata['id']}}/edit" class="btn btn-sm btn-warning" style="border-radius:20px;"><i class="fa-regular fa-pen-to-square"></i></a>
+                    
                                     {{-- DELETE --}}
                                     <form action="/mataanggaran/{{$mata['id']}}" method="POST">
                                         @csrf
@@ -207,6 +206,8 @@ $byk = 0;
                                     <button type="submit" class="btn btn-sm btn-danger ml-1" style="border-radius:20px;" onclick="return confirm('Yakin Untuk Menghapus?')">
                                     <i class="fa-solid fa-trash"></i></button>
                                     </form>
+                                    {{-- EDIT --}}
+                                    <a href="/mataanggaran/{{$mata['id']}}/edit" class="btn btn-sm btn-warning" style="border-radius:20px;"><i class="fa-regular fa-pen-to-square"></i></a>
                                 </div>
                             </td>
                             
