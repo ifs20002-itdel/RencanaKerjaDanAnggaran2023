@@ -39,13 +39,6 @@
         </li>
 
         <li class="nav-item">
-          <a href="/addJenisPenggunaan" class="nav-link {{ Request::is('addJenisPenggunaan') ? 'active' : '' }}">
-            <i class="fa-solid fa-plus-square nav-icon"></i>
-            <p>Add Jenis Anggaran</p>
-          </a>
-        </li>
-
-        <li class="nav-item">
           <a href="/listJenisAnggaran" class="nav-link {{ Request::is('listJenisAnggaran') ? 'active' : '' }}">
             <i class="fa-sharp fa-solid fa-print nav-icon"></i>
             <p>Jenis Anggaran</p>
