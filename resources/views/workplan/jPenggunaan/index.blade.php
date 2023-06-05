@@ -23,16 +23,42 @@ $byk = 0;
       <div class="card-header" style="font-size: 14px;">
           <h3 class="card-title font-weight-bold ">{{$byk+=1}}. {{$item->namaJenisPenggunaan}}</h3>
           <div class="card-tools">
-            <form action="/jp/{{$item->id}}" method="POST">
-              @csrf
-              @method('delete')
-              <button type="submit" class="btn btn-tool text-danger text-gradient px-2" onclick="return confirm('Yakin Untuk Menghapus?')" style="font-size: 14px;">
-              <i class="fa-solid fa-trash mr-1"></i>Delete</button>
-              <a type="button" class="btn btn-tool text-dark" href="/jp/{{$item->id}}/edit"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit</a>
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button> 
-            </form>
+            <form action="/jp/{{$item->id}}" method="POST" id="deleteForm">
+            @csrf
+            @method('delete')
+            <button type="button" class="btn btn-tool text-danger text-gradient px-2" onclick="confirmDelete({{$item->id}})" style="font-size: 14px;">
+              <i class="fa-solid fa-trash mr-1"></i>Delete
+            </button>
+            <a type="button" class="btn btn-tool text-dark" href="/jp/{{$item->id}}/edit">
+              <i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit
+            </a>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+          </form>
+
+
+<!-- Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apakah Anda Yakin Untuk Menghapus ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+        <button type="submit" class="btn btn-danger" form="deleteForm">Hapus</button>
+      </div>
+    </div>
+  </div>
+</div>
+
           </div>
       
       </div>
@@ -180,7 +206,18 @@ $byk = 0;
       @endif
 
     </div>
-
+    <script>
+  function confirmDelete(itemId) {
+    var deleteForm = document.getElementById("deleteForm");
+    deleteForm.action = "/jp/" + itemId;
+    $('#confirmDeleteModal').modal('show');
+  }
+  
+  // Enable modal dismissal on Cancel button click
+  $('.modal-footer button[data-dismiss="modal"], .modal-header button[data-dismiss="modal"]').on('click', function() {
+    $('#confirmDeleteModal').modal('hide');
+  });
+</script>
      
   </div>
 @empty
