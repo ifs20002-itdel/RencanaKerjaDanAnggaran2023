@@ -12,7 +12,7 @@
 <hr>
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold" style="font-size: 14px;" style="font-size: 14px;">1. Biaya Operasional Pendidikan</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">1. Biaya Operasional Pendidikan</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -27,7 +27,7 @@
          <!--Table A-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title" style="font-size: 14px;" style="font-size: 14px;">A. Biaya Dosen (Gaji Dan Honor)</h3>
+                <h3 class="card-title" style="font-size: 14px;">A. Biaya Dosen (Gaji Dan Honor)</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -41,19 +41,19 @@
                 <table class="table ml-5 col-lg-11 col-6">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col" style="font-size: 13px; style="font-size: 13px;">No</th>
-                        <th scope="col" style="font-size: 13px; style="font-size: 13px;">Mata Anggaran</th>
-                        <th scope="col" style="font-size: 13px; style="font-size: 13px;">Nama Anggaran</th>
-                        <th scope="col" style="font-size: 13px;">Actions</th>
+                        <th scope="col" style="font-size: 11px;">No</th>
+                        <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                        <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                        <th scope="col" style="font-size: 11px;">Actions</th>
                       </tr>
                     </thead>
-                    <tbody style="font-size: 14px;">
+                    <tbody style="font-size: 11px;">
                         <span class="text-white">{{ $byk = 0 }}</span>
                         @foreach ($JenisPenggunaan as $item)
                         @if ($item->bagianTable == "1A")
                         <tr>
                             <td style="width:5%">{{ $byk+=1 }}</td>
-                            <td style="width:23%">{{$item->mataAnggaran}}</td>
+                            <td style="width:20%">{{$item->mataAnggaran}}</td>
                             <td style="width:50%">{{$item->namaAnggaran}}</td>
                             
                             <td style="width:30%">
@@ -102,7 +102,7 @@
         <!--Table B-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title" style="font-size: 14px;" style="font-size: 14px;">B. Gaji Tenaga Kependidikan Dosen (Gaji Dan Honor)</h3>
+                <h3 class="card-title" style="font-size: 14px;">B. Gaji Tenaga Kependidikan Dosen (Gaji Dan Honor)</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -115,10 +115,10 @@
                 <table class="table ml-5 col-lg-11 col-6">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col" style="font-size: 14px;">No</th>
-                        <th scope="col" style="font-size: 14px;">Mata Anggaran</th>
-                        <th scope="col" style="font-size: 14px;">Nama Anggaran</th>
-                        <th scope="col" style="font-size: 14px;">Actions</th>
+                        <th scope="col" style="font-size: 11px;">No</th>
+                        <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                        <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                        <th scope="col" style="font-size: 11px;">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -186,10 +186,10 @@
                 <table class="table ml-5 col-lg-11 col-6">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                        <th scope="col" style="font-size: 11px;">No</th>
+                        <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                        <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                        <th scope="col" style="font-size: 11px;">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -258,10 +258,10 @@
                 <table class="table ml-5 col-lg-11 col-6">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                        <th scope="col" style="font-size: 11px;">No</th>
+                        <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                        <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                        <th scope="col" style="font-size: 11px;">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -325,7 +325,7 @@
  <!--2. Biaya Operasional Kemahasiswaan-->
  <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold" style="font-size: 14px;" style="font-size: 14px;">2. Biaya Operasional kemahasiswaan (Penalaran, Minat, Bakat, dan Kesejahteraan)</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">2. Biaya Operasional kemahasiswaan (Penalaran, Minat, Bakat, dan Kesejahteraan)</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -339,10 +339,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                <th scope="col" style="font-size: 11px;">No</th>
+                <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -402,7 +402,7 @@
 <!--3. Biaya Penelitian-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold" style="font-size: 14px;" style="font-size: 14px;">3. Biaya Penelitian</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">3. Biaya Penelitian</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -416,10 +416,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                <th scope="col" style="font-size: 11px;">No</th>
+                <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -493,10 +493,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                <th scope="col" style="font-size: 11px;">No</th>
+                <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -570,10 +570,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                <th scope="col" style="font-size: 11px;">No</th>
+                <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -647,10 +647,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                <th scope="col" style="font-size: 11px;">No</th>
+                <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -710,7 +710,7 @@
 <!--7. Biaya Investasi Prasarana-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold" style="font-size: 14px;" style="font-size: 14px;">7. Biaya Investasi Prasarana</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">7. Biaya Investasi Prasarana</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -724,10 +724,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                <th scope="col" style="font-size: 11px;">No</th>
+                <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 11px;">Actions</th>
               </tr>
             </thead>
             <tbody>

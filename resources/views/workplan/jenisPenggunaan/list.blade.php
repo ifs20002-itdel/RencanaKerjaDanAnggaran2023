@@ -29,10 +29,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,10 +66,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -107,10 +107,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -147,10 +147,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -188,10 +188,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -229,10 +229,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -269,10 +269,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -309,10 +309,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -350,10 +350,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -390,10 +390,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
-                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
+                    <th scope="col" style="font-size: 11px;">No</th>
+                    <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 11px;">Actions</th>
                 </tr>
             </thead>
             <tbody>

@@ -20,7 +20,7 @@ $byk = 0;
 <!--JenisPenggunaan-->
 @forelse ($Jenispenggunaan as $item)
   <div class="card col-lg-12 col-6 mb-5" style="font-size: 14px;">
-      <div class="card-header">
+      <div class="card-header" style="font-size: 14px;">
           <h3 class="card-title font-weight-bold ">{{$byk+=1}}. {{$item->namaJenisPenggunaan}}</h3>
           <div class="card-tools">
             <form action="/jp/{{$item->id}}" method="POST">
@@ -48,13 +48,13 @@ $byk = 0;
 
 {{-- MATA ANGGARAN LANGSUNG DENGAN JENIS PENGGUNAAN --}}
       @if ($item->subjenispenggunaan->count() == 0)
-        <table class="table col-lg-12 col-6" style="font-size: 14px;">
-          <thead class="thead-light" >
+        <table class="table col-lg-12 col-6">
+          <thead class="thead-light">
             <tr>
-              <th scope="col">No</th>
-              <th scope="col">Mata Anggaran</th>
-              <th scope="col">Nama Anggaran</th>
-              <th scope="col">Actions</th>
+            <th scope="col" style="font-size: 11px;">No</th>
+            <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+            <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+            <th scope="col" style="font-size: 11px;">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -123,13 +123,13 @@ $byk = 0;
                   <!--Mata Anggaran-->
 
                   <!--Table MataAnggaran-->
-                  <table class="table col-lg-12 col-6" style="font-size: 14px;">
+                  <table class="table col-lg-12 col-6">
                     <thead class="thead-light" >
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Mata Anggaran</th>
-                        <th scope="col">Nama Anggaran</th>
-                        <th scope="col">Actions</th>
+                      <th scope="col" style="font-size: 11px;">No</th>
+                      <th scope="col" style="font-size: 11px;">Mata Anggaran</th>
+                      <th scope="col" style="font-size: 11px;">Nama Anggaran</th>
+                      <th scope="col" style="font-size: 11px;">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
