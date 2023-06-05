@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Jenispenggunaan;
 use App\Models\SubJenisPenggunaan;
 use App\Models\MataAnggaran;
+use App\Models\Workgroup;
 
 class JPenggunaanController extends Controller
 {
@@ -52,8 +53,21 @@ class JPenggunaanController extends Controller
             ];
 
         }
+
+        $workgroup = Workgroup::get();
+        $workgroupData = [];
+    
+        foreach ($workgroup as $group) {
+            $unit = json_decode($group->unit, true);
+            $workgroupData[$group->id] = [
+                'id' => $group->id,
+                'nama' => $group->nama,
+                'controller' => $group->controller,
+                'unit' => $unit,
+            ];
+        }
         
-        return view('workplan.jPenggunaan.index', compact('Jenispenggunaan', 'Subjenispenggunaan', 'mataanggaran'));
+        return view('workplan.jPenggunaan.index', compact('Jenispenggunaan', 'Subjenispenggunaan', 'mataanggaran', 'workgroupData'));
     }
 
     public function JPEdit($id){

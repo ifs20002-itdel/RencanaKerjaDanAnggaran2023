@@ -80,27 +80,39 @@ $byk = 0;
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">No</th>
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Mata Anggaran</th>
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Nama Anggaran</th>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Workgroup</th>
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Actions</th>
                     </tr>
                   </thead>
                     <tbody>
               <?php
-              $bykMata = 0  
+              $bykMata = 0;
               ?>
               @foreach ($item->mataanggaran as $mataAnggaran)
               <tr>
-                  <td style="width:5%; border: 1px solid black; padding: 8px;">{{ $bykMata+=1 }}</td>
-                  <td style="width:15%; border: 1px solid black; padding: 8px;">{{$mataAnggaran['mataAnggaran']}}</td>
-                  <td style="width:50%; border: 1px solid black; padding: 8px;">{{$mataAnggaran['namaAnggaran']}}</td>
+                  <td style="width:3%; border: 1px solid black; padding: 8px;">{{ $bykMata+=1 }}</td>
+                  <td style="width:11%; border: 1px solid black; padding: 8px; text-align: center;">{{$mataAnggaran['mataAnggaran']}}</td>
+                  <td style="width:37%; border: 1px solid black; padding: 8px;">{{$mataAnggaran['namaAnggaran']}}</td>
+                  <td style="width:35%; border: 1px solid black; padding: 8px;">
+                  @foreach (json_decode($mataAnggaran['workgroup_id']) as $unitValue)
+                    @forelse ($workgroupData as $id => $data)
+                      @if ($data['id'] == $unitValue)
+                      <li>{{$data['nama']}} <br></li>
+                      @endif
+                    @empty  
+                    @endforelse
+                  @endforeach
+                  </td>
                   
-                  <td style="width:30%">
+                  {{-- BUTTON --}}
+                  <td style="width:10%">
                       <div class="btn-group">
-                          <a href="/jpDosen/{{$item->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square mr-1"></i>Edit</a>
+                          <a href="/jpDosen/{{$item->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
                           <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
                               @csrf
                               @method('delete')
-                          <button type="submit" class="btn btn-sm btn-danger ml-4" onclick="return confirm('Yakin Untuk Menghapus?')">
-                          <i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                          <button type="submit" class="btn btn-sm btn-danger ml-1" onclick="return confirm('Yakin Untuk Menghapus?')">
+                          <i class="fa-solid fa-trash"></i></button>
                           </form>
                       </div>
                   </td>
@@ -155,6 +167,7 @@ $byk = 0;
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">No</th>
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Mata Anggaran</th>
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Nama Anggaran</th>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Workgroup</th>
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Actions</th>
                     </tr>
                   </thead>
@@ -162,7 +175,42 @@ $byk = 0;
                         <?php
                         $bykMata = 0  
                         ?>
+                        
                         @foreach ($mataanggaran as $mata)
+                        @if ($mata['subjenispenggunaan_id'] == $subJenis->id)
+                        <tr>
+                            <td style="width:3%; border: 1px solid black; padding: 8px;">{{ $bykMata+=1 }}</td>
+                            <td style="width:12%; border: 1px solid black; padding: 8px; text-align: center;">{{$mata['mataAnggaran']}}</td>
+                            <td style="width:35%; border: 1px solid black; padding: 8px;">{{$mata['namaAnggaran']}}</td>
+                            <td style="width:35%; border: 1px solid black; padding: 8px;">
+                            @foreach ($mata['workgroup_id'] as $unitValue)
+                              @forelse ($workgroupData as $id => $data)
+                                @if ($data['id'] == $unitValue)
+                                <li>{{$data['nama']}} <br></li>
+                                @endif
+                              @empty  
+                              @endforelse
+                            @endforeach
+                            </td>
+                            
+                            {{-- BUTTON --}}
+                            <td style="width:10%">
+                                <div class="btn-group">
+                                    <a href="/jpDosen/{{$item->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                    <button type="submit" class="btn btn-sm btn-danger ml-1" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <i class="fa-solid fa-trash"></i></button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        @endif
+                    @endforeach
+
+                        {{-- @foreach ($mataanggaran as $mata)
                         @if ($mata['subjenispenggunaan_id'] == $subJenis->id)
                         <tr>
                           <td style="width:5%;border: 1px solid black; padding: 8px;">{{ $bykMata+=1 }}</td>
@@ -184,7 +232,7 @@ $byk = 0;
                       </tr>
                         @endif
                         
-                    @endforeach
+                    @endforeach --}}
                     @if ($bykMata == 0)
                         <tr>
                             <td colspan="7" class="text-center p-3 table-active">
