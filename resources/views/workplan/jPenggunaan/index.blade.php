@@ -107,8 +107,10 @@ $byk = 0;
                   {{-- BUTTON --}}
                   <td style="width:10%">
                       <div class="btn-group">
-                          <a href="/jpDosen/{{$item->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
-                          <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
+                        {{-- EDIT --}}
+                          <a href="/mataanggaran/{{$mataAnggaran->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                          {{-- DELETE --}}
+                          <form action="/mataanggaran/{{$mataAnggaran->id}}" method="POST">
                               @csrf
                               @method('delete')
                           <button type="submit" class="btn btn-sm btn-danger ml-1" onclick="return confirm('Yakin Untuk Menghapus?')">
@@ -196,8 +198,10 @@ $byk = 0;
                             {{-- BUTTON --}}
                             <td style="width:10%">
                                 <div class="btn-group">
-                                    <a href="/jpDosen/{{$item->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <form action="/addJenisPenggunaan/{{$item->id}}" method="POST">
+                                  {{-- EDIT --}}
+                                    <a href="/mataanggaran/{{$mata['id']}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    {{-- DELETE --}}
+                                    <form action="/mataanggaran/{{$mata['id']}}" method="POST">
                                         @csrf
                                         @method('delete')
                                     <button type="submit" class="btn btn-sm btn-danger ml-1" onclick="return confirm('Yakin Untuk Menghapus?')">
