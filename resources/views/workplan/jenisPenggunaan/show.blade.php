@@ -20,7 +20,7 @@ Jenis Penggunaan Anggaran: &nbsp; {{$Penggunaan->mataAnggaran}} - {{$Penggunaan-
     <!-- Default box -->
     <div class="card ml-5 col-lg-11 col-6">
       <div class="card-header">
-        <h3 class="card-title">Daftar Pengajuan RKA untuk Anggaran : <strong>{{$Penggunaan->namaAnggaran}}</strong></h3>
+        <h3 class="card-title" style="font-size: 14px;">Daftar Pengajuan RKA untuk Anggaran : <strong>{{$Penggunaan->namaAnggaran}}</strong></h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -118,7 +118,7 @@ Jenis Penggunaan Anggaran: &nbsp; {{$Penggunaan->mataAnggaran}} - {{$Penggunaan-
      
     @if ($byk == 0)
     <div class="card-body">
-      <div class="text-center">
+      <div class="text-center" style="font-size: 14px;"> 
         <p>Belum Ada Program</p>
         <br>
     </div>
@@ -129,7 +129,7 @@ Jenis Penggunaan Anggaran: &nbsp; {{$Penggunaan->mataAnggaran}} - {{$Penggunaan-
       
       <!-- /.card-body -->
       <div class="card-footer">
-        <a href="/listJenisAnggaran"><button type="submit" class="btn btn-dark float-right"><i class="fa-sharp fa-solid fa-backward-step mr-2"></i>Kembali</button></a>
+        <a href="/listJenisAnggaran"><button type="submit" class="btn btn-dark float-right" style="font-size: 14px;"><i class="fa-sharp fa-solid fa-backward-step mr-2"></i>Kembali</button></a>
      </div>
 </div>
 

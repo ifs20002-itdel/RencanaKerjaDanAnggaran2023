@@ -12,7 +12,7 @@
 <hr>
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">1. Biaya Operasional Pendidikan</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;" style="font-size: 14px;">1. Biaya Operasional Pendidikan</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -27,7 +27,7 @@
          <!--Table A-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title">A. Biaya Dosen (Gaji Dan Honor)</h3>
+                <h3 class="card-title" style="font-size: 14px;" style="font-size: 14px;">A. Biaya Dosen (Gaji Dan Honor)</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -41,19 +41,19 @@
                 <table class="table ml-5 col-lg-11 col-6">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Mata Anggaran</th>
-                        <th scope="col">Nama Anggaran</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 13px;">No</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 13px;">Mata Anggaran</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 13px;">Nama Anggaran</th>
+                        <th scope="col" style="font-size: 13px;">Actions</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="font-size: 14px;">
                         <span class="text-white">{{ $byk = 0 }}</span>
                         @foreach ($JenisPenggunaan as $item)
                         @if ($item->bagianTable == "1A")
                         <tr>
                             <td style="width:5%">{{ $byk+=1 }}</td>
-                            <td style="width:15%">{{$item->mataAnggaran}}</td>
+                            <td style="width:23%">{{$item->mataAnggaran}}</td>
                             <td style="width:50%">{{$item->namaAnggaran}}</td>
                             
                             <td style="width:30%">
@@ -74,7 +74,7 @@
                         @endforeach
                         @if ($byk == 0)
                         <tr>
-                            <td colspan="7" class="text-center p-3 table-active">
+                            <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                                 Data Jenis Penggunaan Anggaran Belum Ditambahkan
                             </td>
                         </tr>
@@ -88,7 +88,7 @@
 
                 <!--Tambah Data-->
                 <div class="card-footer">
-                    <a href="/jpDosen/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+                    <a href="/jpDosen/create"><button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
                 </div>
                 <!--/.Tambah Data-->
         
@@ -102,7 +102,7 @@
         <!--Table B-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title">B. Gaji Tenaga Kependidikan Dosen (Gaji Dan Honor)</h3>
+                <h3 class="card-title" style="font-size: 14px;" style="font-size: 14px;">B. Gaji Tenaga Kependidikan Dosen (Gaji Dan Honor)</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -115,10 +115,10 @@
                 <table class="table ml-5 col-lg-11 col-6">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Mata Anggaran</th>
-                        <th scope="col">Nama Anggaran</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col" style="font-size: 14px;">No</th>
+                        <th scope="col" style="font-size: 14px;">Mata Anggaran</th>
+                        <th scope="col" style="font-size: 14px;">Nama Anggaran</th>
+                        <th scope="col" style="font-size: 14px;">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -127,7 +127,7 @@
                         @if ($item->bagianTable == "1B")
                         <tr>
                             <td style="width:5%">{{ $byk+=1 }}</td>
-                            <td style="width:15%">{{$item->mataAnggaran}}</td>
+                            <td style="width:23%">{{$item->mataAnggaran}}</td>
                             <td style="width:50%">{{$item->namaAnggaran}}</td>
                             
                             <td style="width:30%">
@@ -147,7 +147,7 @@
                             @endforeach
                         @if ($byk == 0)
                         <tr>
-                            <td colspan="7" class="text-center p-3 table-active">
+                            <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;" style="font-size: 14px;">
                                 Data Jenis Penggunaan Anggaran Belum Ditambahkan
                             </td>
                         </tr>
@@ -161,7 +161,7 @@
 
                 <!--Tambah Data-->
                 <div class="card-footer">
-                    <a href="/jpTenagaKependidikan/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+                    <a href="/jpTenagaKependidikan/create"><button type="submit" class="btn btn-success" style="font-size: 14px;" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
                 </div>
                 <!--/.Tambah Data-->
         
@@ -173,7 +173,7 @@
         <!--Table C-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title">C. Biaya Operasional Pembelajaran</h3>
+                <h3 class="card-title" style="font-size: 14px;">C. Biaya Operasional Pembelajaran</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -186,10 +186,10 @@
                 <table class="table ml-5 col-lg-11 col-6">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Mata Anggaran</th>
-                        <th scope="col">Nama Anggaran</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -198,7 +198,7 @@
                         @if ($item->bagianTable == "1C")
                         <tr>
                             <td style="width:5%">{{ $byk+=1 }}</td>
-                            <td style="width:15%">{{$item->mataAnggaran}}</td>
+                            <td style="width:23%">{{$item->mataAnggaran}}</td>
                             <td style="width:50%">{{$item->namaAnggaran}}</td>
                             
                             <td style="width:30%">
@@ -219,7 +219,7 @@
                             @endforeach
                         @if ($byk == 0)
                         <tr>
-                            <td colspan="7" class="text-center p-3 table-active">
+                            <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;" style="font-size: 14px;">
                                 Data Jenis Penggunaan Anggaran Belum Ditambahkan
                             </td>
                         </tr>
@@ -233,7 +233,7 @@
 
                 <!--Tambah Data-->
                 <div class="card-footer">
-                    <a href="/jpPembelajaran/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+                    <a href="/jpPembelajaran/create"><button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
                 </div>
                 <!--/.Tambah Data-->
         
@@ -245,7 +245,7 @@
         <!--Table D-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title">D. Biaya Operasional Tidak Langsung (Listrik, Gas, Air, Pemeliharaan Gedung, Pemeliharaan Saraan, Uang Lembur, Telekomunikasi, Konsumsi, Transport, Pajak, Asuransi, dll)</h3>
+                <h3 class="card-title" style="font-size: 14px;">D. Biaya Operasional Tidak Langsung (Listrik, Gas, Air, Pemeliharaan Gedung, Pemeliharaan Saraan, Uang Lembur, Telekomunikasi, Konsumsi, Transport, Pajak, Asuransi, dll)</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -258,10 +258,10 @@
                 <table class="table ml-5 col-lg-11 col-6">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Mata Anggaran</th>
-                        <th scope="col">Nama Anggaran</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                        <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -270,7 +270,7 @@
                         @if ($item->bagianTable == "1D")
                         <tr>
                             <td style="width:5%">{{ $byk+=1 }}</td>
-                            <td style="width:15%">{{$item->mataAnggaran}}</td>
+                            <td style="width:23%">{{$item->mataAnggaran}}</td>
                             <td style="width:50%">{{$item->namaAnggaran}}</td>
                             
                             <td style="width:30%">
@@ -291,7 +291,7 @@
                             @endforeach
                         @if ($byk == 0)
                         <tr>
-                            <td colspan="7" class="text-center p-3 table-active">
+                            <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;" style="font-size: 14px;">
                                 Data Jenis Penggunaan Anggaran Belum Ditambahkan
                             </td>
                         </tr>
@@ -305,7 +305,7 @@
 
                 <!--Tambah Data-->
                 <div class="card-footer">
-                    <a href="/jpBOTL/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+                    <a href="/jpBOTL/create"><button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
                 </div>
                 <!--/.Tambah Data-->
         
@@ -325,7 +325,7 @@
  <!--2. Biaya Operasional Kemahasiswaan-->
  <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">2. Biaya Operasional kemahasiswaan (Penalaran, Minat, Bakat, dan Kesejahteraan)</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;" style="font-size: 14px;">2. Biaya Operasional kemahasiswaan (Penalaran, Minat, Bakat, dan Kesejahteraan)</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -339,10 +339,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col">No</th>
-                <th scope="col">Mata Anggaran</th>
-                <th scope="col">Nama Anggaran</th>
-                <th scope="col">Actions</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -351,7 +351,7 @@
                 @if ($item->bagianTable == "2")
                 <tr>
                     <td style="width:5%">{{ $byk+=1 }}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>
                     
                     <td style="width:30%">
@@ -372,7 +372,7 @@
                     @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -386,7 +386,7 @@
           <br>
         <!--Tambah Data-->
         <div class="card-footer">
-            <a href="/jpKemahasiswaan/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+            <a href="/jpKemahasiswaan/create"><button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
         </div>
         <!--/.Tambah Data-->
 
@@ -402,7 +402,7 @@
 <!--3. Biaya Penelitian-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">3. Biaya Penelitian</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;" style="font-size: 14px;">3. Biaya Penelitian</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -416,10 +416,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col">No</th>
-                <th scope="col">Mata Anggaran</th>
-                <th scope="col">Nama Anggaran</th>
-                <th scope="col">Actions</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -428,7 +428,7 @@
                 @if ($item->bagianTable == "3")
                 <tr>
                     <td style="width:5%">{{ $byk+=1 }}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>
                     
                     <td style="width:30%">
@@ -449,7 +449,7 @@
                     @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -463,7 +463,7 @@
           <br>
         <!--Tambah Data-->
         <div class="card-footer">
-            <a href="/jpPenelitian/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+            <a href="/jpPenelitian/create"><button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
         </div>
         <!--/.Tambah Data-->
 
@@ -479,7 +479,7 @@
 <!--4. Biaya PkM-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">4. Biaya PkM</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;"style="font-size: 14px;">4. Biaya PkM</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -493,10 +493,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col">No</th>
-                <th scope="col">Mata Anggaran</th>
-                <th scope="col">Nama Anggaran</th>
-                <th scope="col">Actions</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -505,7 +505,7 @@
                 @if ($item->bagianTable == "4")
                 <tr>
                     <td style="width:5%">{{ $byk+=1 }}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>
                     
                     <td style="width:30%">
@@ -526,7 +526,7 @@
                     @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -540,7 +540,7 @@
           <br>
         <!--Tambah Data-->
         <div class="card-footer">
-            <a href="/jpPkM/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+            <a href="/jpPkM/create"><button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
         </div>
         <!--/.Tambah Data-->
 
@@ -556,7 +556,7 @@
 <!--5. Biaya SDM-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">5. Biaya SDM</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;"style="font-size: 14px;">5. Biaya SDM</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -570,10 +570,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col">No</th>
-                <th scope="col">Mata Anggaran</th>
-                <th scope="col">Nama Anggaran</th>
-                <th scope="col">Actions</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -582,7 +582,7 @@
                 @if ($item->bagianTable == "5")
                 <tr>
                     <td style="width:5%">{{ $byk+=1 }}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>
                     
                     <td style="width:30%">
@@ -603,7 +603,7 @@
                     @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -617,7 +617,7 @@
           <br>
         <!--Tambah Data-->
         <div class="card-footer">
-            <a href="/jpSDM/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+            <a href="/jpSDM/create"><button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
         </div>
         <!--/.Tambah Data-->
 
@@ -633,7 +633,7 @@
 <!--6. Biaya Investasi Sarana-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">6. Biaya Investasi Sarana</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;"style="font-size: 14px;">6. Biaya Investasi Sarana</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -647,10 +647,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col">No</th>
-                <th scope="col">Mata Anggaran</th>
-                <th scope="col">Nama Anggaran</th>
-                <th scope="col">Actions</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -659,7 +659,7 @@
                 @if ($item->bagianTable == "6")
                 <tr>
                     <td style="width:5%">{{ $byk+=1 }}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>
                     
                     <td style="width:30%">
@@ -680,7 +680,7 @@
                     @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -694,7 +694,7 @@
           <br>
         <!--Tambah Data-->
         <div class="card-footer">
-            <a href="/jpSarana/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+            <a href="/jpSarana/create"><button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
         </div>
         <!--/.Tambah Data-->
 
@@ -710,7 +710,7 @@
 <!--7. Biaya Investasi Prasarana-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">7. Biaya Investasi Prasarana</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;" style="font-size: 14px;">7. Biaya Investasi Prasarana</h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -724,10 +724,10 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
               <tr>
-                <th scope="col">No</th>
-                <th scope="col">Mata Anggaran</th>
-                <th scope="col">Nama Anggaran</th>
-                <th scope="col">Actions</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -736,7 +736,7 @@
                 @if ($item->bagianTable == "7")
                 <tr>
                     <td style="width:5%">{{ $byk+=1 }}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>
                     
                     <td style="width:30%">
@@ -757,7 +757,7 @@
                     @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -771,7 +771,7 @@
           <br>
         <!--Tambah Data-->
         <div class="card-footer">
-            <a href="/jpPrasarana/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
+            <a href="/jpPrasarana/create"><button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Data</button></a>
         </div>
         <!--/.Tambah Data-->
 

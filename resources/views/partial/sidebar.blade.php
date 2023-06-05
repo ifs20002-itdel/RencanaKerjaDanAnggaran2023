@@ -1,27 +1,25 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-1" style="background-color: #242424;">
 
   <!-- Brand Logo -->
-  <a href="{{asset("/")}}" class="brand-link" style="border-right: 0.5px black; background-image: url('{{ asset('layout/dist/img/bg.svg') }}');filter: saturate(140%) contrast(115%);">
+  <a href="{{asset("/")}}" class="brand-link" style="border-right: 0.5px black; background-image: url('{{ asset('layout/dist/img/bg.svg') }}');filter: saturate(160%);">
     <img src="{{ asset("layout/dist/img/del.png") }}" alt="ITDel Logo" class="brand-image text-outline" style="opacity: 1;text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;">
-    <span class="brand-text font-weight-bolder d-flex flex-row text-outline" style="color: white; text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;">RKA - IT DEL 2023</span>
+    <span class="brand-text font-weight-bolder d-flex flex-row text-outline" style="color: white; text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black; font-family: 'Source Sans Pro', sans-serif;">RKA - IT DEL 2023</span>
   </a>
 
   <!-- Sidebar -->
-  <div class="sidebar" style="font-size:13.5px;">
+  <div class="sidebar" style="font-size:12.5px; font-family: 'Montserrat', sans-serif;">
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item mt-2">
           <a href="/" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
             <i class="nav-icon fas fa fa-home"></i>
-            <p>
-              Dashboard
+            <p><b>
+              Dashboard</b>
             </p>
           </a>
         </li>
-
-        <li class="nav-header mt-2 ml-2" style="color:white; font-size:17px">ANGGARAN</li>
-
+        <li class="nav-header mt-2 ml-2" style="color:white; font-size:15.5px; font-weight:bold;">ANGGARAN</li>
         <li class="nav-item mt-2">
           <a href="/workgroup" class="nav-link {{ Request::is('workgroup') ? 'active' : '' }}">
             <i class="fa-solid fa-people-group nav-icon"></i>
@@ -56,7 +54,7 @@
 
         <br>
 
-        <li class="nav-header mt-3 ml-2" style="color:white; font-size:17px">WORK PLAN</li>
+        <li class="nav-header mt-3 ml-2" style="color:white; font-size:15.5px;font-weight:bold;">WORK PLAN</li>
 
         <li class="nav-item">
           <a href="/RKA" class="nav-link {{ Request::is('RKA') ? 'active' : '' }}">

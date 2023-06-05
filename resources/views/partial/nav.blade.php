@@ -5,9 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
 </head>
 <body>  
-  <nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #3C8DBC; background-image: url('{{ asset('layout/dist/img/bg.svg') }}'); filter: contrast(140%);">
+  <nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #3C8DBC; background-image: url('{{ asset('layout/dist/img/bg.svg') }}'); filter: saturate(190%);">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -45,7 +46,7 @@
           @if($item['user_id'] == session('user')['user_id'])
 
             {{$item['nama']}}
-                   
+                  
           <i class="right fas fa-angle-down ml-2"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right">
@@ -54,13 +55,11 @@
           <span class="dropdown-item dropdown-header">{{ session('user')['jabatan'][0]['jabatan'] }}</span>
           @endif
 
-             
+            
            @endif
 
            @endforeach   
 
-         
-           
           <div class="dropdown-divider"></div>
           <a href="/profile" class="dropdown-item text-center">
             <i class="fa-solid fa-person-chalkboard mr-2"></i>Profile

@@ -8,18 +8,18 @@
 @section('judulTengah', 'Workgroup')
 
 @section('content')
-<a href="/workgroup/create"><button type="submit" class="btn btn-success mb-3"><i class="fa-regular fa-plus mr-2"></i>Workgroup</button></a>
+<a href="/workgroup/create"><button type="submit" class="btn btn-success mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Workgroup</button></a>
 <span class="invisible">{{ $byk = 0 }}</span>
     @forelse ($workgroupData as $id => $data)
-      <div class="card col-lg-12 col-6">
+      <div class="card col-lg-12 col-6" style="font-size: 14px;">
         <div class="card-header">
             <h2 class="card-title font-weight-bold mt-2">{{$byk+=1}}. {{$data['nama']}}</h2>
             <div class="card-tools">
               <form action="/workgroup/{{$data['id']}}" method="POST">
                 @csrf
                 @method('delete')
-                <button type="submit" onclick="return confirm('Yakin Untuk Menghapus?')" class="btn btn-link text-danger text-gradient px-2"><i class="far fa-trash-alt mr-1"></i>Delete</button>
-                <a class="btn btn-link text-dark px-2" href="/workgroup/{{$data['id']}}/edit"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit</a> 
+                <button type="submit" onclick="return confirm('Yakin Untuk Menghapus?')" class="btn btn-link text-danger text-gradient px-2" style="font-size: 14px;"><i class="far fa-trash-alt mr-1"></i>Delete</button>
+                <a class="btn btn-link text-dark px-2" href="/workgroup/{{$data['id']}}/edit" style="font-size: 14px;"><i class="fas fa-pencil-alt text-dark mr-1" aria-hidden="true"></i>Edit</a> 
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
                 </button> 

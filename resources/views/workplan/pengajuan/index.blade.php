@@ -12,7 +12,7 @@
 <hr>
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">1. Biaya Operasional Pendidikan </h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">1. Biaya Operasional Pendidikan </h3>
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -25,7 +25,7 @@
          <!--Table A-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title font-weight-bold">A. Biaya Dosen (Gaji Dan Honor)</h3>
+                <h3 class="card-title font-weight-bold" style="font-size: 14px;">A. Biaya Dosen (Gaji Dan Honor)</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -129,7 +129,7 @@
                             
                     </div>
                     @if ($byk == 0)
-                            <div class="text-center">
+                            <div class="text-center" style="font-size: 14px;"> 
                                 <p>Belum Ada Program</p>
                             </div>
                                 
@@ -147,7 +147,7 @@
         <!--Table B-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title font-weight-bold">B. Gaji Tenaga Kependidikan (Gaji Dan Honor)</h3>
+                <h3 class="card-title font-weight-bold" style="font-size: 14px;">B. Gaji Tenaga Kependidikan (Gaji Dan Honor)</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -251,7 +251,7 @@
                             
                     </div>
                     @if ($byk == 0)
-                            <div class="text-center">
+                            <div class="text-center" style="font-size: 14px;"> 
                                 <p>Belum Ada Program</p>
                             </div>
                                 
@@ -270,7 +270,7 @@
         <!--Table C-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title font-weight-bold">C. Biaya Operasional Pembelajaran</h3>
+                <h3 class="card-title font-weight-bold" style="font-size: 14px;">C. Biaya Operasional Pembelajaran</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -374,7 +374,7 @@
                             
                     </div>
                     @if ($byk == 0)
-                            <div class="text-center">
+                            <div class="text-center" style="font-size: 14px;"> 
                                 <p>Belum Ada Program</p>
                             </div>
                                 
@@ -393,7 +393,7 @@
         <!--Table D-->
         <div class="card col-lg-11 col-6 mx-auto">
             <div class="card-header">
-                <h3 class="card-title font-weight-bold">D. Biaya Operasional Tidak Langsung (Listrik, Gas, Air, Pemeliharaan Gedung, Pemeliharaan Sarana, Uang Lembur, Telekomunikasi, Konsumsi, Transport, Pajak, Asuransi, dll)</h3>
+                <h3 class="card-title font-weight-bold" style="font-size: 14px;">D. Biaya Operasional Tidak Langsung (Listrik, Gas, Air, Pemeliharaan Gedung, Pemeliharaan Sarana, Uang Lembur, Telekomunikasi, Konsumsi, Transport, Pajak, Asuransi, dll)</h3>
                 <div class="card-tools">    
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -497,7 +497,7 @@
                             
                     </div>
                     @if ($byk == 0)
-                            <div class="text-center">
+                            <div class="text-center" style="font-size: 14px;"> 
                                 <p>Belum Ada Program</p>
                             </div>
                                 
@@ -522,7 +522,7 @@
 <!--2-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">2. Biaya Operasional kemahasiswaan(Penalaran, Minat, Bakat, dan Kesejahteraan)</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">2. Biaya Operasional kemahasiswaan(Penalaran, Minat, Bakat, dan Kesejahteraan)</h3>
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -625,7 +625,7 @@
                     
             </div>
             @if ($byk == 0)
-                    <div class="text-center">
+                    <div class="text-center" style="font-size: 14px;"> 
                         <p>Belum Ada Program</p>
                     </div>
                         
@@ -647,7 +647,7 @@
 <!--3-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">3. Biaya Penelitian</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">3. Biaya Penelitian</h3>
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -750,7 +750,7 @@
                     
             </div>
             @if ($byk == 0)
-                    <div class="text-center">
+                    <div class="text-center" style="font-size: 14px;"> 
                         <p>Belum Ada Program</p>
                     </div>
                         
@@ -772,7 +772,7 @@
 <!--4-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">4. Biaya PkM</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">4. Biaya PkM</h3>
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -875,7 +875,7 @@
                     
             </div>
             @if ($byk == 0)
-                    <div class="text-center">
+                    <div class="text-center" style="font-size: 14px;"> 
                         <p>Belum Ada Program</p>
                     </div>
                         
@@ -897,7 +897,7 @@
 <!--5-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">5. Biaya Investasi SDM</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">5. Biaya Investasi SDM</h3>
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -1000,7 +1000,7 @@
                     
             </div>
             @if ($byk == 0)
-                    <div class="text-center">
+                    <div class="text-center" style="font-size: 14px;"> 
                         <p>Belum Ada Program</p>
                     </div>
                         
@@ -1020,7 +1020,7 @@
 <!--6-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">6. Biaya Investasi Sarana</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">6. Biaya Investasi Sarana</h3>
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -1123,7 +1123,7 @@
                     
             </div>
             @if ($byk == 0)
-                    <div class="text-center">
+                    <div class="text-center" style="font-size: 14px;"> 
                         <p>Belum Ada Program</p>
                     </div>
                         
@@ -1145,7 +1145,7 @@
 <!--7-->
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">7. Biaya Investasi Prasarana</h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">7. Biaya Investasi Prasarana</h3>
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -1248,7 +1248,7 @@
                     
             </div>
             @if ($byk == 0)
-                    <div class="text-center">
+                    <div class="text-center" style="font-size: 14px;"> 
                         <p>Belum Ada Program</p>
                     </div>
                         

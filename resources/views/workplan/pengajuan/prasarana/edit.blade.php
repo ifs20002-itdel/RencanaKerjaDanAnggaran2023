@@ -21,7 +21,7 @@ Halaman Edit Data
 <div class="col-lg-7 col-6 mx-auto">
     <div class="card card-dark">
         <div class="card card-header text-center">
-            <h3 class="card-title">Edit Rencana Kerja dan Anggaran</h3>
+            <h3 class="card-title" style="font-size: 14px;">Edit Rencana Kerja dan Anggaran</h3>
         </div>
                 
         <form action="/pengajuan/{{$Pengajuan->id}}" method="POST" oninput="multiplyNumbers()">
@@ -56,7 +56,7 @@ Halaman Edit Data
 
                 <div class="form-group">
                     <label>Rincian Program/Aktivitas</label>
-                    <textarea class="form-control" name="rincianProgram">{{$Pengajuan->rincianProgram}}</textarea>
+                    <textarea style="font-size:14px" class="form-control" name="rincianProgram">{{$Pengajuan->rincianProgram}}</textarea>
 
                     @error('rincianProgram')
                     <p class="text-danger font-weight-bold">{{$message}}</p>
@@ -149,8 +149,8 @@ Halaman Edit Data
             </div>
 
             <div class="card-footer">
-                <a href="/pengajuan" class="btn btn-danger float-right mr-2 ml-4">Batalkan</a>
-                <button type="submit" class="btn btn-success float-right mr-4">Ajukan</button>
+                <a href="/pengajuan" class="btn btn-danger float-right mr-2 ml-4" style="font-size: 13px;">Batalkan</a>
+                <button type="submit" class="btn btn-success float-right mr-4" style="font-size: 14px;">Ajukan</button>
             </div>
             
         </form>

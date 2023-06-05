@@ -244,7 +244,7 @@
                         @endforeach                                                            
                       </div>                      
                       @if ($byk == 0)
-                      <div class="text-center">                      
+                      <div class="text-center" style="font-size: 14px;"> 
                         <p>Belum Ada Program</p>
                       </div>                                    
                       @endif 

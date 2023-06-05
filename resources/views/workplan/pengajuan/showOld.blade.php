@@ -114,7 +114,7 @@
       </div>
       <!-- /.card-body -->
       <div class="card-footer">
-        <a href="/RKA"><button type="submit" class="btn btn-dark float-right"><i class="fa-sharp fa-solid fa-backward-step mr-2"></i>Kembali</button></a>
+        <a href="/RKA"><button type="submit" class="btn btn-dark float-right" style="font-size: 14px;"><i class="fa-sharp fa-solid fa-backward-step mr-2"></i>Kembali</button></a>
     </div>
 
     </div>

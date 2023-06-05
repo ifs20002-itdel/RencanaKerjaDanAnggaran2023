@@ -9,7 +9,7 @@
 @section('content')
 <div class="card ml-5 col-lg-11 col-6">
     <div class="card-header">
-        <h3 class="card-title font-weight-bold">Berikut Panduan Template RKA  <a href="https://docs.google.com/spreadsheets/d/140zs3W8NE7GwuaQlNXegL6atDtKjO4y7/edit#gid=712992635" target="_blank"><span class="badge badge-success ml-1">Template RKA</span></a></h3>
+        <h3 class="card-title font-weight-bold" style="font-size: 14px;">Berikut Panduan Template RKA  <a href="https://docs.google.com/spreadsheets/d/140zs3W8NE7GwuaQlNXegL6atDtKjO4y7/edit#gid=712992635" target="_blank"><span class="badge badge-success ml-1">Template RKA</span></a></h3>
 
         <div class="card-tools">    
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -24,15 +24,15 @@
         <table class="table ml-5 col-lg-11 col-6">
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         1. Biaya Operasional Pendidikan - A. Biaya Dosen (Gaji Dan Honor)
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +41,7 @@
                 @if ($item->bagianTable == "1A")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:60%">{{$item->namaAnggaran}}</td>    
                     <td style="width:5%">
                         <a href="/addJenisPenggunaan/{{$item->id}}" class="btn btn-sm btn-primary "><i class="fa-regular fa-eye mr-1"></i>Detail</a>
@@ -51,7 +51,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -61,15 +61,15 @@
 
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         1. Biaya Operasional Pendidikan - B. Gaji Tenaga Kependidikan Dosen (Gaji Dan Honor)
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +78,7 @@
                 @if ($item->bagianTable == "1B")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>    
                     <td style="width:15%">
                         <div class="btn-group">
@@ -91,7 +91,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -102,15 +102,15 @@
 
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         1. Biaya Operasional Pendidikan - C. Biaya Operasional Pembelajaran
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -119,7 +119,7 @@
                 @if ($item->bagianTable == "1C")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>    
                     <td style="width:15%">
                         <div class="btn-group">
@@ -132,7 +132,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -142,15 +142,15 @@
 
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         1. Biaya Operasional Pendidikan - D. Biaya Operasional Tidak Langsung
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -159,7 +159,7 @@
                 @if ($item->bagianTable == "1D")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>    
                     <td style="width:15%">
                         <div class="btn-group">
@@ -172,7 +172,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -183,15 +183,15 @@
 
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         2. Biaya Operasional Kemahasiswaan
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -200,7 +200,7 @@
                 @if ($item->bagianTable == "2")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>    
                     <td style="width:15%">
                         <div class="btn-group">
@@ -213,7 +213,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -224,15 +224,15 @@
 
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         3. Biaya Penelitian
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -241,7 +241,7 @@
                 @if ($item->bagianTable == "3")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>    
                     <td style="width:15%">
                         <div class="btn-group">
@@ -254,7 +254,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -264,15 +264,15 @@
 
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         4. Biaya PkM
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -281,7 +281,7 @@
                 @if ($item->bagianTable == "4")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>    
                     <td style="width:15%">
                         <div class="btn-group">
@@ -294,7 +294,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -304,15 +304,15 @@
 
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         5. Biaya Investasi SDM
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -321,7 +321,7 @@
                 @if ($item->bagianTable == "5")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>    
                     <td style="width:15%">
                         <div class="btn-group">
@@ -334,7 +334,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -345,15 +345,15 @@
 
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         6. Biaya Investasi Sarana
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -362,7 +362,7 @@
                 @if ($item->bagianTable == "6")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>    
                     <td style="width:15%">
                         <div class="btn-group">
@@ -375,7 +375,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
@@ -385,15 +385,15 @@
 
             <thead class="thead-light">
                 <tr>
-                    <th colspan="7" class="text-center bg-blue-200">
+                    <th colspan="7" class="text-center bg-blue-200" style="font-size: 14px;">
                         7. Biaya Investasi Prasarana
                     </th>
                 </tr>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Mata Anggaran</th>
-                    <th scope="col">Nama Anggaran</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">No</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Mata Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Nama Anggaran</th>
+                    <th scope="col" style="font-size: 13px; style="font-size: 14px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -402,7 +402,7 @@
                 @if ($item->bagianTable == "7")
                 <tr>
                     <td style="width:10%">{{$byk += 1}}</td>
-                    <td style="width:15%">{{$item->mataAnggaran}}</td>
+                    <td style="width:23%">{{$item->mataAnggaran}}</td>
                     <td style="width:50%">{{$item->namaAnggaran}}</td>    
                     <td style="width:15%">
                         <div class="btn-group">
@@ -415,7 +415,7 @@
                 @endforeach
                 @if ($byk == 0)
                 <tr>
-                    <td colspan="7" class="text-center p-3 table-active">
+                    <td colspan="7" class="text-center p-3 table-active" style="font-size: 14px;">
                         Data Jenis Penggunaan Anggaran Belum Ditambahkan
                     </td>
                 </tr>
