@@ -15,5 +15,9 @@ class Jenispenggunaan extends Model
     {
         return $this->hasMany('App\Models\SubJenisPenggunaan');
     }
+    public function mataanggaran()
+    {
+        return $this->hasMany('App\Models\MataAnggaran');
+    }
 
 }

@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('mataAnggaran');
             $table->string('namaAnggaran');
             //Workgroup
-            $table->unsignedBigInteger('workgroup_id');
-            $table->foreign('workgroup_id')->references('id')->on('workgroup')->onDelete('cascade');
+            $table->longText('workgroup_id');
             //JenisPenggunaan
             $table->unsignedBigInteger('jenispenggunaan_id');
             $table->foreign('jenispenggunaan_id')->references('id')->on('jenispenggunaan')->onDelete('cascade');

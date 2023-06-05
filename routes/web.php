@@ -79,6 +79,7 @@ Route::group(['middleware' => ['customAuth']], function() {
         Route::get('/mataanggaran/create', [MataAnggaranController::class, 'create']);
         //GET DATA JenisPenggunaan dan SubJenisPenggunaan
         Route::get('get-states', [MataAnggaranController::class, 'getSubJenisPenggunaan'])->name('getSubJenisPenggunaan');
+        Route::post('/mataanggaran', [MataAnggaranController::class, 'store']);
 
     //JenisPenggunaan
     Route::get('/addJenisPenggunaan', [JenisPenggunaanController::class, 'addJenisPenggunaan']);

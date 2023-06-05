@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Jenispenggunaan;
 use App\Models\SubJenisPenggunaan;
-
+use App\Models\MataAnggaran;
 
 class JPenggunaanController extends Controller
 {
@@ -35,9 +35,25 @@ class JPenggunaanController extends Controller
     }
 
     public function JPenggunaanIndex(){
-        $Jenispenggunaan = DB::table('jenispenggunaan')->get();
+        $Jenispenggunaan = Jenispenggunaan::all();
         $Subjenispenggunaan = SubJenisPenggunaan::all();
-        return view('workplan.jPenggunaan.index', compact('Jenispenggunaan', 'Subjenispenggunaan'));
+        $mataanggaranData = MataAnggaran::get();
+        $mataanggaran = [];
+        
+        foreach($mataanggaranData as $mata){
+            $workgroup = json_decode($mata->workgroup_id, true);
+            $mataanggaran[$mata->id] = [
+                'id' => $mata->id,
+                'mataAnggaran' => $mata->mataAnggaran,
+                'namaAnggaran' => $mata->namaAnggaran,
+                'jenispenggunaan_id' => $mata->jenispenggunaan_id,
+                'subjenispenggunaan_id' => $mata->subjenispenggunaan_id,
+                'workgroup_id' => $workgroup,
+            ];
+
+        }
+        
+        return view('workplan.jPenggunaan.index', compact('Jenispenggunaan', 'Subjenispenggunaan', 'mataanggaran'));
     }
 
     public function JPEdit($id){

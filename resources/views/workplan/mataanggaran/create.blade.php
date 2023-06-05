@@ -17,7 +17,7 @@
         <div class="card-header">
             <h3 class="card-title" style="font-size: 14px;">Form Menambahkan Mata Anggaran</h3>
         </div>
-        <form action="#" method="POST">
+        <form action="/mataanggaran" method="POST">
             @csrf
             <div class="card-body">
 
@@ -72,19 +72,25 @@
                 <div class="form-group ml-1">
                     <div class="row">
                       <div class="col-12 col-sm-11 my-2">
-                        <label style="font-size: 14px;">Organisasi Kerja:</label>
+                        <label>Organisasi Unit:</label>
                         @error('workgroup_id')
                           <p class="text-danger font-weight-bold">{{ $message }}</p>
                         @enderror
+                        @if ($workgroup->isEmpty())
+                            <p class="text-danger font-weight-bold">Tambahkan Data Workgroup Terlebih Dahulu, <a href="/workgroup" style="color:green"><i class="fa-regular fa-plus mr-2"></i>Workgroup</a></p>
+                        @else
                         @foreach ($workgroup as $group)
-                            <div class="form-check ml-2">
-                              <input class="form-check-input" type="checkbox" name="workgroup_id" id="{{ $group->id}}" value="{{$group->nama}}">
-                              <label class="form-check-label" for="{{ $group->id }}" style="font-size: 14px;">{{ $group->nama }}</label>
-                            </div>
+                        <div class="form-check ml-2">
+                            <input class="form-check-input" type="checkbox" name="workgroup_id[]" id="workgroup_id{{$group->id}}" value="{{$group->id}}">
+                            <label class="form-check-label" for="workgroup_id{{$group->id}}" >{{ $group->nama }}</label>
+                        </div>
                         @endforeach
+                        @endif
+
+
                       </div>
                     </div>
-                  </div>
+                </div>
 
             </div>
 
@@ -99,33 +105,33 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function () {
-    $('#jenispenggunaan_id').on('change', function () {
-        var jenispenggunaanId = this.value;
-        var bykSub = '@';
-        $('#subjenispenggunaan_id').html('');
-        
-        // Reset dropdown 2 jika dropdown 1 berubah
-        $('#subjenispenggunaan_id').prop('disabled', true).html('<option value="" selected>--- Pilih Sub Jenis Penggunaan Anggaran ---</option>');
-
-        $.ajax({
-            url: '{{ route('getSubJenisPenggunaan') }}?jenispenggunaan_id=' + jenispenggunaanId,
-            type: 'get',
-            success: function (res) {
-                if (res.length > 0) {
-                    $('#subjenispenggunaan_id').prop('disabled', false).html('<option value="">--- Pilih Sub Jenis Penggunaan Anggaran ---</option>');
-                    $.each(res, function (key, value) {
-                        $('#subjenispenggunaan_id').append('<option value="' + value.id + '">' + (bykSub = String.fromCharCode(bykSub.charCodeAt(0) + 1)) + '. ' + value.namaSubJenisPenggunaan + '</option>');
-                    });
-                } else {
-                    $('#subjenispenggunaan_id').prop('disabled', true).html('<option value="" selected>Data Sub Jenis Penggunaan Pada Jenis Penggunaan Ini Tidak Ada</option>');
-                }
-            }
-        });
-    });
-});
-
-
-</script>
+    $(document).ready(function () {
+      $('#jenispenggunaan_id').on('change', function () {
+          var jenispenggunaanId = this.value;
+          var bykSub = '@';
+          $('#subjenispenggunaan_id').html('');
+          
+          // Reset dropdown 2 jika dropdown 1 berubah
+          $('#subjenispenggunaan_id').prop('disabled', true).html('<option value="" selected>--- Pilih Sub Jenis Penggunaan Anggaran ---</option>');
+  
+          $.ajax({
+              url: '{{ route('getSubJenisPenggunaan') }}?jenispenggunaan_id=' + jenispenggunaanId,
+              type: 'get',
+              success: function (res) {
+                  if (res.length > 0) {
+                      $('#subjenispenggunaan_id').prop('disabled', false).html('<option value="">--- Pilih Sub Jenis Penggunaan Anggaran ---</option>');
+                      $.each(res, function (key, value) {
+                          $('#subjenispenggunaan_id').append('<option value="' + value.id + '">' + (bykSub = String.fromCharCode(bykSub.charCodeAt(0) + 1)) + '. ' + value.namaSubJenisPenggunaan + '</option>');
+                      });
+                  } else {
+                      $('#subjenispenggunaan_id').prop('disabled', true).html('<option value="" selected>Data Sub Jenis Penggunaan Pada Jenis Penggunaan Ini Tidak Ada</option>');
+                  }
+              }
+          });
+      });
+  });
+  
+  
+  </script>
 
 @endsection

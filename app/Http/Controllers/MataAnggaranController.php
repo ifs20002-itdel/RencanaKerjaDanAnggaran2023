@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Jenispenggunaan;
 use App\Models\SubJenisPenggunaan;
 use App\Models\Workgroup;
+use App\Models\MataAnggaran;
+
 
 class MataAnggaranController extends Controller
 {
@@ -26,4 +28,35 @@ class MataAnggaranController extends Controller
             return response()->json($subjenispenggunaan);
         }
     }
+
+    public function store(Request $request){
+        $request->validate([
+            'jenispenggunaan_id' => 'required',
+            'mataAnggaran' => 'required',
+            'namaAnggaran' => 'required',
+            'workgroup_id' => 'required',
+        ],
+        [
+            'jenispenggunaan_id' => 'Silahkan Pilih Jenis Penggunaan',
+            'mataAnggaran' => 'Mata Anggaran Harus Diisi',
+            'namaAnggaran' => 'Nama Anggaran Harus Diisi',
+            'workgroup_id' => 'Silahkan Pilih Workgroup',
+        ]);
+
+        $input = $request->input('workgroup_id');
+        $inputMataAnggaran = json_encode($input, true);
+
+        $mataanggaran = new MataAnggaran();
+        $mataanggaran->jenispenggunaan_id = $request->jenispenggunaan_id;
+        $mataanggaran->subjenispenggunaan_id = $request->subjenispenggunaan_id;
+        $mataanggaran->mataAnggaran = $request->mataAnggaran;
+        $mataanggaran->namaAnggaran = $request->namaAnggaran;
+        $mataanggaran->workgroup_id = $inputMataAnggaran;
+
+        $mataanggaran->save();
+        
+        return redirect('/jp');
+
+    }
+
 }

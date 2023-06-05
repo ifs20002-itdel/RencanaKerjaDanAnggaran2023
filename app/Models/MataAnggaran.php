@@ -17,7 +17,4 @@ class MataAnggaran extends Model
     public function subjenispenggunaan(){
         return $this->belongsTo('App\Models\SubJenisPenggunaan', 'subjenispenggunaan_id');
     }
-    public function workgroup(){
-        return $this->belongsTo('App\Models\Workgroup', 'workgroup_id');
-    }
 }
