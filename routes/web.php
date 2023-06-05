@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\JenisPenggunaanController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\JPenggunaanController;
 use App\Http\Controllers\WorkgroupController;
