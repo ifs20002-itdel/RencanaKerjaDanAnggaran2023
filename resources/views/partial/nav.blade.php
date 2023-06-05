@@ -41,8 +41,6 @@
           // Handle the exception, e.g., redirect to the login page
           return redirect('/user/login');
         }
-        
-
       ?>
 
       @if (!empty($pegawai['data']['pegawai']))

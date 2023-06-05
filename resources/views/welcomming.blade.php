@@ -31,28 +31,31 @@
         <div class="ml-3">
         <h4 style="font-family: 'Montserrat', sans-serif; font-size: 2.1rem; font-weight: bold; color:black;">SELAMAT DATANG</h4>
 
+
+   
+
         <?php
-          //GetDataPegawai
+        //GetDataPegawai
+        try {
           $token = session('token');
           $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.session('user')['user_id'])->body();
           $pegawai = json_decode($responseDataPegawai, true);
-        
+        } catch (\Exception $e) {
+          // Handle the exception, e.g., redirect to the login page
+          return redirect('/user/login');
+        }
+      ?>
 
-        {{-- Store the new refresh token in a variable --}}
-        $newRefreshToken = session('refresh_token');
-
-        {{-- Update the refresh token in the session --}}
-        session(['refresh_token' => $newRefreshToken]);
-        ?>
-       
-        @foreach ($pegawai['data']['pegawai'] as $item)
-        @if($item['user_id'] == session('user')['user_id'])
-
-          <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.92rem; color:black;">{{$item['nama']}}</h4>
-                
-        @endif
-        @endforeach
-        
+      @if (!empty($pegawai['data']['pegawai']))
+          @foreach ($pegawai['data']['pegawai'] as $item)
+              @if (!empty(session('user')['user_id']) && $item['user_id'] == session('user')['user_id'])
+                  @isset($item['nama'])
+                  <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.92rem; color:black;">{{$item['nama']}}</h4>
+                  @endisset
+                  @break
+              @endif
+          @endforeach
+      @endif
         </div>
       </div>
     </div>
