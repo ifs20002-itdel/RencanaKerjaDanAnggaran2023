@@ -25,8 +25,11 @@ Route::middleware('guest')->group(function(){
     Route::post('/login/auth', [LoginController::class, 'login']);
 
     Route::get('/user/login', function() {
-        return view('login');
-    })->name('login');
+    if (session()->has('user')) {
+        return redirect('/');
+    }
+    return view('login');
+})->name('login');
     
 
 });
