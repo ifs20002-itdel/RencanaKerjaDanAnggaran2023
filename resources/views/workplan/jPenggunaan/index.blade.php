@@ -9,9 +9,9 @@
 
 @section('content')
 <br>
-<a href="/jpcreate"><button type="submit" class="btn btn-success mr-3 mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Jenis Penggunaan</button></a>
-<a href="/subjenispenggunaan/create"><button type="submit" class="btn btn-success mr-3 mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Sub Jenis Penggunaan</button></a>
-<a href="/mataanggaran/create"><button type="submit" class="btn btn-success mr-3 mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Mata Anggaran</button></a>
+<a href="/jpcreate"><button type="submit" class="btn btn-success mr-3 mb-3" style="font-size: 13.5px; border-radius:20px;"><i class="fa-regular fa-plus mr-2"></i>Jenis Penggunaan</button></a>
+<a href="/subjenispenggunaan/create"><button type="submit" class="btn btn-success mr-3 mb-3" style="font-size: 13.5px; border-radius:20px;"><i class="fa-regular fa-plus mr-2"></i>Sub Jenis Penggunaan</button></a>
+<a href="/mataanggaran/create"><button type="submit" class="btn btn-success mr-3 mb-3" style="font-size: 13.5px; border-radius:20px;"><i class="fa-regular fa-plus mr-2"></i>Mata Anggaran</button></a>
 
 <?php
 $byk = 0;
@@ -19,7 +19,7 @@ $byk = 0;
 
 <!--JenisPenggunaan-->
 @forelse ($Jenispenggunaan as $item)
-  <div class="card col-lg-12 col-6 mb-5" style="font-size: 14px;">
+  <div class="card col-lg-12 col-6 mb-5" style="font-size: 14px; border-radius: 15px;">
       <div class="card-header" style="font-size: 14px;">
           <h3 class="card-title font-weight-bold ">{{$byk+=1}}. {{$item->namaJenisPenggunaan}}</h3>
           <div class="card-tools">
@@ -138,7 +138,7 @@ $byk = 0;
       
     <!-- Code to display when the relationship is not empty -->
           @foreach($item->subjenispenggunaan as $subJenis)
-            <div class="card col-lg-12 col-6">
+            <div class="card col-lg-12 col-6" style="border-radius:15px">
               <div class="card-header" style="font-size: 14px;">
                 <?php
                 $bykSub;
@@ -199,12 +199,12 @@ $byk = 0;
                             <td style="width:10%">
                                 <div class="btn-group">
                                   {{-- EDIT --}}
-                                    <a href="/mataanggaran/{{$mata['id']}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="/mataanggaran/{{$mata['id']}}/edit" class="btn btn-sm btn-warning" style="border-radius:20px;"><i class="fa-regular fa-pen-to-square"></i></a>
                                     {{-- DELETE --}}
                                     <form action="/mataanggaran/{{$mata['id']}}" method="POST">
                                         @csrf
                                         @method('delete')
-                                    <button type="submit" class="btn btn-sm btn-danger ml-1" onclick="return confirm('Yakin Untuk Menghapus?')">
+                                    <button type="submit" class="btn btn-sm btn-danger ml-1" style="border-radius:20px;" onclick="return confirm('Yakin Untuk Menghapus?')">
                                     <i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </div>
