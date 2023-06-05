@@ -52,6 +52,25 @@ class LoginController extends Controller
             session(['refresh_token' => $refreshToken]);
 
             return redirect('/');
+
+        }elseif ($json['result'] == true) {
+           //GetDataPegawai
+            $token = session('token');
+            $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.session('user')['user_id'])->body();
+            $pegawai = json_decode($responseDataPegawai, true);
+        
+            $pegawai = $json['pegawai'];
+            session(['pegawai' => $pegawai]);
+        
+        }elseif($json['result'] == true){
+            //GetDataUnit
+            $token = session('token');
+            $responseDataUnit = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/unit?userid='.session('user')['user_id'])->body();
+            $unit = json_decode($responseDataUnit, true);
+
+            $unit = $json['unit'];
+            session(['unit' => $unit]);
+
         } else {
             // Failed login logic
             return redirect('/user/login')->withErrors(['message' => 'Incorrect username or password']);

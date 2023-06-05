@@ -53,7 +53,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
           </ol>
         </div>
         <hr>
-        <div class="mb-1">
+        <div class="mb-0">
             <h1 class="font-weight-bold">@yield('judul')</h1>
             <h1 class="font-weight-bold text-center">@yield('judulTengah')</h1>
         </div>

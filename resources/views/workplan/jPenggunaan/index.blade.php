@@ -108,7 +108,7 @@ $byk = 0;
                   <td style="width:10%">
                       <div class="btn-group">
                         {{-- EDIT --}}
-                          <a href="/mataanggaran/{{$mataAnggaran->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square">Delete</i></a>
+                          <a href="/mataanggaran/{{$mataAnggaran->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
                           {{-- DELETE --}}
                           <form action="/mataanggaran/{{$mataAnggaran->id}}" method="POST">
                               @csrf

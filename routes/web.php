@@ -9,7 +9,7 @@ use App\Http\Controllers\JPenggunaanController;
 use App\Http\Controllers\WorkgroupController;
 use App\Http\Controllers\SubJenisPenggunaanController;
 use App\Http\Controllers\MataAnggaranController;
-
+use App\Http\Controllers\ProgramController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +86,10 @@ Route::group(['middleware' => ['customAuth']], function() {
         Route::get('/mataanggaran/{mataanggaran_id}/edit', [MataAnggaranController::class, 'edit']);
         Route::put('/mataanggaran/{mataanggaran_id}', [MataAnggaranController::class, 'update']);
         Route::delete('/mataanggaran/{mataanggaran_id}', [MataAnggaranController::class, 'destroy']);
+
+    
+    //PROGRAM (NEW)
+        Route::get('/program/create', [ProgramController::class, 'create']);
 
     //JenisPenggunaan
     Route::get('/addJenisPenggunaan', [JenisPenggunaanController::class, 'addJenisPenggunaan']);

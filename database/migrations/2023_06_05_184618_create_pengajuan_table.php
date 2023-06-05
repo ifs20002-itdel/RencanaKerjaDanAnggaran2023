@@ -15,22 +15,25 @@ return new class extends Migration
     {
         Schema::create('pengajuan', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis');
-            $table->string('rincianProgram');
+            $table->integer('tahun');
+            $table->string('jabatan');
+            $table->string('namaProgram');
+            $table->longText('tujuan')->nullable();
+            $table->longText('deskripsi')->nullable();
+            $table->longText('waktu');
             $table->integer('volume');
             $table->string('satuan');
             $table->integer('hargaSatuan');
-            $table->string('total');
-            $table->string('start');
-            $table->string('finish');
-            $table->string('pemohon');
-            $table->string('status');
+            $table->integer('hargaTotal');
+            $table->integer('user_id');
+            
+            $table->unsignedBigInteger('mataanggaran_id');
+            $table->foreign('mataanggaran_id')->references('id')->on('mataanggaran')->onDelete('cascade');
 
-            $table->unsignedBigInteger('penggunaan_id');
-            $table->foreign('penggunaan_id')->references('id')->on('penggunaan')->onDelete('cascade');
 
             $table->timestamps();
         });
+
     }
 
     /**
