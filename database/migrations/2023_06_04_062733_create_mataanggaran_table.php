@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('mataAnggaran');
             $table->string('namaAnggaran');
-            //Workgroup
+            //Unit
+            $table->longText('unit');
             $table->longText('workgroup_id');
             //JenisPenggunaan
             $table->unsignedBigInteger('jenispenggunaan_id');

@@ -94,6 +94,7 @@ $byk = 0;
                   <td style="width:11%; border: 1px solid black; padding: 8px; text-align: center;">{{$mataAnggaran['mataAnggaran']}}</td>
                   <td style="width:37%; border: 1px solid black; padding: 8px;">{{$mataAnggaran['namaAnggaran']}}</td>
                   <td style="width:35%; border: 1px solid black; padding: 8px;">
+                    <p><b>Workgroup</b></p>
                   @foreach (json_decode($mataAnggaran['workgroup_id']) as $unitValue)
                     @forelse ($workgroupData as $id => $data)
                       @if ($data['id'] == $unitValue)
@@ -102,6 +103,14 @@ $byk = 0;
                     @empty  
                     @endforelse
                   @endforeach
+                    <br>
+                        
+                    <p><b>Units</b></p>
+                      @foreach ($mata['unit'] as $unit)
+                          <li>{{$unit}} <br></li>
+                      @endforeach
+
+
                   </td>
                   
                   {{-- BUTTON --}}
@@ -169,7 +178,7 @@ $byk = 0;
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">No</th>
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Mata Anggaran</th>
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Nama Anggaran</th>
-                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Workgroup</th>
+                      <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Workgroup & Units</th>
                       <th scope="col" style="font-size: 11px; border: 1px solid black; padding: 8px;">Actions</th>
                     </tr>
                   </thead>
@@ -185,14 +194,23 @@ $byk = 0;
                             <td style="width:12%; border: 1px solid black; padding: 8px; text-align: center;">{{$mata['mataAnggaran']}}</td>
                             <td style="width:35%; border: 1px solid black; padding: 8px;">{{$mata['namaAnggaran']}}</td>
                             <td style="width:35%; border: 1px solid black; padding: 8px;">
+                            <p><b>Workgroup</b></p>
                             @foreach ($mata['workgroup_id'] as $unitValue)
-                              @forelse ($workgroupData as $id => $data)
-                                @if ($data['id'] == $unitValue)
-                                <li>{{$data['nama']}} <br></li>
-                                @endif
-                              @empty  
-                              @endforelse
+                            @forelse ($workgroupData as $id => $data)
+                              @if ($data['id'] == $unitValue)
+                              <li>{{$data['nama']}} <br></li>
+                              @endif
+                            @empty  
+                            @endforelse
+                          @endforeach
+                          <br>
+                             
+                          <p><b>Units</b></p>
+                            @foreach ($mata['unit'] as $unit)
+                                <li>{{$unit}} <br></li>
                             @endforeach
+
+
                             </td>
                             
                             {{-- BUTTON --}}

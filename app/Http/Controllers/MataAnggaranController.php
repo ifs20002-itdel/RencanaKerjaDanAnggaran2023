@@ -34,24 +34,30 @@ class MataAnggaranController extends Controller
             'jenispenggunaan_id' => 'required',
             'mataAnggaran' => 'required',
             'namaAnggaran' => 'required',
+            'unit' => 'required',
             'workgroup_id' => 'required',
         ],
         [
             'jenispenggunaan_id' => 'Silahkan Pilih Jenis Penggunaan',
             'mataAnggaran' => 'Mata Anggaran Harus Diisi',
             'namaAnggaran' => 'Nama Anggaran Harus Diisi',
-            'workgroup_id' => 'Silahkan Pilih Workgroup',
+            'unit' => 'Silahkan Pilih Unit',
+            'workgroup_id' => 'Silahkan Pilih Organisasi Kerja'
         ]);
 
-        $input = $request->input('workgroup_id');
-        $inputMataAnggaran = json_encode($input, true);
+        $workgroup = $request->input('workgroup_id');
+        $workgroup_id = json_encode($workgroup, true);
+
+        $input = $request->input('unit');
+        $unit = json_encode($input, true);
 
         $mataanggaran = new MataAnggaran();
         $mataanggaran->jenispenggunaan_id = $request->jenispenggunaan_id;
         $mataanggaran->subjenispenggunaan_id = $request->subjenispenggunaan_id;
         $mataanggaran->mataAnggaran = $request->mataAnggaran;
         $mataanggaran->namaAnggaran = $request->namaAnggaran;
-        $mataanggaran->workgroup_id = $inputMataAnggaran;
+        $mataanggaran->unit = $unit;
+        $mataanggaran->workgroup_id = $workgroup_id;
 
         $mataanggaran->save();
         
@@ -64,8 +70,12 @@ class MataAnggaranController extends Controller
         $subjenispenggunaan = SubJenisPenggunaan::all();
         $workgroup = Workgroup::all();
         $mataanggaran = MataAnggaran::findOrFail($id);
+        $unit = json_decode($mataanggaran->unit, true);
+        $mataAnggaranData = [
+            'unit' => $unit,
+        ];
 
-        return view('workplan.mataanggaran.edit', compact('jenispenggunaan', 'workgroup', 'mataanggaran', 'subjenispenggunaan'));
+        return view('workplan.mataanggaran.edit', compact('jenispenggunaan', 'workgroup', 'mataanggaran', 'subjenispenggunaan', 'mataAnggaranData'));
     }
 
     public function update(Request $request, $id){
@@ -74,23 +84,29 @@ class MataAnggaranController extends Controller
             'mataAnggaran' => 'required',
             'namaAnggaran' => 'required',
             'workgroup_id' => 'required',
+            'unit' => 'required',
         ],
         [
             'jenispenggunaan_id' => 'Silahkan Pilih Jenis Penggunaan',
             'mataAnggaran' => 'Mata Anggaran Harus Diisi',
             'namaAnggaran' => 'Nama Anggaran Harus Diisi',
             'workgroup_id' => 'Silahkan Pilih Workgroup',
+            'unit' => 'Silahkan Pilih Unit',
         ]);
 
-        $input = $request->input('workgroup_id');
-        $inputMataAnggaran = json_encode($input, true);
+        $workgroup = $request->input('workgroup_id');
+        $workgroup_id = json_encode($workgroup, true);
+
+        $input = $request->input('unit');
+        $unit = json_encode($input, true);
 
         $mataanggaran = MataAnggaran::find($id);
         $mataanggaran->jenispenggunaan_id = $request->jenispenggunaan_id;
         $mataanggaran->subjenispenggunaan_id = $request->subjenispenggunaan_id;
         $mataanggaran->mataAnggaran = $request->mataAnggaran;
         $mataanggaran->namaAnggaran = $request->namaAnggaran;
-        $mataanggaran->workgroup_id = $inputMataAnggaran;
+        $mataanggaran->unit = $unit;
+        $mataanggaran->workgroup_id = $workgroup_id;
 
         $mataanggaran->save();
         

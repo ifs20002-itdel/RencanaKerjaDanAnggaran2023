@@ -77,25 +77,50 @@
                 <div class="form-group ml-1">
                     <div class="row">
                       <div class="col-12 col-sm-11 my-2">
-                        <label>Organisasi Unit:</label>
+                        <label style="font-size: 14px;">Organisasi Unit:</label>
                         @error('workgroup_id')
                           <p class="text-danger font-weight-bold">{{ $message }}</p>
                         @enderror
-                        @if ($workgroup->isEmpty())
-                            <p class="text-danger font-weight-bold">Tambahkan Data Workgroup Terlebih Dahulu, <a href="/workgroup" style="color:green"><i class="fa-regular fa-plus mr-2"></i>Workgroup</a></p>
-                        @else
+                       
                         @foreach ($workgroup as $group)
                         <div class="form-check ml-2">
                             <input class="form-check-input" type="checkbox" name="workgroup_id[]" id="workgroup_id{{$group->id}}" value="{{$group->id}}" {{ in_array($group->id, json_decode($mataanggaran->workgroup_id)) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="workgroup_id{{$group->id}}" >{{ $group->nama }}</label>
+                            <label class="form-check-label" style="font-size: 14px;" for="workgroup_id{{$group->id}}" >{{ $group->nama }}</label>
                         </div>
                         @endforeach
-                        @endif
 
 
                       </div>
                     </div>
                 </div>
+
+                {{-- Unit --}}
+            <?php
+            //GetDataUnit
+            $token = session('token');
+            $responseDataUnit = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/unit?userid='.session('user')['user_id'])->body();
+            $unit = json_decode($responseDataUnit, true);
+            ?>
+
+            <div class="form-group ml-1">
+                <div class="row">
+                    <div class="col-12 col-sm-11 my-2">
+                        <label style="font-size: 14px;">Tambahkan Units:</label>
+                        @error('unit')
+                            <p class="text-danger font-weight-bold">{{ $message }}</p>
+                        @enderror
+                        @foreach ($unit['data']['unit'] as $item)
+                            @if ($item['name'] != 'tes' && $item['name'] != 'tess')
+                                <div class="form-check ml-2" style="font-size: 13px;">
+                                    <input class="form-check-input" type="checkbox" name="unit[]" id="unit{{ $item['unit_id'] }}" value="{{ $item['name'] }}" {{ in_array($item['name'], $mataAnggaranData['unit']) ? 'checked' : '' }}>
+                                    <label class="form-check-label"  for="unit{{ $item['unit_id'] }}">{{ $item['name'] }}</label>
+                                </div>
+                            @endif
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
 
             </div>
 

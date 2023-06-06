@@ -29,50 +29,24 @@
                     
                     <div class="col-9">
                         <select class="form-control" name="mataanggaran_id">
-{{-- 
 
-                            @if (session('pegawai')['data']['pegawai'] ?? false)
-                            @foreach (session('pegawai')['data']['pegawai'] as $dataPegawai)
-                                @if ($dataPegawai['user_id'] == session('user')['user_id'])
-                                    @if (session('unit')['data']['unit'] ?? false)
-                                        @foreach (session('unit')['data']['unit'] as $unitNya)
-                                            @if ($dataPegawai['pegawai_id'] == $unitNya['pegawai_id'])
-                                                <!-- Your code here -->
+                        <option value="" disabled selected>--- Pilih Jenis Penggunaan Anggaran ---</option>
                         
-                                                @foreach ($mataanggaran as $mata)
-                                                    @foreach ($mata['workgroup_id'] as $unitValue)
-                        
-                                                        @forelse ($workgroupData as $id => $data)
-                                                            @if ($data['id'] == $unitValue)
-                        
-                                                                @foreach ($data['unit'] as $unitTerbaru)
-                        
-                                                                    @if ($unitTerbaru == $unitNya['name'])
-                                                                        {{$mata->mataAnggaran}}
-                                                                    @endif
-                        
-                                                                @endforeach
-                        
-                                                            @endif
-                                                        @empty
-                                                        @endforelse
-                        
-                                                    @endforeach
-                                                @endforeach
-                        
-                                            @endif
-                                        @endforeach
-                                    @endif
+
+                        @forelse ($mataanggaran as $mata)
+                            @foreach ($mata['unit'] as $item)
+                                @if ($item == session('unit'))
+                                    <option value="">{{ $mata['mataAnggaran'] }}. {{ $mata['namaAnggaran'] }}</option>
                                 @endif
                             @endforeach
-                        @endif --}}
-                        
-                        
+                    
+                        @empty
+                           
+                        @endforelse
+
+
 
                        
-                           
-                        
-                        <option value="" disabled selected>--- Pilih Jenis Penggunaan Anggaran ---</option>
                         
                         </select>
                         @error('mataanggaran_id')

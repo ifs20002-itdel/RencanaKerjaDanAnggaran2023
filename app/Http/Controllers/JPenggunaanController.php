@@ -43,6 +43,7 @@ class JPenggunaanController extends Controller
         
         foreach($mataanggaranData as $mata){
             $workgroup = json_decode($mata->workgroup_id, true);
+            $unit = json_decode($mata->unit, true);
             $mataanggaran[$mata->id] = [
                 'id' => $mata->id,
                 'mataAnggaran' => $mata->mataAnggaran,
@@ -50,6 +51,7 @@ class JPenggunaanController extends Controller
                 'jenispenggunaan_id' => $mata->jenispenggunaan_id,
                 'subjenispenggunaan_id' => $mata->subjenispenggunaan_id,
                 'workgroup_id' => $workgroup,
+                'unit'=> $unit,
             ];
 
         }

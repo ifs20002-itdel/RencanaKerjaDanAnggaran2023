@@ -9,7 +9,7 @@ class MataAnggaran extends Model
 { 
     use HasFactory;
     protected $table = "mataanggaran";
-    protected $fillable = ["mataAnggaran", "namaAnggaran", "workgroup_id", "jenispenggunaan_id", "subjenispenggunaan_id"];
+    protected $fillable = ["mataAnggaran", "namaAnggaran", "unit", "workgroup_id", "jenispenggunaan_id", "subjenispenggunaan_id"];
     
     public function jenispenggunaan(){
         return $this->belongsTo('App\Models\Jenispenggunaan', 'jenispenggunaan_id');

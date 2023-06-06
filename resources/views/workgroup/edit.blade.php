@@ -72,15 +72,13 @@
                             <p class="text-danger font-weight-bold">{{ $message }}</p>
                         @enderror
                         @foreach ($unit['data']['unit'] as $item)
-    @if ($item['name'] != 'tes' && $item['name'] != 'tess')
-        <div class="form-check ml-2" style="font-size: 13px;">
-            <input class="form-check-input" type="checkbox" name="unit[]" id="unit{{ $item['unit_id'] }}" value="{{ $item['name'] }}" {{ in_array($item['name'], $workgroupData['unit']) ? 'checked' : '' }}>
-            <label class="form-check-label"  for="unit{{ $item['unit_id'] }}">{{ $item['name'] }}</label>
-        </div>
-    @endif
-@endforeach
-
-
+                            @if ($item['name'] != 'tes' && $item['name'] != 'tess')
+                                <div class="form-check ml-2" style="font-size: 13px;">
+                                    <input class="form-check-input" type="checkbox" name="unit[]" id="unit{{ $item['unit_id'] }}" value="{{ $item['name'] }}" {{ in_array($item['name'], $workgroupData['unit']) ? 'checked' : '' }}>
+                                    <label class="form-check-label"  for="unit{{ $item['unit_id'] }}">{{ $item['name'] }}</label>
+                                </div>
+                            @endif
+                        @endforeach
 
                     </div>
                 </div>

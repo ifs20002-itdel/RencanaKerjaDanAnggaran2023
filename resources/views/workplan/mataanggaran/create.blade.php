@@ -72,7 +72,7 @@
                 <div class="form-group ml-1">
                     <div class="row">
                       <div class="col-12 col-sm-11 my-2">
-                        <label>Organisasi Unit:</label>
+                        <label style="font-size: 14px;">Organisasi Unit:</label>
                         @error('workgroup_id')
                           <p class="text-danger font-weight-bold">{{ $message }}</p>
                         @enderror
@@ -82,11 +82,48 @@
                         @foreach ($workgroup as $group)
                         <div class="form-check ml-2">
                             <input class="form-check-input" type="checkbox" name="workgroup_id[]" id="workgroup_id{{$group->id}}" value="{{$group->id}}">
-                            <label class="form-check-label" for="workgroup_id{{$group->id}}" >{{ $group->nama }}</label>
+                            <label class="form-check-label" style="font-size: 14px;" for="workgroup_id{{$group->id}}" >{{ $group->nama }}</label>
                         </div>
                         @endforeach
                         @endif
 
+
+                      </div>
+                    </div>
+                </div>
+
+                <div class="form-group ml-1">
+                    <div class="row">
+                      <div class="col-12 col-sm-11 my-2">
+                        <label style="font-size: 14px;">Unit:</label>
+                        @error('unit')
+                          <p class="text-danger font-weight-bold">{{ $message }}</p>
+                        @enderror
+
+                        <?php
+                        // GetDataUnit
+                        $token = session('token');
+                        try {
+                            $responseDataUnit = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/unit?userid='.session('user')['user_id'])->body();
+                            $unit = json_decode($responseDataUnit, true);
+
+                            if (isset($unit['data']['unit']) && is_array($unit['data']['unit'])) {
+                                foreach ($unit['data']['unit'] as $item) {
+                                    if ($item['name'] != 'tes' && $item['name'] != 'tess') {
+                                        ?>
+                                        <div class="form-check ml-2" style="font-size: 13px;">
+                                            <input class="form-check-input" type="checkbox" name="unit[]" id="unit<?= $item['unit_id'] ?>" value="<?= $item['name'] ?>">
+                                            <label class="form-check-label" style="font-size: 14px;" for="unit<?= $item['unit_id'] ?>"><?= $item['name'] ?></label>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                            }
+                        } catch (\Exception $e) {
+                            // Handle the exception, e.g., redirect to the login page
+                            return redirect('/user/login');
+                        }
+                        ?>
 
                       </div>
                     </div>
