@@ -19,6 +19,10 @@
             </p>
           </a>
         </li>
+
+        @if (session('user')['user_id'] == 1392)
+            
+        
         <li class="nav-header mt-2 ml-2" style="color:white; font-size:15.5px; font-weight:bold;">ANGGARAN</li>
         <li class="nav-item mt-2">
           <a href="/workgroup" class="nav-link {{ Request::is('workgroup') ? 'active' : '' }}">
@@ -37,7 +41,7 @@
             </p>
           </a>
         </li>
-
+        @endif
         <li class="nav-item">
           <a href="/listJenisAnggaran" class="nav-link {{ Request::is('listJenisAnggaran') ? 'active' : '' }}">
             <i class="fa-sharp fa-solid fa-print nav-icon"></i>
@@ -59,7 +63,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="/pengajuan" class="nav-link {{ Request::is('pengajuan') ? 'active' : '' }}">
+          <a href="/program/create" class="nav-link {{ Request::is('pengajuan') ? 'active' : '' }}">
             <i class="nav-icon fa-solid fa-sack-dollar"></i>
             <p>Ajukan Program</p>
           </a>

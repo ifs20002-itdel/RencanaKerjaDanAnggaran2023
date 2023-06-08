@@ -14,6 +14,8 @@ use App\Models\Penggunaan;
 use App\Models\Pengajuan;
 use GuzzleHttp\Message\Response;
 use App\Models\Unit;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Database\QueryException;
 
 class LoginController extends Controller
 {
@@ -81,12 +83,20 @@ class LoginController extends Controller
 }
 
 
-    public function profile()
-    {
+public function profile()
+{
+    try {
         $Pengajuan = Pengajuan::all();
         $Penggunaan = Penggunaan::all();
         return view('pages.profile', compact('Pengajuan', 'Penggunaan'));
+    } catch (QueryException $e) {
+        Log::error('Terjadi kesalahan saat mengambil data dari database: ' . $e->getMessage());
+        return response()->view('pages.error', [], 500);
+    } catch (\Exception $e) {
+        Log::error('Terjadi kesalahan pada saat memuat halaman profile: ' . $e->getMessage());
+        return response()->view('pages.error', [], 500);
     }
+}
 
     public function logout(Request $request)
     {
