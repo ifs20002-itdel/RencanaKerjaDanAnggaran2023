@@ -8,6 +8,7 @@ use App\Models\Jenispenggunaan;
 use App\Models\SubJenisPenggunaan;
 use App\Models\Workgroup;
 use App\Models\MataAnggaran;
+use App\Models\Unit;
 
 
 class MataAnggaranController extends Controller
@@ -15,7 +16,8 @@ class MataAnggaranController extends Controller
     public function create(){
         $jenispenggunaan = Jenispenggunaan::all();
         $workgroup = Workgroup::all();
-        return view('workplan.mataanggaran.create', compact('jenispenggunaan', 'workgroup'));
+        $unit = Unit::all();
+        return view('workplan.mataanggaran.create', compact('jenispenggunaan', 'workgroup', 'unit'));
     }
 
     public function getSubJenisPenggunaan(Request $request)
@@ -69,13 +71,14 @@ class MataAnggaranController extends Controller
         $jenispenggunaan = Jenispenggunaan::all();
         $subjenispenggunaan = SubJenisPenggunaan::all();
         $workgroup = Workgroup::all();
+        $unitDB = Unit::all();
         $mataanggaran = MataAnggaran::findOrFail($id);
         $unit = json_decode($mataanggaran->unit, true);
         $mataAnggaranData = [
             'unit' => $unit,
         ];
 
-        return view('workplan.mataanggaran.edit', compact('jenispenggunaan', 'workgroup', 'mataanggaran', 'subjenispenggunaan', 'mataAnggaranData'));
+        return view('workplan.mataanggaran.edit', compact('jenispenggunaan', 'workgroup', 'mataanggaran', 'subjenispenggunaan', 'mataAnggaranData', 'unitDB'));
     }
 
     public function update(Request $request, $id){

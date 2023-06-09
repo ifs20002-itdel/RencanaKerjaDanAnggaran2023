@@ -29,38 +29,13 @@
                     </div>
                     
                     <div class="col-9">
-                
-                        
-                        <?php
-                        //GetDataPegawai
-                        try {
-                        $token = session('token');
-                        $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.session('user')['user_id'])->body();
-                        $pegawai = json_decode($responseDataPegawai, true);
-                        } catch (\Exception $e) {
-                        // Handle the exception, e.g., redirect to the login page
-                        return redirect('/user/login');
-                        }
-                    ?>
-
-                    @if (!empty($pegawai['data']['pegawai']))
-                        @foreach ($pegawai['data']['pegawai'] as $item)
-                            @if (!empty(session('user')['user_id']) && $item['user_id'] == session('user')['user_id'])
-                                @isset($item['nama'])
-                                <input type="text" name="user_id" class="form-control" value="{{$item['nama']}} - {{session('unit')}}">
-                                @endisset
-                                @break
-                            @endif
-                        @endforeach
-                    @endif
-                            
-
+                    
+                    <input type="text" name="user_id" class="form-control" value="{{Auth::user()->pegawai->nama}} - {{ Auth::user()->pegawai->unit->first()->name }}">
 
                         @error('user_id')
                         <p class="text-danger font-weight-bold">{{$message}}</p>
                         @enderror
                         
-                    
                     </div>
                 </div>
 
@@ -79,7 +54,7 @@
 
                         @forelse ($mataanggaran as $mata)
                             @foreach ($mata['unit'] as $item)
-                                @if ($item == session('unit'))
+                                @if ($item == Auth::user()->pegawai->unit->first()->name)
                                     <option value="">{{ $mata['mataAnggaran'] }}. {{ $mata['namaAnggaran'] }}</option>
                                 @endif
                             @endforeach

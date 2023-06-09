@@ -95,14 +95,28 @@
                 </div>
 
                 {{-- Unit --}}
-            <?php
-            //GetDataUnit
-            $token = session('token');
-            $responseDataUnit = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/unit?userid='.session('user')['user_id'])->body();
-            $unit = json_decode($responseDataUnit, true);
-            ?>
 
             <div class="form-group ml-1">
+                <div class="row">
+                    <div class="col-12 col-sm-11 my-2">
+                        <label style="font-size: 14px;">Tambahkan Units:</label>
+                        @error('unit')
+                            <p class="text-danger font-weight-bold">{{ $message }}</p>
+                        @enderror
+                        @foreach ($unitDB as $item)
+                            
+                            <div class="form-check ml-2" style="font-size: 13px;">
+                                <input class="form-check-input" type="checkbox" name="unit[]" id="unit{{ $item->unit_id }}" value="{{ $item->name }}" {{ in_array($item->name, $mataAnggaranData['unit']) ? 'checked' : '' }}>
+                                <label class="form-check-label"  for="unit{{ $item->unit_id }}">{{ $item->name }}</label>
+                            </div>
+                            
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
+
+            {{-- <div class="form-group ml-1">
                 <div class="row">
                     <div class="col-12 col-sm-11 my-2">
                         <label style="font-size: 14px;">Tambahkan Units:</label>
@@ -120,7 +134,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             </div>
 
