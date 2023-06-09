@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
@@ -22,30 +22,19 @@ use App\Http\Controllers\ProgramController;
 |
 */
 Route::middleware('guest')->group(function(){
+
     Route::post('/login/auth', [LoginController::class, 'login']);
 
     Route::get('/user/login', function() {
-    if (session()->has('user')) {
-        return redirect('/');
-    }
-    return view('login');
-})->name('login');
-    
+        return view('login');
+    })->name('login');
 
 });
 
-Route::get('/user/logout', function(){
-    session()->forgot('user');
-    return redirect('/user/login');
-});
-
-
-Route::group(['middleware' => ['customAuth']], function() {
+Route::middleware('auth')->group(function() {
     Route::get('/', function(){
         return view('welcomming');
-      
     });
-    
     //Profile
     Route::get('/profile', [LoginController::class, 'profile']);
     Route::get('/user/logout', [LoginController::class, 'logout']);

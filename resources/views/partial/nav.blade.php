@@ -30,37 +30,15 @@
     <a class="nav-link nama" style="color: white; font-size:14px" data-toggle="dropdown" href="#">
       <i class="fa-solid fa-user mr-2"></i>
 
-     
-      <?php
-        //GetDataPegawai
-        try {
-          $token = session('token');
-          $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.session('user')['user_id'])->body();
-          $pegawai = json_decode($responseDataPegawai, true);
-        } catch (\Exception $e) {
-          // Handle the exception, e.g., redirect to the login page
-          return redirect('/user/login');
-        }
-      ?>
-
-      @if (!empty($pegawai['data']['pegawai']))
-          @foreach ($pegawai['data']['pegawai'] as $item)
-              @if (!empty(session('user')['user_id']) && $item['user_id'] == session('user')['user_id'])
-                  @isset($item['nama'])
-                      {{$item['nama']}}
-                  @endisset
-                  @break
-              @endif
-          @endforeach
-      @endif
+      {{Auth::user()->pegawai->nama}}
               
       <i class="right fas fa-angle-down ml-2"></i>
     </a>
     <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right">
 
-      @if(isset(session('user')['jabatan'][0]['jabatan']))
-      <span class="dropdown-item dropdown-header">{{ session('user')['jabatan'][0]['jabatan'] }}</span>
-      @endif
+    
+      <span class="dropdown-item dropdown-header">{{ Auth::user()->pegawai->pejabat->first()->jabatan }}</span>
+      
 
       <div class="dropdown-divider"></div>
       <a href="/profile" class="dropdown-item text-center">

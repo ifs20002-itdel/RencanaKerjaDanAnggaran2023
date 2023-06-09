@@ -20,7 +20,7 @@
           </a>
         </li>
 
-        @if (session('user')['user_id'] == 1392)
+        @if (Auth::user()->user_id == 1392)
             
         
         <li class="nav-header mt-2 ml-2" style="color:white; font-size:15.5px; font-weight:bold;">ANGGARAN</li>

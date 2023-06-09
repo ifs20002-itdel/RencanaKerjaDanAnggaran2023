@@ -8,39 +8,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
-
-
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, AuthenticatableTrait;
-
-    // protected $fillable = ["id", "pegawai_id", "nama", "nip", "alias", "email", "username", "status", "remember_token"];
-    protected $fillable = ['user_id', 'username'];
-
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-
-        if (! empty($attributes)) {
-            $this->fill($attributes);
-        }
-    }
-
-    public function pengajuan()
-    {
-        return $this->belongsTo('App\Models\Pengajuan');
-    }
-    public function penggunaan()
-    {
-        return $this->belongsTo('App\Models\Penggunaan');
-    }
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'user_id';
+    protected $fillable = [
+        'user_id',
+        'email',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -60,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pegawai()
+    {
+       return $this->hasOne(Pegawai::class, 'user_id');
+    }
+
 }

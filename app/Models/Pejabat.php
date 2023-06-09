@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Unit extends Model
+class Pejabat extends Model
 {
     use HasFactory;
-    protected $table = "unit";
-    protected $primaryKey = 'unit_id';
-    protected $fillable = ["unit_id", "name", "inisial", "kepala_id", "kepala", "pegawai_id", "nama"];
+    protected $table = "pejabat";
+    protected $primaryKey = 'jabatan_id';
+    protected $fillable = ["pegawai_id", "nama", "jabatan_id", "jabatan"];
 
     public function pegawai()
     {
@@ -18,7 +18,7 @@ class Unit extends Model
     }
     public function unit()
     {
-        return $this->belongsTo(Unit::class, 'kepala_id');
+        return $this->hasMany(Unit::class, 'kepala_id');
     }
-
+    
 }

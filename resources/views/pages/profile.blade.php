@@ -18,32 +18,20 @@
             <div class="card card-info card-outline">
                 <div class="card-body box-profile">
 
-                <?php
-                  //GetDataPegawai
-                  $token = session('token');
-                  $responseDataPegawai = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/pegawai?userid='.session('user')['user_id'])->body();
-                  $pegawai = json_decode($responseDataPegawai, true);
-                ?>
-        
-                @foreach ($pegawai['data']['pegawai'] as $item)
-                @if($item['user_id'] == session('user')['user_id'])
-        
                 <h3 class="profile-username text-center">
-                  {{$item['nama']}}
+                  {{Auth::user()->pegawai->nama}}
                 </h3>
 
-                <a href="mailto:{{$item['email']}}" target="_blank">
+                <a href="mailto: {{Auth::user()->email}}" target="_blank">
                   <p class="text-muted text-center">
                     <i class="fa-solid fa-envelope mr-2"></i>
 
-                    {{$item['email']}}
+                    {{Auth::user()->email}}
 
                   </p>
                 </a>
                   
-                        
-                @endif
-                @endforeach
+                      
 
                   {{-- OldCode --}}
                 </div>
@@ -71,81 +59,49 @@
                     <h5 class="ml-3">User Info</h4>
                     <div class="ml-3">
 
-                      @foreach ($pegawai['data']['pegawai'] as $item)
-                      @if($item['user_id'] == session('user')['user_id'])
-                    
                         <table class="table mt-3 mb-1">
 
                           
                               <tr>
                                 <th>Nama</th>
-                                <td>{{$item['nama']}}</td>
+                                <td>{{Auth::user()->pegawai->nama}}</td>
                               </tr>
                               <tr>
                                 <th>Jabatan</th>
-                                <td>@if(isset(session('user')['jabatan'][0]['jabatan']))
-                                  {{ session('user')['jabatan'][0]['jabatan'] }}
-                                  @endif</td>
+                                <td>{{ Auth::user()->pegawai->pejabat->first()->jabatan }}</td>
                               </tr>
                               <tr>
                                 <th>NIP</th>
-                                <td>{{ $item['nip'] }}</td>
+                                <td>{{Auth::user()->pegawai->nip}}</td>
                               </tr>
-
                               <tr>
-                                <th>Alias</th>
-                                <td>{{ $item['alias ']}}</td>
-                              </tr>
-
-                              <tr>
-                                <th>Status</th>
+                                <th>Kontak Pribadi</th>
                                 <td>
-                                    @if ($item['status_pegawai'] == 'A')
-                                    Aktif
-                                    @else
-                                    Keluar
-                                    @endif
+                                  <a class="text-muted" href="mailto: {{Auth::user()->pegawai->email}}" target="_blank"> 
+                                      {{Auth::user()->pegawai->email}}
+                                  </a>
                                 </td>
                               </tr>
                           </table>
                           <br>
-                      @endif
-                      @endforeach
+
                     </div>
 
                     {{-- UnitInfo --}}
                     <h5 class="ml-3">Unit Info</h4>
                       <div class="ml-3">
-
-                        @foreach ($pegawai['data']['pegawai'] as $item)
-                        @if($item['user_id'] == session('user')['user_id'])
                       
                           <table class="table mt-3 mb-1">
-  
-                                <?php
-                                //GetDataUnit
-                                $token = session('token');
-                                $responseDataUnit = Http::withToken($token)->asForm()->post('https://cis-dev.del.ac.id/api/library-api/unit?userid='.session('user')['user_id'])->body();
-                                $unit = json_decode($responseDataUnit, true);
-                              ?>
-  
-                                @foreach ($unit['data']['unit'] as $unitNya)
-                                 @if ($item['pegawai_id'] == $unitNya['pegawai_id'])
                                  <tr>
                                   <th>Unit</th>
-                                  <td>{{$unitNya['name']}} ({{$unitNya['inisial']}})</td>
+                                  <td>{{ Auth::user()->pegawai->unit->first()->name }} ({{ Auth::user()->pegawai->unit->first()->inisial }})</td>
                                 </tr>  
                                 <tr>
                                   <th>Posisi</th>
-                                  <td>{{$unitNya['kepala']}}</td>
+                                  <td>{{ Auth::user()->pegawai->unit->first()->kepala }}</td>
                                 </tr> 
-                                 @endif
-                                    
-                                @endforeach
           
                             </table>
-                        @endif
-                        @endforeach
                       </div>
 
                   </div>
