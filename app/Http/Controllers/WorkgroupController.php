@@ -6,12 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use App\Models\Workgroup;
+use App\Models\Pejabat;
+use App\Models\Unit;
 
 
 class WorkgroupController extends Controller
 {
 
     public function wgindex(){
+        $pejabat = Pejabat::all();
+      
         $workgroup = Workgroup::get();
         $workgroupData = [];
     
@@ -25,11 +29,13 @@ class WorkgroupController extends Controller
             ];
         }
     
-        return view('workgroup.index', compact('workgroupData'));
+        return view('workgroup.index', compact('workgroupData', 'pejabat'));
     }
 
     public function wgcreate(){
-        return view('workgroup.create');
+        $pejabat = Pejabat::all();
+        $unit = Unit::all();
+        return view('workgroup.create', compact('pejabat', 'unit'));
     }
     
     public function wgstore(Request $request){

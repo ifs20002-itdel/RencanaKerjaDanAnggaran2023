@@ -20,5 +20,9 @@ class Pejabat extends Model
     {
         return $this->hasMany(Unit::class, 'kepala_id');
     }
+    public function workgroup()
+    {
+        return $this->hasMany(Workgroup::class, 'controller');
+    }
     
 }

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pejabat;
+
 
 class Workgroup extends Model
 {
@@ -24,5 +26,12 @@ class Workgroup extends Model
     {
         return $this->hasMany('App\Models\Workgroup');
     }
+
+    public function pejabat()
+    {
+        return $this->belongsTo(Pejabat::class);
+    }
+
+
 
 }

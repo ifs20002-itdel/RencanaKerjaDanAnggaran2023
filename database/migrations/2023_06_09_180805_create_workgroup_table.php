@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->longText('unit');
-            $table->integer('controller');
+            //Controller
+            $table->unsignedBigInteger('controller');
+            $table->foreign('controller')->references('jabatan_id')->on('pejabat')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
