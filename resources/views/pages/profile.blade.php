@@ -75,6 +75,21 @@
                                 <td>{{Auth::user()->pegawai->nip}}</td>
                               </tr>
                               <tr>
+                                <th>Alias</th>
+                                <td>{{Auth::user()->pegawai->alias}}</td>
+                              </tr>
+                              <tr>
+                                <th>Status</th>
+                                <td>
+                                  @if (Auth::user()->pegawai->status_pegawai == 'A')
+                                    Aktif      
+                                  @else
+                                    Keluar
+                                  @endif
+                                  
+                                </td>
+                              </tr>
+                              <tr>
                                 <th>Kontak Pribadi</th>
                                 <td>
                                   <a class="text-muted" href="mailto: {{Auth::user()->pegawai->email}}" target="_blank"> 

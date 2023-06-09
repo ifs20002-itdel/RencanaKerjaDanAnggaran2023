@@ -63,6 +63,8 @@ class LoginController extends Controller
         $nip = $pegawai['data']['pegawai'][0]['nip'];
         $nama = $pegawai['data']['pegawai'][0]['nama'];
         $email = $pegawai['data']['pegawai'][0]['email'];
+        $alias = $pegawai['data']['pegawai'][0]['alias '];
+        $status_pegawai = $pegawai['data']['pegawai'][0]['status_pegawai'];
         $user_id = $pegawai['data']['pegawai'][0]['user_id'];
 
         $cekApakahAdaIdPegawai = Pegawai::where('pegawai_id', '=', $pegawai_id)->exists();
@@ -72,6 +74,8 @@ class LoginController extends Controller
         $dataPegawai->nip = $nip;
         $dataPegawai->nama = $nama;
         $dataPegawai->email = $email;
+        $dataPegawai->alias = $alias;
+        $dataPegawai->status_pegawai = $status_pegawai;
         $dataPegawai->user_id = $user_id;
 
         // Cek apakah data sudah ada di dalam database, jika belum akan dibuat data baru di dalam database
