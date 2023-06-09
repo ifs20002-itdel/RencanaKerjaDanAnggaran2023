@@ -65,6 +65,8 @@ class WorkgroupController extends Controller
     }
 
     public function wgedit($id){
+        $pejabat = Pejabat::all();
+        $unitDB = Unit::all();
         $workgroup = DB::table('workgroup')->where('id', $id)->first();
         $unit = json_decode($workgroup->unit, true);
         $workgroupData = [
@@ -74,7 +76,7 @@ class WorkgroupController extends Controller
             'unit' => $unit,
         ];
     
-        return view('workgroup.edit', compact('workgroupData'));
+        return view('workgroup.edit', compact('workgroupData', 'pejabat', 'unitDB'));
     }
 
 
