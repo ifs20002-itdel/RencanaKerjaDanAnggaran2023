@@ -23,7 +23,6 @@ Team Implementasi
 <ol>
     <li>11S20020 - Roosen Gabriel Manurung (LEADER)</li>
     <li>11S20002 - Yoel Ganda Aprilco Napitupulu (FULLSTACK)</li>  
-    <li>11S20034 - Kevin Willys Nathaneil Samosir (FRONT END)</li>    
 </ol>
 Program Studi : S1 Informatika
 
@@ -57,13 +56,7 @@ php artisan key:generate
 4. Buka file .env pada bagian "DB_DATABASE = RKA-DB" hidupkan server APACHE dan MySQL lalu kunjungi http://localhost/phpmyadmin/index.php. buatkan DB baru dengan nama RKA-DB.
    Lalu jalankan command berikut di terminal
 
-Migrate Tabel Jabatan terlebih dahulu, untuk penamaan migration tabel jabatan silahkah disesuaikan dengan file masing-masing.
-
-```bash
-php artisan migrate --path=/database/migrations/2023_04_20_154000_create_jabatan_table.php
-```
-
-Migrate keseluruhan tabel
+Migrate table into DB
 
 ```bash
 php artisan migrate
