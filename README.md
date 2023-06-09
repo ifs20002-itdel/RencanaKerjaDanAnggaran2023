@@ -23,7 +23,6 @@ Team Implementasi
 <ol>
     <li>11S20020 - Roosen Gabriel Manurung (LEADER)</li>
     <li>11S20002 - Yoel Ganda Aprilco Napitupulu (FULLSTACK)</li>  
-    <li>11S20034 - Kevin Willys Nathaneil Samosir (FRONT END)</li>    
 </ol>
 Program Studi : S1 Informatika
 
