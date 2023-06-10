@@ -113,19 +113,24 @@ $byk = 0;
 
                   </td>
                   
+
+                  {{-- MAU DIPERBAIKI --}}
+
                   {{-- BUTTON --}}
                   <td style="width:10%">
-                      <div class="btn-group">
-                        {{-- EDIT --}}
-                          <a href="/mataanggaran/{{$mataAnggaran->id}}/edit" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
-                          {{-- DELETE --}}
-                          <form action="/mataanggaran/{{$mataAnggaran->id}}" method="POST">
-                              @csrf
-                              @method('delete')
-                          <button type="submit" class="btn btn-sm btn-danger ml-1" onclick="return confirm('Yakin Untuk Menghapus?')">
-                          <i class="fa-solid fa-trash"></i></button>
-                          </form>
-                      </div>
+
+                    <div class="btn-group">
+                    
+                      {{-- DELETE --}}
+                      <form action="/mataanggaran/{{$mataAnggaran->id}}" method="POST">
+                          @csrf
+                          @method('delete')
+                      <button type="submit" class="btn btn-sm btn-danger ml-1" style="border-radius:20px;" onclick="return confirm('Yakin Untuk Menghapus?')">
+                      <i class="fa-solid fa-trash"></i></button>
+                      </form>
+                      {{-- EDIT --}}
+                      <a href="/mataanggaran/{{$mataAnggaran->id}}/edit" class="btn btn-sm btn-warning" style="border-radius:20px;"><i class="fa-regular fa-pen-to-square"></i></a>
+                    </div>
                   </td>
                   
               </tr>

@@ -54,10 +54,10 @@
         <li class="nav-header mt-3 ml-2" style="color:white; font-size:15.5px;font-weight:bold;">WORK PLAN</li>
 
         <li class="nav-item">
-          <a href="/RKA" class="nav-link {{ Request::is('RKA') ? 'active' : '' }}">
+          <a href="/program" class="nav-link {{ Request::is('RKA') ? 'active' : '' }}">
             <i class="fa-sharp fa-solid fa-clipboard-list nav-icon"></i>
             <p>
-              List Pengajuan RKA
+              Program
             </p>
           </a>
         </li>

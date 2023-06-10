@@ -44,4 +44,8 @@ class ProgramController extends Controller
         }
         return view('RKA.create', compact('mataanggaran', 'workgroupData', 'pegawai'));
     }
+
+    public function index(){
+        return view('RKA.index');
+    }
 }

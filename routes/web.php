@@ -32,6 +32,7 @@ Route::middleware('guest')->group(function(){
 });
 
 Route::middleware('auth')->group(function() {
+
     Route::get('/', function(){
         return view('welcomming');
     });
@@ -79,6 +80,7 @@ Route::middleware('auth')->group(function() {
     
     //PROGRAM (NEW)
         Route::get('/program/create', [ProgramController::class, 'create']);
+        Route::get('/program', [ProgramController::class, 'index']);
 
     //JenisPenggunaan
     Route::get('/addJenisPenggunaan', [JenisPenggunaanController::class, 'addJenisPenggunaan']);
