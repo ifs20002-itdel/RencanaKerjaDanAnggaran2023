@@ -41,6 +41,18 @@
             </p>
           </a>
         </li>
+
+
+        <li class="nav-item">
+          <a href="/satuan" class="nav-link {{ Request::is('satuan') ? 'active' : '' }}">
+            
+            <i class="fa-solid fa-sliders nav-icon"></i>
+            <p>
+              Satuan
+            </p>
+          </a>
+        </li>
+
         @endif
         <li class="nav-item">
           <a href="/listJenisAnggaran" class="nav-link {{ Request::is('listJenisAnggaran') ? 'active' : '' }}">

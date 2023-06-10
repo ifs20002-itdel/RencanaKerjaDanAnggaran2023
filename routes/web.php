@@ -10,6 +10,7 @@ use App\Http\Controllers\WorkgroupController;
 use App\Http\Controllers\SubJenisPenggunaanController;
 use App\Http\Controllers\MataAnggaranController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\SatuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +82,14 @@ Route::middleware('auth')->group(function() {
     //PROGRAM (NEW)
         Route::get('/program/create', [ProgramController::class, 'create']);
         Route::get('/program', [ProgramController::class, 'index']);
+        
+
+    //SATUAN (NEW)
+        Route::get('/satuan/create', [SatuanController::class, 'create']);
+        Route::post('/satuan', [SatuanController::class, 'store']);
+        Route::get('/satuan', [SatuanController::class, 'index']);
+        Route::get('/satuan/{satuan_id}/edit', [SatuanController::class, 'edit']);
+        Route::put('/satuan/{satuan_id}', [SatuanController::class, 'update']);
 
     //JenisPenggunaan
     Route::get('/addJenisPenggunaan', [JenisPenggunaanController::class, 'addJenisPenggunaan']);

@@ -2,11 +2,130 @@
 @section('title', 'Add Program')
 @section('breadcrumb1')
     <li class="breadcrumb-item">Program</li>
+        <div class="col-sm-10">
+          <ol class="breadcrumb float-sm-right">
+            <li><a href="/program/create"><button type="submit" class="btn btn-light btn-sm mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Program</button></a></li>
+          </ol>
+        </div>
+    
 @endsection
 
 @section('judul', 'Program')
 
 @section('content')
+
+<div class="row">
+  <div class="col-md-6">
+
+    <div class="card card-default">
+      <!-- /.card-header -->
+      <div class="card-body" style="font-size: 13px;">
+      
+        {{-- CONTENT --}}
+      
+        {{-- TAHUN ANGGARAN --}}
+        <div class="row">
+            <div class="col-4 text-end">
+                <label class="mr-3 mt-1">Tahun Anggaran</label>
+            </div>
+            
+            <div class="col-8">
+                <select class="form-control form-control-sm" name="mataanggaran_id" style="width: 50%;" >
+                    
+
+                    <option value="" disabled selected>--- Pilih Tahun Anggaran ---</option>
+                    
+                
+                </select>
+            </div>
+        </div>
+
+        {{--/ TAHUN ANGGARAN --}}
+        <br>
+        {{-- JABATAN --}}
+
+        <div class="row">
+            <div class="col-4 text-end">
+                <label class="mr-3 mt-1">Jabatan</label>
+            </div>
+            
+            <div class="col-8">
+                <select class="form-control form-control-sm" name="mataanggaran_id">
+                    
+
+                    <option value="" disabled selected>--- Pilih Tahun Anggaran ---</option>
+                    
+                
+                </select>
+            </div>
+        </div>
+        
+        {{-- /JABATAN --}}
+        <br>
+        {{-- MATA ANGGARAN --}}
+
+        <div class="row">
+            <div class="col-4 text-end">
+                <label class="mr-3 mt-1">Mata Anggaran</label>
+            </div>
+            
+            <div class="col-8">
+                <select class="form-control form-control-sm" name="mataanggaran_id">
+                    
+
+                    <option value="" disabled selected>ALL</option>
+                    
+                
+                </select>
+            </div>
+        </div>
+        
+        {{-- /MATA ANGGARAN --}}
+         <br>
+        {{-- Status Program --}}
+
+        <div class="row">
+            <div class="col-4 text-end">
+                <label class="mr-3 mt-1">Status Program</label>
+            </div>
+            
+            <div class="col-8">
+                <select class="form-control form-control-sm" name="mataanggaran_id">
+                    
+
+                    <option value="" disabled selected>ALL</option>
+                    
+                
+                </select>
+            </div>
+        </div>
+        
+        {{-- /Status Program --}}
+
+
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.col -->
+
+  <div class="col-md-6">
+    <div class="card card-default">
+      <!-- /.card-header -->
+      <div class="card-body">
+        {{-- CONTENT --}}
+
+
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->
+<!-- END ALERTS AND CALLOUTS -->
 
     <div class="card" style="font-size: 13px;" >
       <!-- /.card-header -->
