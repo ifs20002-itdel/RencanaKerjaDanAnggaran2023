@@ -19,7 +19,7 @@
             <div class="card-body">
                 <div class="container " style="font-size: 14px;">
 
-                    {{-- NAMA SATUAN --}}
+                    {{-- TAHUN ANGGARAN --}}
                 
                     <div class="row">
                         <div class="col-3 text-end">
@@ -43,7 +43,7 @@
                         });
                     </script>
                     
-                {{-- /NAMA SATUAN --}}
+                {{-- /TAHUN  ANGGARAN --}}
                 <br>
                  {{-- Deskripsi --}}
                  <div class="row">

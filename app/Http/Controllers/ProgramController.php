@@ -9,6 +9,7 @@ use App\Models\MataAnggaran;
 use App\Models\Workgroup;
 use App\Models\Pegawai;
 use App\Models\Satuan;
+use App\Models\Tahun;
 
 
 class ProgramController extends Controller
@@ -45,7 +46,11 @@ class ProgramController extends Controller
                 'unit' => $unit,
             ];
         }
-        return view('RKA.create', compact('mataanggaran', 'workgroupData', 'pegawai', 'satuan'));
+
+        $tahun = Tahun::all();
+
+
+        return view('RKA.create', compact('mataanggaran', 'workgroupData', 'pegawai', 'satuan', 'tahun'));
     }
 
     public function index(){
