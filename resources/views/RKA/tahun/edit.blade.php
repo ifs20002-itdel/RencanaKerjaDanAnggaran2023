@@ -12,8 +12,11 @@
 @section('content')
 
 <div class="d-flex justify-content-center">
-    <div class="card col-lg-9 col-6">
-    <br>
+    <div class="col-lg-9 col-6">
+        <div class="card card-dark">
+            <div class="card-header">
+                <h3 class="card-title" style="font-size: 14px;">Form Edit Data Tahun Anggaran</h3>
+            </div>
     <form action="/tahun/{{$tahun->tahun_id}}" method="POST">
         @csrf
         @method('PUT')
@@ -57,6 +60,7 @@
                 <button type="submit" class="btn btn-dark float-right mr-4" style="font-size: 13px; border-radius:20px;">Tambahkan</button>
             </div>
     </form>
+        </div>
     </div>
 </div>
     

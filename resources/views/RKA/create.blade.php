@@ -21,6 +21,40 @@
                 {{-- CONTAINER --}}
                 <div class="container" style="font-size: 14px;">
 
+                    {{-- TAHUN Anggaran --}}
+
+                    <div class="row">
+                        <div class="col-3 text-end">
+                            <label for="mataanggaran_id" class="mr-3 mt-2">TAHUN ANGGARAN</label>
+                        </div>
+                        <div class="col-9">
+                            <select class="form-control" name="tahun_id" id="tahun_id">
+                                @forelse ($tahun as $item)
+                                    <option id="{{ $item->tahun_id }}" value="{{ $item->tahun_id }}" @if ($item->tahun != date('Y')) disabled @endif>{{ $item->tahun }}</option>  
+                                @empty
+                                    <option disabled>Tahun Anggaran Belum Dibuka</option>
+                                @endforelse
+                            </select>
+                            @error('tahun_id')
+                            <p class="text-danger font-weight-bold">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    
+                    <script>
+                        // Get the current year
+                        var currentYear = new Date().getFullYear();
+                    
+                        // Set the current year as a data attribute on the select element
+                        document.getElementById('tahun_id').setAttribute('data-current-year', currentYear);
+                    </script>
+                    
+                    
+                    
+                    
+                    
+                    {{-- /TAHUN ANGGARAN --}}
+                    <br>
                     {{-- Mata Anggaran --}}
 
                     <div class="row">
