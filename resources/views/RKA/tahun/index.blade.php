@@ -1,15 +1,15 @@
 @extends('layout.master')
-@section('title', 'Satuan')
+@section('title', 'Tahun')
 @section('breadcrumb1')
-    <li class="breadcrumb-item">Satuan</li>
+    <li class="breadcrumb-item">Tahun</li>
     <div class="col-sm-10">
         <ol class="breadcrumb float-sm-right">
-          <li><a href="/satuan/create"><button type="submit" class="btn btn-light btn-sm mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Satuan</button></a></li>
+        <li><a href="/tahun/create"><button type="submit" class="btn btn-light btn-sm mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Tahun Anggaran</button></a></li>
         </ol>
-      </div>
+    </div>
 @endsection
 
-@section('judul', 'Satuan')
+@section('judul', 'Tahun Anggaran')
 
 @section('content')
 
@@ -17,7 +17,7 @@
     <!-- /.card-header -->
     <div class="card-body">
       <?php
-      $totalData = count($satuan);
+      $totalData = count($tahun);
       $startItem = $totalData > 0 ? 1 : 0;
       ?>
       @if ($totalData > 0)
@@ -30,7 +30,7 @@
             <thead class="thead-light">
               <tr>
                 <th>#</th>
-                <th style="vertical-align: middle;">Nama Satuan
+                <th style="vertical-align: middle;">Tahun Anggaran
                     <br>
                     <input style="font-size: 13px;" type="text" id="searchingNama" name="searchingNama" class="form-control" onkeyup="searchTable('searchingNama', 1)">
                 </th>
@@ -45,18 +45,18 @@
                 <?php
                 $bykMata = 0;
                 ?>
-                @foreach ($satuan as $item)
+                @foreach ($tahun as $item)
               <!-- Table body content goes here -->
               <tr>
                   <td>{{$bykMata+=1}}</td>
-                  <td>{{$item->nama}}</td>
+                  <td>{{$item->tahun}}</td>
                   <td>{{$item->deskripsi}}</td>
                   <td>
                     <div class="input-group d-flex justify-content-center" style="font-size: 12px;">
                       <div class="input-group-prepend" style="font-size: 12px;">
                         <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" style="font-size: 12px;"><i class="fa-solid fa-wrench" style="font-size: 10px;"></i> Tools</button>
                         <div class="dropdown-menu" style="font-size: 14px;">
-                          <a class="dropdown-item" href="/satuan/{{$item->satuan_id}}/edit"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                          <a class="dropdown-item" href="/tahun/{{$item->tahun_id}}/edit"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
                         </div>
                       </div>
                     </div>
@@ -67,7 +67,7 @@
               @if ($bykMata == 0)
               <tr>
                   <td colspan="4" class="text-center p-3 table-active">
-                      Data Satuan Belum Ditambahkan
+                      Data Tahun Anggaran Belum Ditambahkan
                   </td>
               </tr>
               

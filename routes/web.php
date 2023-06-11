@@ -11,6 +11,7 @@ use App\Http\Controllers\SubJenisPenggunaanController;
 use App\Http\Controllers\MataAnggaranController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SatuanController;
+use App\Http\Controllers\TahunController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +91,14 @@ Route::middleware('auth')->group(function() {
         Route::get('/satuan', [SatuanController::class, 'index']);
         Route::get('/satuan/{satuan_id}/edit', [SatuanController::class, 'edit']);
         Route::put('/satuan/{satuan_id}', [SatuanController::class, 'update']);
+
+    //TAHUN (NEW)
+    Route::get('/tahun/create', [TahunController::class, 'create']);
+    Route::post('/tahun', [TahunController::class, 'store']);
+    Route::get('/tahun', [TahunController::class, 'index']);
+    Route::get('/tahun/{tahun_id}/edit', [TahunController::class, 'edit']);
+    Route::put('/tahun/{tahun_id}', [TahunController::class, 'update']);
+    
 
     //JenisPenggunaan
     Route::get('/addJenisPenggunaan', [JenisPenggunaanController::class, 'addJenisPenggunaan']);

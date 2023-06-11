@@ -7,7 +7,7 @@
 @section('breadcrumb2')
     <li class="breadcrumb-item">{{$satuan->nama}} &nbsp;/ &nbsp;Edit</li>
 @endsection
-@section('judul', 'Create Satuan')
+@section('judul', 'Edit Satuan')
 
 @section('content')
 
@@ -44,7 +44,7 @@
                     </div>
                     
                     <div class="col-9">
-                        <textarea style="font-size:14px" rows="4" cols="50" class="form-control" name="deskripsi" value="{{$satuan->deskripsi}}"></textarea>
+                        <textarea style="font-size:14px" rows="4" cols="50" class="form-control" name="deskripsi">{{$satuan->deskripsi}}</textarea>
                     </div>
                     
                 </div>

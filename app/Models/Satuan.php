@@ -12,4 +12,8 @@ class Satuan extends Model
     protected $primaryKey = 'satuan_id';
     protected $fillable = ["satuan_id", "nama", "deskripsi"];
 
+    public function program()
+    {
+        return $this->hasMany('App\Models\Program');
+    }
 }

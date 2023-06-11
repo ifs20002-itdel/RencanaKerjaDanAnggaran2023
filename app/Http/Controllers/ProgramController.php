@@ -8,11 +8,13 @@ use App\Models\SubJenisPenggunaan;
 use App\Models\MataAnggaran;
 use App\Models\Workgroup;
 use App\Models\Pegawai;
+use App\Models\Satuan;
 
 
 class ProgramController extends Controller
 {
     public function create(){
+        $satuan = Satuan::all();
         $pegawai = Pegawai::all();
         $mataanggaranData = MataAnggaran::get();
         $mataanggaran = [];
@@ -43,7 +45,7 @@ class ProgramController extends Controller
                 'unit' => $unit,
             ];
         }
-        return view('RKA.create', compact('mataanggaran', 'workgroupData', 'pegawai'));
+        return view('RKA.create', compact('mataanggaran', 'workgroupData', 'pegawai', 'satuan'));
     }
 
     public function index(){

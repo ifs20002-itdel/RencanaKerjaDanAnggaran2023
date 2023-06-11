@@ -53,6 +53,18 @@
           </a>
         </li>
 
+        <li class="nav-item">
+          <a href="/tahun" class="nav-link {{ Request::is('tahun') ? 'active' : '' }}">
+            
+            <i class="fa-regular fa-calendar nav-icon"></i>
+            <p>
+              Tahun Anggaran
+            </p>
+          </a>
+        </li>
+
+        
+
         @endif
         <li class="nav-item">
           <a href="/listJenisAnggaran" class="nav-link {{ Request::is('listJenisAnggaran') ? 'active' : '' }}">
