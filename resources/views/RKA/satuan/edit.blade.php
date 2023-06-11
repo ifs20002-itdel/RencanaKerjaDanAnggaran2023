@@ -17,7 +17,6 @@
             <div class="card-header">
                 <h3 class="card-title" style="font-size: 14px;">Form Edit Data Satuan</h3>
             </div>
-    <br>
     <form action="/satuan/{{$satuan->satuan_id}}" method="POST">
         @csrf
         @method('PUT')

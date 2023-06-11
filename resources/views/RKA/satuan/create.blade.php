@@ -17,7 +17,6 @@
             <div class="card-header">
                 <h3 class="card-title" style="font-size: 14px;">Form Menambahkan Data Satuan</h3>
             </div>
-        <br>
         <form action="/satuan" method="POST">
             @csrf
                 <div class="card-body">
