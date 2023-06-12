@@ -12,6 +12,7 @@ use App\Http\Controllers\MataAnggaranController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\TahunController;
+use App\Http\Controllers\RiwayatProgramController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,8 +89,11 @@ Route::middleware('auth')->group(function() {
         Route::put('/program/{program_id}', [ProgramController::class, 'update']);
         Route::delete('/program/{program_id}', [ProgramController::class, 'destroy']);
         Route::get('/program/{program_id}', [ProgramController::class, 'show']);
+        //Approve
+        Route::get('/accepted/{program_id}', [ProgramController::class, 'accepted']);
+        //Canceled
+        Route::get('/rejected/{program_id}', [ProgramController::class, 'rejected']);
         
-
     //SATUAN (NEW)
         Route::get('/satuan/create', [SatuanController::class, 'create']);
         Route::post('/satuan', [SatuanController::class, 'store']);
@@ -103,6 +107,10 @@ Route::middleware('auth')->group(function() {
     Route::get('/tahun', [TahunController::class, 'index']);
     Route::get('/tahun/{tahun_id}/edit', [TahunController::class, 'edit']);
     Route::put('/tahun/{tahun_id}', [TahunController::class, 'update']);
+
+
+    //REVIEW (NEW)
+    Route::post('/review', [RiwayatProgramController::class, 'store']);
     
 
     //JenisPenggunaan

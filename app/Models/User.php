@@ -50,6 +50,9 @@ class User extends Authenticatable
     {
        return $this->hasMany(Program::class, 'user_id');
     }
-    
+    public function riwayatprogram()
+    {
+       return $this->hasMany(RiwayatProgram::class, 'user_id');
+    } 
 
 }

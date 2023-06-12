@@ -32,5 +32,10 @@ class Pejabat extends Model
     {
         return $this->hasMany(Program::class, 'jabatan_id');
     }
+    public function riwayatprogram()
+    {
+        return $this->hasMany(RiwayatProgram::class, 'controller');
+    }
+
     
 }

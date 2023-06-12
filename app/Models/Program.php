@@ -52,4 +52,10 @@ class Program extends Model
     {
         return $this->belongsTo('App\Models\Unit', 'unit_id');
     }
+
+    public function riwayatprogram()
+    {
+        return $this->hasMany(RiwayatProgram::class, 'program_id');
+    }
+
 }

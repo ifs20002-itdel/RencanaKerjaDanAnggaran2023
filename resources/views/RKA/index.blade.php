@@ -175,9 +175,9 @@
                       <td>{{$item->hargaTotal}}</td>
                       <td>
                         @if($item->status == 'Accepted')
-                        <span class="badge rounded-pill bg-success">{{$item->status}}</span>  
+                        <p style="font-weight: bold; color: green;">{{$item->status}}</p>
                         @elseif($item->status == 'Rejected')
-                        <span class="badge rounded-pill bg-danger">{{$item->status}}</span>  
+                        <p style="font-weight: bold; color: red;">{{$item->status}}</p>
                         @else
                           <i>{{$item->status}} </i><i class="fa-sharp fa-solid fa-circle-info" style="color: #4d8eff;"></i>
                         @endif
@@ -187,13 +187,16 @@
                           <div class="input-group-prepend" style="font-size: 12px;">
                             <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" style="font-size: 12px;"><i class="fa-solid fa-wrench" style="font-size: 10px;"></i> Tools</button>
                             <div class="dropdown-menu" style="font-size: 14px;">
-                              <a class="dropdown-item" href="/program/{{$item->program_id}}/edit"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
-                              <a class="dropdown-item" href="/program/{{$item->program_id}}"><i class="fa-regular fa-eye"></i> View</a>
+                              <a class="dropdown-item" href="/program/{{$item->program_id}}"><i class="fa-regular fa-eye mr-2 mb-2"></i>View</a>
+                              @if ($item->status == 'In Progress')
+                              <a class="dropdown-item" href="/program/{{$item->program_id}}/edit"><i class="fa-regular fa-pen-to-square mr-2 mb-2"></i>Edit</a>
                               <form action="/program/{{$item->program_id}}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <a class="dropdown-item" type="submit"><i class="fa-solid fa-trash mr-1" onclick="return confirm('Yakin Untuk Menghapus?')"></i>Delete</a>
-                            </form>
+                                <a class="dropdown-item" type="submit"><i class="fa-solid fa-trash mb-2 mr-2" onclick="return confirm('Yakin Untuk Menghapus?')"></i>Delete</a>
+                              </form>
+                              @endif
+                              
 
                             </div>
                           </div>
@@ -219,9 +222,9 @@
                       <td>{{$item->hargaTotal}}</td>
                       <td>
                         @if($item->status == 'Accepted')
-                        <span class="badge rounded-pill bg-success">{{$item->status}}</span>  
+                        <p style="font-weight: bold; color: green;">{{$item->status}}</p>
                         @elseif($item->status == 'Rejected')
-                        <span class="badge rounded-pill bg-danger">{{$item->status}}</span>  
+                        <p style="font-weight: bold; color: red;">{{$item->status}}</p>
                         @else
                           <i>{{$item->status}} </i><i class="fa-sharp fa-solid fa-circle-info" style="color: #4d8eff;"></i>
                         @endif
@@ -231,8 +234,13 @@
                           <div class="input-group-prepend" style="font-size: 12px;">
                             <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" style="font-size: 12px;"><i class="fa-solid fa-wrench" style="font-size: 10px;"></i> Tools</button>
                             <div class="dropdown-menu" style="font-size: 14px;">
-                              <a class="dropdown-item" href="/program/{{$item->program_id}}"><i class="fa-regular fa-eye"></i> View</a>
+                              <a class="dropdown-item mb-1" href="/program/{{$item->program_id}}"><i class="fa-solid fa-comment mr-1"></i>Review</a>  
+                              @if ($item->status == 'In Progress')
+                              <a class="dropdown-item mb-1" href="{{url('accepted', $item->program_id)}}"><i class="fa-solid fa-check mr-1"></i>Accept</a>  
+                              <a class="dropdown-item mb-1" href="{{url('rejected', $item->program_id)}}"><i class="fa-solid fa-xmark mr-2"></i>Reject</a>   
 
+                              @endif
+                             
                             </div>
                           </div>
                         </div>

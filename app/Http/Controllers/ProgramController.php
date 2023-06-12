@@ -17,10 +17,25 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
+use App\Models\RiwayatProgram;
 
 
 class ProgramController extends Controller
 {
+    public function accepted($id){
+        $program = Program::find($id);
+        $program->status='Accepted';
+        $program->save();
+        return redirect()->back();
+    }
+
+    public function rejected($id){
+        $program = Program::find($id);
+        $program->status='Rejected';
+        $program->save();
+        return redirect()->back();
+    }
+
     public function index(){
         $program = Program::all();
         return view('RKA.index', compact('program'));
@@ -180,7 +195,8 @@ class ProgramController extends Controller
     }
     public function show($id){
         $program = Program::find($id);
-        return view('RKA.show', compact('program')); //namaVariabel
+        $riwayatprogram = RiwayatProgram::where('program_id', $id)->get();
+        return view('RKA.show', compact('program', 'riwayatprogram')); //namaVariabel
     }
 
     public function destroy($id){

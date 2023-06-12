@@ -21,7 +21,10 @@
             <a class="nav-link active" id="dataprogram" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Data Program</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="review" data-toggle="pill" href="#custom-tabs-four-messages" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Review</a>
+            <?php 
+                $totalReview = count($program->riwayatprogram)    
+            ?>
+            <a class="nav-link" id="review" data-toggle="pill" href="#tab-review-program" role="tab" aria-controls="tab-review-program" aria-selected="false">Review ({{$totalReview}})</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="statusdanriwayat" data-toggle="pill" href="#custom-tabs-four-settings" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Status & Riwayat</a>
@@ -34,7 +37,7 @@
         {{-- DATA PROGRAM --}}
           <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="dataprogram">
             {{-- CONTENT --}}
-            <table id="w0" class="table table-striped table-bordered detail-view" style="font-size: 15px;">
+            <table id="w0" class="table table-striped table-bordered detail-view" style="font-size: 14px;">
                 <tbody>
                     <tr>
                         <th style="width: 30%;">Tahun Anggaran</th>
@@ -94,39 +97,41 @@
 
         <br>
             {{-- APPROVAL --}}
+           
+  
+          </div>
+        {{-- /DATA PROGRAM --}}
 
-            @if ($program->status == 'In Progress')
+        {{-- REVIEW --}}
+          <div class="tab-pane fade" id="tab-review-program" role="tabpanel" aria-labelledby="review">
+             {{-- CONTENT --}}
                 @if ($program->mataanggaran->controller == Auth::user()->pegawai->pejabat->first()->jabatan_id)
+
+                <form action="/review" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-md-12">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
                             <h3 class="card-title">
                                 <i class="fas fa-edit"></i>
-                                Form Persetujuan
+                                Form Review
                             </h3>
                             </div>
 
 
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-2 text-end">
-                                        <label class="mr-3">Kritik </label>
-                                    </div>
-                                    
-                                    <div class="col-10">
-                                        <textarea style="font-size:14px" rows="5" cols="30" class="form-control" name="kritik">{{old('kritik')}}</textarea>
-                                    </div>
-                                    
+                                <input type="hidden" name="program_id" value="{{$program->program_id}}">
+                                <div class="col-12">
+                                    <textarea id="review" style="font-size:14px" rows="5" cols="30" class="form-control" name="review" placeholder="write a review...">{{old('review')}}</textarea>
                                 </div>
+                                <span id="review-error" class="text-danger"></span>
+                              
                             </div>
 
                             <div class="card-footer text-right">
-                            <button type="button" class="btn btn-danger mr-5" data-toggle="modal" data-target="#modal-danger">
-                                Reject
-                            </button>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
-                                Accept
+                            <button type="submit" class="btn btn-success">
+                                Create Review
                             </button>
                             </div>
 
@@ -135,96 +140,112 @@
                         <!-- /.card -->
                         </div>
                     </div>
+                </form>
               
-                <!-- ./row -->
-                    <div class="modal fade" id="modal-success">
-                        <div class="modal-dialog">
-                        <div class="modal-content bg-success">
-                            <div class="modal-header">
-                            <h4 class="modal-title">Setuju Dengan Pengajuan RKA?</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-outline-light">Save changes</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
+                <hr style="height: 5px; background-color: gray;">
               <!-- /.modal -->
-                    <div class="modal fade" id="modal-danger">
-                        <div class="modal-dialog">
-                        <div class="modal-content bg-danger">
-                            <div class="modal-header">
-                            <h4 class="modal-title">Tolak Pengajuan RKA?</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-outline-light">Save changes</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
                 @endif
-            @endif
-           
-  
-          </div>
-        {{-- /DATA PROGRAM --}}
+                
+                {{-- VIEW OF REVIEW --}}
+                <div class="row">
+                    <div class="col-md-12">
+                    
+                        @forelse ($riwayatprogram as $kritik)
+                        <div class="card">
+                                <div class="card-body">
+                                {{-- REVIEWER IDENTITY --}}
+                                <p style="font-size: 13px;">
+                                    <i class="fa-solid fa-user mr-2" style="font-size: 0.8em;"></i>{{$kritik->user->pegawai->nama}} - {{$kritik->pejabat->jabatan}} <br>
+                                    <i class="fa-sharp fa-regular fa-clock mr-2" style="font-size: 0.8em;"></i>{{\Carbon\Carbon::parse($kritik->created_at)->format('d F Y')}}
+                                </p> 
+                                <div class="card-footer" style="font-size: 13px;">
+                                    {{-- REVIEWMESSAGE --}}
+                                    {{$kritik->review}}
+                                </div>
+                                </div>
+                                
+                                
+                            </div>
+                            <br>
+                        @empty
+                        <div class="card-footer text-center" style="font-size: 13px;">
+                            {{-- REVIEWMESSAGE --}}
+                            Belum Ada Review
+                        </div>
+                        @endforelse 
+                        
+                    <!-- /.card -->
+                    </div>
+                </div>
+                {{-- VIEW OF REVIEW --}}
 
-        {{-- REVIEW --}}
-          <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="review">
-             {{-- CONTENT --}}
+
           </div>
         {{-- /REVIEW --}}
 
         {{-- STATUS/RIWAYAT --}}
           <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="statusdanriwayat">
              {{-- CONTENT --}}
-             <table id="w0" class="table table-striped table-bordered detail-view" style="font-size: 15px;">
+             <table id="w0" class="table table-striped table-bordered detail-view" style="font-size: 14px;">
                 <tbody>
                     <tr>
                         <th style="width: 30%;">Status Program</th>
-                        <td style="width: 70%;">{{$program->status}}</td>
+                        
+                        @if($program->status == 'Accepted')
+                            <td style="width: 70%; font-weight: bold; color: green;">{{$program->status}}</td>
+                        @elseif($program->status == 'Rejected')
+                            <td style="width: 70%; font-weight: bold; color: red;">{{$program->status}}</td>
+                        @else
+                            <td><i>{{$program->status}} </i><i class="fa-sharp fa-solid fa-circle-info" style="color: #4d8eff;"></i></td>
+                        @endif
+                        
                     </tr>
                     <tr>
-                        <th>Pengusul</th>
-                        <td>{{$program->unit->pegawai->nama}} - {{$program->unit->kepala}}</td>
+                        <th style="width: 30%;">Pengusul</th>
+                        <td style="width: 70%;">{{$program->unit->pegawai->nama}} - {{$program->unit->kepala}}</td>
                     </tr>
                     <tr>
-                        <th>Tanggal Diusulkan</th>
-                        <td>{{ \Carbon\Carbon::parse($program->created_at)->format('d F Y') }}</td>
+                        <th style="width: 30%;">Tanggal Diusulkan</th>
+                        <td style="width: 70%;">{{ \Carbon\Carbon::parse($program->created_at)->format('d F Y') }}</td>
                     </tr>
                     
                     <tr>
-                        <th>Disetujui Oleh</th>
-                        <td>-</td>
+                        <th style="width: 30%;">Disetujui Oleh</th>
+                        @if ($program->status == 'Accepted')
+                            <td style="width: 70%;">{{$program->mataanggaran->pejabat->nama}} - {{$program->mataanggaran->pejabat->jabatan}}</td>
+                        @else
+                            <td style="width: 70%;">-</td>
+                        @endif
+                        
                     </tr>
                     <tr>
-                        <th>Tanggal Disetujui</th>
-                        <td>-</td>
+                        <th style="width: 30%;">Tanggal Disetujui</th>
+                        @if ($program->status == 'Accepted')
+                            <td style="width: 70%;">{{\Carbon\Carbon::parse($program->updated_at)->format('d F Y') }}</td>
+                        @else
+                            <td style="width: 70%;">-</td>
+                        @endif
                     </tr>
                 
                     <tr>
-                        <th>Pelaksana</th>
-                        <td>{{$program->unit->kepala}} - {{$program->unit->name}}</td>
+                        <th style="width: 30%;">Pelaksana</th>
+                        <td style="width: 70%;">{{$program->unit->kepala}} - {{$program->unit->name}}</td>
                     </tr>
                     <tr>
-                        <th>Ditolak Oleh</th>
-                        <td>-</td>
+                        <th style="width: 30%;">Ditolak Oleh</th>
+                        @if ($program->status == 'Rejected')
+                            <td style="width: 70%;">{{$program->mataanggaran->pejabat->nama}} - {{$program->mataanggaran->pejabat->jabatan}}</td>
+                        @else
+                            <td style="width: 70%;">-</td>
+                        @endif
                     </tr>
                     <tr>
-                        <th>Tanggal Ditolak</th>
-                        <td>-</td>
+                        <th style="width: 30%;">Tanggal Ditolak</th>
+                        @if ($program->status == 'Rejected')
+                            <td style="width: 70%;">{{\Carbon\Carbon::parse($program->updated_at)->format('d F Y') }}</td>
+                        @else
+                            <td style="width: 70%;">-</td>
+                        @endif
                     </tr>
                 
                 </tbody>
@@ -236,6 +257,6 @@
       </div>
       <!-- /.card -->
     </div>
-  </div>
+</div>
 
 @endsection
