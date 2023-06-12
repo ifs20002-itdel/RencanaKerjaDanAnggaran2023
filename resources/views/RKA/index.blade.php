@@ -133,7 +133,16 @@
         <h6>Total: </h6>
         <hr style="border: none; border-top: 3px solid black; margin: 10px 0;">
 
-        <p class="text-muted">Total ... items.</p>
+        <?php
+      $totalData = count($program);
+      $startItem = $totalData > 0 ? 1 : 0;
+      ?>
+      @if ($totalData > 0)
+        <p class="text-muted">Showing <b>{{$startItem}}-{{$totalData}}</b> of <b>{{$totalData}}</b> items.</p>
+      @else
+        <p class="text-muted">No items found.</p>
+      @endif
+    
         <div class="table-responsive">
             <table class="table table-bordered">
               <thead class="thead-light">
