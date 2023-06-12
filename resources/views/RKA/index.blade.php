@@ -151,13 +151,98 @@
               </thead>
               <tbody>
                 <!-- Table body content goes here -->
+                <?php 
+                $bykMata = 0
+                ?>
+                @forelse ($program as $item)
+                @if ($item->user_id == Auth::user()->user_id)
+                  <tr>
+                      <td style="width:3%; ">{{ $bykMata+=1 }}</td>
+                      <td >{{$item->pejabat->jabatan}}</td>
+                      <td>{{$item->mataanggaran->mataAnggaran}}</td>
+                      <td>{{$item->namaProgram}}</td>
+                      <td>{{$item->namaProgram}}</td>
+                      <td>{{$item->unit->name}}</td>
+                      <td>{{$item->hargaTotal}}</td>
+                      <td>
+                        @if($item->status == 'Accepted')
+                        <span class="badge rounded-pill bg-success">{{$item->status}}</span>  
+                        @elseif($item->status == 'Rejected')
+                        <span class="badge rounded-pill bg-danger">{{$item->status}}</span>  
+                        @else
+                          <i>{{$item->status}} </i><i class="fa-sharp fa-solid fa-circle-info" style="color: #4d8eff;"></i>
+                        @endif
+                      </td>
+                      <td>
+                        <div class="input-group d-flex justify-content-center" style="font-size: 12px;">
+                          <div class="input-group-prepend" style="font-size: 12px;">
+                            <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" style="font-size: 12px;"><i class="fa-solid fa-wrench" style="font-size: 10px;"></i> Tools</button>
+                            <div class="dropdown-menu" style="font-size: 14px;">
+                              <a class="dropdown-item" href="/program/{{$item->program_id}}/edit"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                              <a class="dropdown-item" href="/program/{{$item->program_id}}"><i class="fa-regular fa-eye"></i> View</a>
+                              <form action="/program/{{$item->program_id}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <a class="dropdown-item" type="submit"><i class="fa-solid fa-trash mr-1" onclick="return confirm('Yakin Untuk Menghapus?')"></i>Delete</a>
+                            </form>
+
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    
+                  </tr>
+                  @endif
+                  @empty
+                  <td colspan="9" class="text-center font-weight-bold table-active">Belum ada Pengajuan RKA</td>
+                  @endempty
+
+                  {{-- CONTROLLER ONLY --}}
+                  @forelse ($program as $item)
+                  @if ($item->mataanggaran->controller == Auth::user()->pegawai->pejabat->first()->jabatan_id)
+                  <tr>
+                      <td style="width:3%; ">{{ $bykMata+=1 }}</td>
+                      <td >{{$item->pejabat->jabatan}}</td>
+                      <td>{{$item->mataanggaran->mataAnggaran}}</td>
+                      <td>{{$item->namaProgram}}</td>
+                      <td>{{$item->namaProgram}}</td>
+                      <td>{{$item->unit->name}}</td>
+                      <td>{{$item->hargaTotal}}</td>
+                      <td>
+                        @if($item->status == 'Accepted')
+                        <span class="badge rounded-pill bg-success">{{$item->status}}</span>  
+                        @elseif($item->status == 'Rejected')
+                        <span class="badge rounded-pill bg-danger">{{$item->status}}</span>  
+                        @else
+                          <i>{{$item->status}} </i><i class="fa-sharp fa-solid fa-circle-info" style="color: #4d8eff;"></i>
+                        @endif
+                      </td>
+                      <td>
+                        <div class="input-group d-flex justify-content-center" style="font-size: 12px;">
+                          <div class="input-group-prepend" style="font-size: 12px;">
+                            <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" style="font-size: 12px;"><i class="fa-solid fa-wrench" style="font-size: 10px;"></i> Tools</button>
+                            <div class="dropdown-menu" style="font-size: 14px;">
+                              <a class="dropdown-item" href="/program/{{$item->program_id}}"><i class="fa-regular fa-eye"></i> View</a>
+
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    
+                  </tr>
+                  @endif
+                  @empty
+                  <td colspan="9" class="text-center font-weight-bold table-active">Belum ada Pengajuan RKA</td>
+                  @endempty
+                  {{-- CONTROLLER ONLY --}}
+      
                 <tr>
                     <td colspan="6" class="text-right font-weight-bold">Total: </td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
-                  
+                
                   
                   
               </tbody>

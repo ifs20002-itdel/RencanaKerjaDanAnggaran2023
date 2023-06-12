@@ -66,16 +66,19 @@
         
 
         @endif
-        <li class="nav-item">
-          <a href="/listJenisAnggaran" class="nav-link {{ Request::is('listJenisAnggaran') ? 'active' : '' }}">
-            <i class="fa-sharp fa-solid fa-print nav-icon"></i>
-            <p>Jenis Anggaran</p>
-          </a>
-        </li>
 
         <br>
 
         <li class="nav-header mt-3 ml-2" style="color:white; font-size:15.5px;font-weight:bold;">WORK PLAN</li>
+
+        {{-- CONTROLLER ONLY --}}
+        <li class="nav-item">
+          <a href="/listJenisAnggaran" class="nav-link {{ Request::is('listJenisAnggaran') ? 'active' : '' }}">
+            <i class="fa-sharp fa-solid fa-print nav-icon"></i>
+            <p>List Pengajuan RKA</p>
+          </a>
+        </li>
+        {{-- CONTROLLER ONLY --}}
 
         <li class="nav-item">
           <a href="/program" class="nav-link {{ Request::is('RKA') ? 'active' : '' }}">

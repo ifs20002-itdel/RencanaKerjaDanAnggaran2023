@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('namaAnggaran');
             //Unit
             $table->longText('unit');
-            $table->longText('workgroup_id');
             //JenisPenggunaan
             $table->unsignedBigInteger('jenispenggunaan_id');
             $table->foreign('jenispenggunaan_id')->references('id')->on('jenispenggunaan')->onDelete('cascade');
@@ -27,6 +26,9 @@ return new class extends Migration
             $table->unsignedBigInteger('subjenispenggunaan_id')->nullable();
             $table->foreign('subjenispenggunaan_id')->references('id')->on('subjenispenggunaan')->onDelete('cascade');
             
+            $table->unsignedBigInteger('controller');
+            $table->foreign('controller')->references('jabatan_id')->on('pejabat')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

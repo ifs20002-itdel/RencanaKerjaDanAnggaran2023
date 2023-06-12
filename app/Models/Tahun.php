@@ -14,6 +14,6 @@ class Tahun extends Model
 
     public function program()
     {
-        return $this->hasMany('App\Models\Tahun');
+        return $this->hasMany(Program::class, 'tahun_id');
     }
 }

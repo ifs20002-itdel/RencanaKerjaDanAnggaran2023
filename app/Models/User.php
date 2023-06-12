@@ -46,5 +46,10 @@ class User extends Authenticatable
     {
        return $this->hasOne(Pegawai::class, 'user_id');
     }
+    public function program()
+    {
+       return $this->hasMany(Program::class, 'user_id');
+    }
+    
 
 }

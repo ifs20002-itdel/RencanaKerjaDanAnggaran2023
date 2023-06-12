@@ -8,6 +8,7 @@ use App\Models\Jenispenggunaan;
 use App\Models\SubJenisPenggunaan;
 use App\Models\MataAnggaran;
 use App\Models\Workgroup;
+use App\Models\Pejabat;
 
 class JPenggunaanController extends Controller
 {
@@ -36,13 +37,13 @@ class JPenggunaanController extends Controller
     }
 
     public function JPenggunaanIndex(){
+        $pejabat = Pejabat::all();
         $Jenispenggunaan = Jenispenggunaan::all();
         $Subjenispenggunaan = SubJenisPenggunaan::all();
         $mataanggaranData = MataAnggaran::get();
         $mataanggaran = [];
         
         foreach($mataanggaranData as $mata){
-            $workgroup = json_decode($mata->workgroup_id, true);
             $unit = json_decode($mata->unit, true);
             $mataanggaran[$mata->id] = [
                 'id' => $mata->id,
@@ -50,26 +51,13 @@ class JPenggunaanController extends Controller
                 'namaAnggaran' => $mata->namaAnggaran,
                 'jenispenggunaan_id' => $mata->jenispenggunaan_id,
                 'subjenispenggunaan_id' => $mata->subjenispenggunaan_id,
-                'workgroup_id' => $workgroup,
+                'controller' => $mata->controller,
                 'unit'=> $unit,
             ];
 
         }
-
-        $workgroup = Workgroup::get();
-        $workgroupData = [];
-    
-        foreach ($workgroup as $group) {
-            $unit = json_decode($group->unit, true);
-            $workgroupData[$group->id] = [
-                'id' => $group->id,
-                'nama' => $group->nama,
-                'controller' => $group->controller,
-                'unit' => $unit,
-            ];
-        }
         
-        return view('workplan.jPenggunaan.index', compact('Jenispenggunaan', 'Subjenispenggunaan', 'mataanggaran', 'workgroupData'));
+        return view('workplan.jPenggunaan.index', compact('Jenispenggunaan', 'Subjenispenggunaan', 'mataanggaran', 'pejabat'));
     }
 
     public function JPEdit($id){

@@ -47,12 +47,8 @@
 
                 <div class="form-group">
                     <label for="subjenispenggunaan_id" style="font-size: 14px;">Sub Jenis Penggunaan Anggaran</label>
-                    <select class="form-control" name="subjenispenggunaan_id" id="subjenispenggunaan_id" style="font-size: 14px;">
-
-                        @foreach($subjenispenggunaan as $item)
-                             <option id="{{ $item->id }}" value="{{ $item->id }}" {{ $item->id == $mataanggaran->subjenispenggunaan_id ? 'selected' : '' }}>{{$bykSub = chr(ord($bykSub) + 1) }}. {{ $item->namaSubJenisPenggunaan }}</option>
-                        @endforeach
-
+                    <select class="form-control" name="subjenispenggunaan_id" id="subjenispenggunaan_id">
+                    
                     </select>
                 </div>
 
@@ -74,24 +70,22 @@
                     @enderror
                 </div>
 
-                <div class="form-group ml-1">
-                    <div class="row">
-                      <div class="col-12 col-sm-11 my-2">
-                        <label style="font-size: 14px;">Organisasi Unit:</label>
-                        @error('workgroup_id')
-                          <p class="text-danger font-weight-bold">{{ $message }}</p>
-                        @enderror
-                       
-                        @foreach ($workgroup as $group)
-                        <div class="form-check ml-2">
-                            <input class="form-check-input" type="checkbox" name="workgroup_id[]" id="workgroup_id{{$group->id}}" value="{{$group->id}}" {{ in_array($group->id, json_decode($mataanggaran->workgroup_id)) ? 'checked' : '' }}>
-                            <label class="form-check-label" style="font-size: 14px;" for="workgroup_id{{$group->id}}" >{{ $group->nama }}</label>
-                        </div>
+                <div class="form-group" style="font-size: 14px;">
+                    <label style="font-size: 14px;">Controller</label> <br>
+                    <select id="jabatan" class="form-control col-lg-11 col-6" type="text" name='controller' placeholder="Cth. Wakil Rektor Bidang Akademik dan Kemahasiswaan">
+                        <option value="">--- Pilih Controller ---</option>
+    
+                        @foreach ($pejabat as $controller)
+                            <option name="controller" value="{{$controller->jabatan_id}}" {{ old('controller', $mataAnggaranData['controller']) == $controller->jabatan_id ? 'selected' : '' }}>{{$controller->jabatan}}</option>
                         @endforeach
-
-
-                      </div>
-                    </div>
+                        {{-- @foreach ($kepala['data']['pejabat'] as $controller)
+                            <option name="controller" value="{{$controller['jabatan_id']}}" {{ old('controller', $workgroupData['controller']) == $controller['jabatan_id'] ? 'selected' : '' }}>{{$controller['jabatan']}}</option>
+                        @endforeach --}}
+                    </select>
+    
+                    @error('controller')
+                    <p class="text-danger font-weight-bold">{{$message}}</p>
+                    @enderror
                 </div>
 
                 {{-- Unit --}}
@@ -176,6 +170,18 @@
   });
   
   
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+  <script>
+      $(document).ready(function(){
+          $(document).ready(function() {
+              $('.selectpicker').selectpicker();
+          });
+  
+          $('#jabatan').select2({});
+      });
   </script>
 
 @endsection

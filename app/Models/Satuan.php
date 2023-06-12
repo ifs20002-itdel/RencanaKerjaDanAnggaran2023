@@ -14,6 +14,6 @@ class Satuan extends Model
 
     public function program()
     {
-        return $this->hasMany('App\Models\Program');
+        return $this->hasMany(Program::class, 'satuan_id');
     }
 }

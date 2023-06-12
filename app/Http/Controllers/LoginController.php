@@ -185,9 +185,8 @@ class LoginController extends Controller
 public function profile()
 {
     try {
-        $Pengajuan = Pengajuan::all();
         $Penggunaan = Penggunaan::all();
-        return view('pages.profile', compact('Pengajuan', 'Penggunaan'));
+        return view('pages.profile', compact('Penggunaan'));
     } catch (QueryException $e) {
         Log::error('Terjadi kesalahan saat mengambil data dari database: ' . $e->getMessage());
         return response()->view('pages.error', [], 500);

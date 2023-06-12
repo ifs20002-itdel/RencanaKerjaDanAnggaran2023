@@ -83,6 +83,11 @@ Route::middleware('auth')->group(function() {
     //PROGRAM (NEW)
         Route::get('/program/create', [ProgramController::class, 'create']);
         Route::get('/program', [ProgramController::class, 'index']);
+        Route::post('/program', [ProgramController::class, 'store']);
+        Route::get('/program/{program_id}/edit', [ProgramController::class, 'edit']);
+        Route::put('/program/{program_id}', [ProgramController::class, 'update']);
+        Route::delete('/program/{program_id}', [ProgramController::class, 'destroy']);
+        Route::get('/program/{program_id}', [ProgramController::class, 'show']);
         
 
     //SATUAN (NEW)

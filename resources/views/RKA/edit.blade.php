@@ -1,13 +1,15 @@
 @extends('layout.master')
-@section('title', 'Add Program')
+@section('title', 'Edit Program')
 @section('breadcrumb1')
     <li class="breadcrumb-item"><a href="/program">Program</a></li>
 @endsection
 
 @section('breadcrumb2')
-    <li class="breadcrumb-item">Create</li>
+    <li class="breadcrumb-item">Update Program</li>
 @endsection
-@section('judul', 'Create Program')
+@section('judul')
+Update Program: {{$program->namaProgram}}
+@endsection
 
 @section('content')
 
@@ -15,10 +17,11 @@
     <div class="col-lg-11 col-6">
         <div class="card card-dark">
             <div class="card-header">
-                <h3 class="card-title" style="font-size: 14px;">Form Pengajuan Rencana Kerja dan Anggaran</h3>
+                <h3 class="card-title" style="font-size: 14px;">Form Edit Rencana Kerja dan Anggaran</h3>
             </div>
-        <form action="/program" method="POST" oninput="calculateTotalPrice()">
+        <form action="/program/{{$program->program_id}}" method="POST" oninput="calculateTotalPrice()">
             @csrf
+            @method('PUT')
             <div class="card-body">
 
                 {{-- CONTAINER --}}
@@ -73,7 +76,7 @@
                                     @foreach ($mata['unit'] as $item)
                                         @if ($item == Auth::user()->pegawai->unit->first()->name)
                                             <option id="{{ $mata['id'] }}"
-                                                value="{{ $mata['id'] }}">{{ Auth::user()->pegawai->pejabat->first()->jabatan }}
+                                                value="{{ $mata['id'] }}" {{ $mata['id'] == $program->mataanggaran_id ? 'selected' : '' }}>{{ Auth::user()->pegawai->pejabat->first()->jabatan }}
                                                 - {{ $mata['mataAnggaran'] }}. {{ $mata['namaAnggaran'] }}</option>
                                         @endif
                                     @endforeach
@@ -98,7 +101,7 @@
 
                         <div class="col-9">
 
-                            <input type="text" name="namaProgram" class="form-control" value="{{ old('namaProgram') }}">
+                            <input type="text" name="namaProgram" class="form-control" value="{{$program->namaProgram}}">
 
                             @error('namaProgram')
                             <p class="text-danger font-weight-bold">{{ $message }}</p>
@@ -118,7 +121,7 @@
                         <div class="col-9">
 
                             <textarea style="font-size:14px" rows="4" cols="50" class="form-control"
-                                name="tujuan">{{ old('tujuan') }}</textarea>
+                                name="tujuan">{{ $program->tujuan }}</textarea>
 
                         </div>
 
@@ -135,7 +138,7 @@
 
                         <div class="col-9">
                             <textarea style="font-size:14px" rows="4" cols="50" class="form-control"
-                                name="deskripsi">{{ old('deskripsi') }}</textarea>
+                                name="deskripsi">{{ $program->deskripsi }}</textarea>
                         </div>
                     </div>
                     {{-- /Deskripsi --}}
@@ -149,6 +152,8 @@
                         </div>
 
                         <div class="col-9">
+
+
                             @foreach (['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'] as $waktu)
                                 <input type="checkbox" name="waktu[]" id="waktu{{$waktu}}" value="{{ $waktu }}">
                                 <label class="form-check-label mr-2 mb-2" for="waktu{{ $waktu }}">{{ $waktu }}</label>
@@ -176,7 +181,7 @@
                                 <select class="form-control" name="satuan_id">
                                     <option value="" disabled selected>--- Satuan ---</option>
                                     @foreach ($satuan as $item)
-                                        <option id="{{$item->satuan_id}}" value="{{ $item->satuan_id }}">{{ $item->nama }}</option>
+                                        <option id="{{$item->satuan_id}}" value="{{ $item->satuan_id }}"  {{ $item->satuan_id == $program->satuan_id ? 'selected' : '' }}>{{ $item->nama }}</option>
                                     @endforeach
                                 </select>
                                 @error('satuan_id')
@@ -202,7 +207,7 @@
                             <label class="mr-3 mt-2">Volume</label>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="volume" name="volume" class="form-control" value="{{ old('volume') }}" min="0"
+                            <input type="text" id="volume" name="volume" class="form-control" value="{{$program->volume}}" min="0"
                                 oninput="calculateTotalPrice()">
                             @error('volume')
                             <p class="text-danger font-weight-bold">{{ $message }}</p>
@@ -221,7 +226,7 @@
                         </div>
                         <div class="col-9">
                             <input style="text-align: right;" type="text" id="hargaSatuan" name="hargaSatuan" class="form-control"
-                                value="{{ old('hargaSatuan') }}" min="0" oninput="calculateTotalPrice()">
+                                value="{{$program->hargaSatuan }}" min="0" oninput="calculateTotalPrice()">
                             @error('hargaSatuan')
                             <p class="text-danger font-weight-bold">{{ $message }}</p>
                             @enderror
@@ -236,7 +241,7 @@
                             <label class="mr-3">Harga Total</label>
                         </div>
                         <div class="col-9">
-                            <input style="text-align: right;" maxlength="10" type="text" id="hargaTotal" name="hargaTotal" class="form-control" readonly>
+                            <input style="text-align: right;" maxlength="10" value="{{$program->hargaTotal}}" type="text" id="hargaTotal" name="hargaTotal" class="form-control" readonly>
                         </div>
                     </div>
 

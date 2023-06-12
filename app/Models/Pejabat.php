@@ -24,5 +24,13 @@ class Pejabat extends Model
     {
         return $this->hasMany(Workgroup::class, 'controller');
     }
+    public function mataanggaran()
+    {
+        return $this->hasMany(MataAnggaran::class, 'controller');
+    }
+    public function program()
+    {
+        return $this->hasMany(Program::class, 'jabatan_id');
+    }
     
 }

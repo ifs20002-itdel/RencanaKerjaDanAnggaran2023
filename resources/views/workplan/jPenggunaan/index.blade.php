@@ -92,21 +92,29 @@ $byk = 0;
               <tr>
                   <td style="width:3%; border: 1px solid black; padding: 8px;">{{ $bykMata+=1 }}</td>
                   <td style="width:11%; border: 1px solid black; padding: 8px; text-align: center;">{{$mataAnggaran['mataAnggaran']}}</td>
-                  <td style="width:37%; border: 1px solid black; padding: 8px;">{{$mataAnggaran['namaAnggaran']}}</td>
-                  <td style="width:35%; border: 1px solid black; padding: 8px;">
-                    <p><b>Workgroup</b></p>
-                  @foreach (json_decode($mataAnggaran['workgroup_id']) as $unitValue)
+                  <td style="width:32%; border: 1px solid black; padding: 8px;">{{$mataAnggaran['namaAnggaran']}}</td>
+                  <td style="width:40%; border: 1px solid black; padding: 8px;">
+                    <p><b>Controller</b></p>
+                    @foreach ($pejabat as $kepalaGroup)
+                      @if($kepalaGroup->jabatan_id == $mataAnggaran['controller'])
+                        <li>
+                          {{$kepalaGroup->nama}} <br>
+                          (<i>{{$kepalaGroup->jabatan}}</i>)
+                        </li>
+                      @endif
+                    @endforeach
+                  {{-- @foreach (json_decode($mataAnggaran['workgroup_id']) as $unitValue)
                     @forelse ($workgroupData as $id => $data)
                       @if ($data['id'] == $unitValue)
                       <li>{{$data['nama']}} <br></li>
                       @endif
                     @empty  
                     @endforelse
-                  @endforeach
+                  @endforeach --}}
                     <br>
                         
                     <p><b>Units</b></p>
-                      @foreach ($mata['unit'] as $unit)
+                      @foreach (json_decode($mataAnggaran['unit']) as $unit)
                           <li>{{$unit}} <br></li>
                       @endforeach
 
@@ -194,21 +202,21 @@ $byk = 0;
                         
                         @foreach ($mataanggaran as $mata)
                         @if ($mata['subjenispenggunaan_id'] == $subJenis->id)
-                        <tr>
-                            <td style="width:3%; border: 1px solid black; padding: 8px;">{{ $bykMata+=1 }}</td>
-                            <td style="width:12%; border: 1px solid black; padding: 8px; text-align: center;">{{$mata['mataAnggaran']}}</td>
-                            <td style="width:35%; border: 1px solid black; padding: 8px;">{{$mata['namaAnggaran']}}</td>
-                            <td style="width:35%; border: 1px solid black; padding: 8px;">
-                            <p><b>Workgroup</b></p>
-                            @foreach ($mata['workgroup_id'] as $unitValue)
-                            @forelse ($workgroupData as $id => $data)
-                              @if ($data['id'] == $unitValue)
-                              <li>{{$data['nama']}} <br></li>
-                              @endif
-                            @empty  
-                            @endforelse
-                          @endforeach
-                          <br>
+                          <tr>
+                              <td style="width:3%; border: 1px solid black; padding: 8px;">{{ $bykMata+=1 }}</td>
+                              <td style="width:12%; border: 1px solid black; padding: 8px; text-align: center;">{{$mata['mataAnggaran']}}</td>
+                              <td style="width:35%; border: 1px solid black; padding: 8px;">{{$mata['namaAnggaran']}}</td>
+                              <td style="width:35%; border: 1px solid black; padding: 8px;">
+                              <p><b>Workgroup</b></p>
+                                @foreach ($pejabat as $kepalaGroup)
+                                  @if($kepalaGroup->jabatan_id == $mata['controller'])
+                                    <li>
+                                      {{$kepalaGroup->nama}} <br>
+                                      (<i>{{$kepalaGroup->jabatan}}</i>)
+                                    </li>
+                                  @endif
+                                @endforeach
+                              <br>
                              
                           <p><b>Units</b></p>
                             @foreach ($mata['unit'] as $unit)
@@ -236,7 +244,7 @@ $byk = 0;
                             
                         </tr>
                         @endif
-                    @endforeach
+                        @endforeach
 
                         {{-- @foreach ($mataanggaran as $mata)
                         @if ($mata['subjenispenggunaan_id'] == $subJenis->id)

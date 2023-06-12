@@ -20,5 +20,9 @@ class Unit extends Model
     {
         return $this->belongsTo(Unit::class, 'kepala_id');
     }
+    public function program()
+    {
+        return $this->hasMany(Program::class, 'unit_id');
+    }
 
 }
