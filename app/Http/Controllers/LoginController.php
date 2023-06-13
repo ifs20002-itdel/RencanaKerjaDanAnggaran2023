@@ -27,6 +27,8 @@ class LoginController extends Controller
     $username = $request->input('usernameLogin');
     $password = $request->input('passwordLogin');
 
+    // Mekanisme test admin 
+    // Saat akan ke tahap production, maka mekanisme ini akan dihapuskan dan akan digantikan user sdi
     if ($username == "admin" && $password == "admin") {
         $request->session()->regenerate();
 
@@ -41,7 +43,7 @@ class LoginController extends Controller
         }else {
             $dataAdmin->update();
         }
-        
+
         Auth::login($dataAdmin);
         return redirect('/');
 

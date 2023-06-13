@@ -129,24 +129,14 @@
     <div class="card" style="font-size: 13px;" >
       <!-- /.card-header -->
       <div class="card-body">
-        <h6>Total: </h6>
-        <hr style="border: none; border-top: 3px solid black; margin: 10px 0;">
 
-        <?php
-      $totalData = count($program);
-      $startItem = $totalData > 0 ? 1 : 0;
-      ?>
-      @if ($totalData > 0)
-        <p class="text-muted">Showing <b>{{$startItem}}-{{$totalData}}</b> of <b>{{$totalData}}</b> items.</p>
-      @else
-        <p class="text-muted">No items found.</p>
-      @endif
+        <hr style="border: none; border-top: 3px solid black; margin: 10px 0;">
     
         <div class="table-responsive">
             <table class="table table-bordered">
               <thead class="thead-light">
                 <tr>
-                  <th>#</th>
+                  <th style="width:3%; ">#</th>
                   <th>Jabatan</th>
                   <th>Mata Anggaran</th>
                   <th>Kode Program</th>
@@ -165,14 +155,14 @@
                 @forelse ($program as $item)
                 @if ($item->user_id == Auth::user()->user_id)
                   <tr>
-                      <td style="width:3%; ">{{ $bykMata+=1 }}</td>
-                      <td >{{$item->pejabat->jabatan}}</td>
-                      <td>{{$item->mataanggaran->mataAnggaran}}</td>
-                      <td>{{$item->namaProgram}}</td>
-                      <td>{{$item->namaProgram}}</td>
-                      <td>{{$item->unit->name}}</td>
-                      <td>{{$item->hargaTotal}}</td>
-                      <td>
+                      <td style="width:3%;">{{ $bykMata+=1 }}</td>
+                      <td style="width:10%;" >{{$item->pejabat->jabatan}}</td>
+                      <td style="width:5%;">{{$item->mataanggaran->mataAnggaran}}</td>
+                      <td style="width:10%;">{{$item->namaProgram}}</td>
+                      <td style="width:10%;">{{$item->namaProgram}}</td>
+                      <td style="width:15%;">{{$item->unit->name}}</td>
+                      <td style="width:10%;">{{$item->hargaTotal}}</td>
+                      <td style="width:7%;">
                         @if($item->status == 'Accepted')
                         <p style="font-weight: bold; color: green;">{{$item->status}}</p>
                         @elseif($item->status == 'Rejected')
@@ -181,7 +171,7 @@
                           <i>{{$item->status}} </i><i class="fa-sharp fa-solid fa-circle-info" style="color: #4d8eff;"></i>
                         @endif
                       </td>
-                      <td>
+                      <td style="width:6%;">
                         <div class="input-group d-flex justify-content-center" style="font-size: 12px;">
                           <div class="input-group-prepend" style="font-size: 12px;">
                             <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" style="font-size: 12px;"><i class="fa-solid fa-wrench" style="font-size: 10px;"></i> Tools</button>
@@ -212,14 +202,14 @@
                   @forelse ($program as $item)
                   @if ($item->mataanggaran->controller == Auth::user()->pegawai->pejabat->first()->jabatan_id)
                   <tr>
-                      <td style="width:3%; ">{{ $bykMata+=1 }}</td>
-                      <td >{{$item->pejabat->jabatan}}</td>
-                      <td>{{$item->mataanggaran->mataAnggaran}}</td>
-                      <td>{{$item->namaProgram}}</td>
-                      <td>{{$item->namaProgram}}</td>
-                      <td>{{$item->unit->name}}</td>
-                      <td>{{$item->hargaTotal}}</td>
-                      <td>
+                      <td style="width:3%;">{{ $bykMata+=1 }}</td>
+                      <td style="width:10%; ">{{$item->pejabat->jabatan}}</td>
+                      <td style="width:5%; ">{{$item->mataanggaran->mataAnggaran}}</td>
+                      <td style="width:10%; ">{{$item->namaProgram}}</td>
+                      <td style="width:10%; ">{{$item->namaProgram}}</td>
+                      <td style="width:15%; ">{{$item->unit->name}}</td>
+                      <td style="width:10%; ">{{$item->hargaTotal}}</td>
+                      <td style="width:7%; ">
                         @if($item->status == 'Accepted')
                         <p style="font-weight: bold; color: green;">{{$item->status}}</p>
                         @elseif($item->status == 'Rejected')
@@ -228,7 +218,7 @@
                           <i>{{$item->status}} </i><i class="fa-sharp fa-solid fa-circle-info" style="color: #4d8eff;"></i>
                         @endif
                       </td>
-                      <td>
+                      <td style="width:6%; ">
                         <div class="input-group d-flex justify-content-center" style="font-size: 12px;">
                           <div class="input-group-prepend" style="font-size: 12px;">
                             <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" style="font-size: 12px;"><i class="fa-solid fa-wrench" style="font-size: 10px;"></i> Tools</button>
@@ -254,7 +244,34 @@
       
                 <tr>
                     <td colspan="6" class="text-right font-weight-bold">Total: </td>
-                    <td></td>
+                    <td>
+                      
+                      @php
+                        $total = 0;
+                      @endphp
+                      @forelse ($program as $item)
+                      @if ($item->mataanggaran->controller == Auth::user()->pegawai->pejabat->first()->jabatan_id)
+                        @php
+                          $hargaTotal = intval(str_replace(['Rp. ', '.'], '', $item->hargaTotal));
+                          $total += $hargaTotal;
+                        @endphp
+                      @endif
+                      @empty
+                        No data available.
+                      @endforelse
+
+                      @forelse ($program as $item)
+                      @if ($item->user_id == Auth::user()->user_id)
+                        @php
+                          $hargaTotal = intval(str_replace(['Rp. ', '.'], '', $item->hargaTotal));
+                          $total += $hargaTotal;
+                        @endphp
+                      @endif
+                      @empty
+                        No data available.
+                      @endforelse
+                      Rp. {{ number_format($total) }}
+                    </td>
                     <td></td>
                     <td></td>
                 </tr>
