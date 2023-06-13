@@ -4,7 +4,7 @@
     <li class="breadcrumb-item">Satuan</li>
     <div class="col-sm-10">
         <ol class="breadcrumb float-sm-right">
-          <li><a href="/satuan/create"><button type="submit" class="btn btn-light btn-sm mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Satuan</button></a></li>
+          <li><a href="/satuan/create"><button type="submit" class="btn btn-success btn-sm mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Satuan</button></a></li>
         </ol>
       </div>
 @endsection

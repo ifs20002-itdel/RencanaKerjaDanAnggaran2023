@@ -32,7 +32,14 @@
         <h4 style="font-family: 'Montserrat', sans-serif; font-size: 2.1rem; font-weight: bold; color:black;">SELAMAT DATANG</h4>
 
 
-                  <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.92rem; color:black;">{{Auth::user()->pegawai->nama}}</h4>
+                  <h4 style="font-family: 'Montserrat', sans-serif; font-size: 0.92rem; color:black;">
+                    @if (Auth::user()->user_id == 777)
+                        Admin RKA
+                    @else
+                      {{Auth::user()->pegawai->nama}}
+                    @endif
+                    
+                  </h4>
                  
         </div>
       </div>

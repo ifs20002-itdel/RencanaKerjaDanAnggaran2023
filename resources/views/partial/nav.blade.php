@@ -26,24 +26,35 @@
       <span class="dropdown-item dropdown-header">15 Notifications</span>
   </li>
   
+
   <li class="nav-item dropdown">
     <a class="nav-link nama" style="color: white; font-size:14px" data-toggle="dropdown" href="#">
       <i class="fa-solid fa-user mr-2"></i>
 
+      @if (Auth::user()->user_id == 777)
+          ADMIN
+      @else
       {{Auth::user()->pegawai->nama}}
+      @endif
+      
               
       <i class="right fas fa-angle-down ml-2"></i>
     </a>
     <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right">
 
     
+      @if (Auth::user()->user_id != 777)
       <span class="dropdown-item dropdown-header">{{ Auth::user()->pegawai->pejabat->first()->jabatan }}</span>
+      @endif
+     
       
 
       <div class="dropdown-divider"></div>
+      @if (Auth::user()->user_id != 777)
       <a href="/profile" class="dropdown-item text-center">
         <i class="fa-solid fa-person-chalkboard mr-2"></i>Profile
       </a>
+      @endif
       <div class="dropdown-divider"></div>
       <a href=""></a>
       <div class="dropdown-divider"></div>

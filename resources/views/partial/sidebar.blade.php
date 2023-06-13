@@ -20,9 +20,9 @@
           </a>
         </li>
 
-        @if (Auth::user()->user_id == 1392)
+        @if (Auth::user()->user_id == 777)
             
-        
+{{--         
         <li class="nav-header mt-2 ml-2" style="color:white; font-size:15.5px; font-weight:bold;">ANGGARAN</li>
         <li class="nav-item mt-2">
           <a href="/workgroup" class="nav-link {{ Request::is('workgroup') ? 'active' : '' }}">
@@ -31,7 +31,7 @@
               Add WorkGroup
             </p>
           </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
           <a href="/jp" class="nav-link {{ Request::is('jp') ? 'active' : '' }}">
@@ -68,17 +68,20 @@
         @endif
 
         <br>
-
+        @if (Auth::user()->user_id != 777)
         <li class="nav-header mt-3 ml-2" style="color:white; font-size:15.5px;font-weight:bold;">WORK PLAN</li>
 
         {{-- CONTROLLER ONLY --}}
-        <li class="nav-item">
+
+        {{-- <li class="nav-item">
           <a href="/listJenisAnggaran" class="nav-link {{ Request::is('listJenisAnggaran') ? 'active' : '' }}">
             <i class="fa-sharp fa-solid fa-print nav-icon"></i>
             <p>List Pengajuan RKA</p>
           </a>
-        </li>
+        </li> --}}
         {{-- CONTROLLER ONLY --}}
+
+        
 
         <li class="nav-item">
           <a href="/program" class="nav-link {{ Request::is('RKA') ? 'active' : '' }}">
@@ -95,6 +98,7 @@
             <p>Ajukan Program</p>
           </a>
         </li>
+        @endif
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

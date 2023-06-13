@@ -4,7 +4,7 @@
     <li class="breadcrumb-item">Program</li>
         <div class="col-sm-10">
           <ol class="breadcrumb float-sm-right">
-            <li><a href="/program/create"><button type="submit" class="btn btn-light btn-sm mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Program</button></a></li>
+            <li><a href="/program/create"><button type="submit" class="btn btn-success btn-sm mb-3" style="font-size: 13.5px;"><i class="fa-regular fa-plus mr-2"></i>Tambah Program</button></a></li>
           </ol>
         </div>
     
@@ -30,11 +30,13 @@
             </div>
             
             <div class="col-8">
-                <select class="form-control form-control-sm" name="mataanggaran_id" style="width: 50%;" >
+                <select id="filter-tahun" class="form-control filter" name="mataanggaran_id" style="width: 50%;" >
                     
 
-                    <option value="" disabled selected>--- Pilih Tahun Anggaran ---</option>
-                    
+                    <option value="" disabled selected>--- ALL ---</option>
+                    @foreach ($tahun as $item)
+                      <option value="{{$item->tahun_id}}">{{$item->tahun}}</option>
+                    @endforeach
                 
                 </select>
             </div>
@@ -50,12 +52,11 @@
             </div>
             
             <div class="col-8">
-                <select class="form-control form-control-sm" name="mataanggaran_id">
-                    
-
-                    <option value="" disabled selected>--- Pilih Tahun Anggaran ---</option>
-                    
-                
+                <select id="filter-pejabat" class="form-control filter" name="mataanggaran_id">
+                  <option value="" disabled selected>--- ALL ---</option>
+                  @foreach ($pejabat as $item)
+                    <option value="{{$item->tahun_id}}">{{$item->jabatan}}</option>
+                  @endforeach
                 </select>
             </div>
         </div>
@@ -70,12 +71,11 @@
             </div>
             
             <div class="col-8">
-                <select class="form-control form-control-sm" name="mataanggaran_id">
-                    
-
-                    <option value="" disabled selected>ALL</option>
-                    
-                
+                <select id="filter-mataanggaran" class="form-control filter" name="mataanggaran_id">
+                  <option value="" disabled selected>--- ALL ---</option>
+                  @foreach ($mataanggaran as $item)
+                    <option value="{{$item->id}}">{{$item->mataAnggaran}}</option>
+                  @endforeach
                 </select>
             </div>
         </div>
@@ -90,12 +90,11 @@
             </div>
             
             <div class="col-8">
-                <select class="form-control form-control-sm" name="mataanggaran_id">
-                    
-
-                    <option value="" disabled selected>ALL</option>
-                    
-                
+                <select id="filter-status" class="form-control filter" name="mataanggaran_id">
+                  <option value="" disabled selected>--- ALL ---</option>
+                  @foreach ($program as $item)
+                    <option value="{{$item->program_id}}">{{$item->status}}</option>
+                  @endforeach
                 </select>
             </div>
         </div>
@@ -273,6 +272,12 @@
       <!-- /.card-body -->
     </div>
     <!-- /.card -->
+
+  <script>
+    $(".fiter").on('change', function(){
+      console.log("FILTER")
+    })
+  </script>
 
 
 @endsection

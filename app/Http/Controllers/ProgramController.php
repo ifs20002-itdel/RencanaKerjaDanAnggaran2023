@@ -38,7 +38,10 @@ class ProgramController extends Controller
 
     public function index(){
         $program = Program::all();
-        return view('RKA.index', compact('program'));
+        $tahun = Tahun::all();
+        $mataanggaran = MataAnggaran::all();
+        $pejabat = Pejabat::all();
+        return view('RKA.index', compact('program', 'tahun', 'mataanggaran', 'pejabat'));
     }
 
     public function create(){
