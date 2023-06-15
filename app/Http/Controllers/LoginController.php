@@ -17,6 +17,7 @@ use GuzzleHttp\Message\Response;
 use App\Models\Unit;
 use App\Models\Pegawai;
 use App\Models\Pejabat;
+use App\Models\Program;
 
 
 class LoginController extends Controller
@@ -208,8 +209,9 @@ class LoginController extends Controller
 public function profile()
 {
     try {
+        $program = Program::all();
         $Penggunaan = Penggunaan::all();
-        return view('pages.profile', compact('Penggunaan'));
+        return view('pages.profile', compact('Penggunaan', 'program'));
     } catch (QueryException $e) {
         Log::error('Terjadi kesalahan saat mengambil data dari database: ' . $e->getMessage());
         return response()->view('pages.error', [], 500);

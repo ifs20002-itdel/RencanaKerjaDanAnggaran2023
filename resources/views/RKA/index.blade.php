@@ -160,7 +160,7 @@
                       <td style="width:5%;">{{$item->mataanggaran->mataAnggaran}}</td>
                       <td style="width:10%;">{{$item->namaProgram}}</td>
                       <td style="width:10%;">{{$item->namaProgram}}</td>
-                      <td style="width:15%;">{{$item->unit->name}}</td>
+                      <td style="width:15%;">{{$item->unit->name}} ({{$item->unit->inisial}})</td>
                       <td style="width:10%;">{{$item->hargaTotal}}</td>
                       <td style="width:7%;">
                         @if($item->status == 'Accepted')
@@ -207,7 +207,7 @@
                       <td style="width:5%; ">{{$item->mataanggaran->mataAnggaran}}</td>
                       <td style="width:10%; ">{{$item->namaProgram}}</td>
                       <td style="width:10%; ">{{$item->namaProgram}}</td>
-                      <td style="width:15%; ">{{$item->unit->name}}</td>
+                      <td style="width:15%; ">{{$item->unit->name}} ({{$item->unit->inisial}})</td>
                       <td style="width:10%; ">{{$item->hargaTotal}}</td>
                       <td style="width:7%; ">
                         @if($item->status == 'Accepted')

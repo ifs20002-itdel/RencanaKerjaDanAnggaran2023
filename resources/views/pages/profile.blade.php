@@ -125,29 +125,97 @@
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="timeline">
                     <!-- RKA label -->
-                    
-                      <div class="row"> 
-                        
-                        <div class="d-lg-none">{{ $byk = 0 }}</div>   
-                                                                               
-                      </div>                      
+
+                    <!-- RKA label -->
+                    <div class="d-lg-none">{{ $byk = 0 }}</div>   
+
+                    <div class="row"> 
+                      @foreach ($program as $item)
+                        @if ($item->user_id == Auth::user()->user_id)
+                        <?php 
+                         $byk+=1
+                        ?>
+                        <div class="col-12 col-sm-6 my-2">
+                          <div class="card bg-light">
+                            <div class="card-body">
+                              <div class="d-flex justify-content-end">
+
+                                @if($item->status == 'Accepted')
+                                <span class="badge rounded-pill bg-success">{{$item->status}}</span>  
+                                @elseif($item->status == 'Rejected')
+                                <span class="badge rounded-pill bg-danger">{{$item->status}}</span>  
+                                @else
+                                <span class="badge rounded-pill bg-secondary">{{$item->status}}</span>  
+                                @endif
+                            </div>
+                              <div class="">                                                                                                                         
+                                <h2 class="lead"><b>{{$item->mataanggaran->mataAnggaran}}</b></h2>                                    
+                                                                                            
+                                <p class="text-muted text-sm"><b>Program: </b> {{Str::limit($item->namaProgram, 30)}}</p>                                
+                              </div>
+                                                                              
+                              <div class="">                              
+                                <ul class="ml-4 mb-0 fa-ul text-muted">                              
+                                  <li class="small"><span class="fa-li"><i class="fas fa-sack-dollar mr-2"></i></span> {{$item->hargaTotal}}</li>                              
+                                  <li class="small"><span class="fa-li"><i class="fas fa-user mr-2"></i></span>{{$item->user->pegawai->nama}}</li>                              
+                                </ul>                                                                                    
+                              </div>                                                          
+                            </div>
+                                          
+                            @if($item->user_id == Auth::user()->id && $item->status == 'In Progress')
+                                            
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <div class="btn-group">
+                                        <a href="/pengajuan/{{$item->program_id}}" class="btn btn-sm btn-primary">
+                                            <i class="fa-regular fa-eye mr-1"></i> Detail
+                                        </a> 
+                                        <a href="/PPrasarana/{{$item->id}}/edit" class="btn btn-sm btn-warning mr-4">
+                                            <i class="fa-regular fa-pen-to-square mr-1"></i> Edit
+                                        </a>
+                                        <form action="/pengajuan/{{$item->id}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
+                                        </form>
+                                    </div>
+                                </div>    
+                            </div>
+                                                
+                            @else
+                                            
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="/program/{{$item->program_id}}" class="btn btn-sm btn-primary">
+                                        <i class="fa-regular fa-eye mr-1"></i> Detail
+                                    </a>    
+                                </div>            
+                            </div>
+                                                            
+                            @endif
+
+                                                                                            
+                          </div>                            
+                        </div>  
+
+                        @endif
+
+                      @endforeach
                       @if ($byk == 0)
                       <div class="text-center" style="font-size: 14px;"> 
                         <p>Belum Ada Program</p>
                       </div>                                    
-                      @endif 
-                        <!--/.Table A-->
+                      @endif
+                      
+                      <!--/.Table A-->
                         <br>
-                      <div class="card-footer">
-                          <a href="/pengajuan"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Input Program</button></a>
-                      </div>
-                      <!--/.Tambah Data-->
-                  
-                    <!-- /.RKA-label -->
-                </div>
-                <!-- /.tab-pane -->
-
-
+                    </div>
+                    <div class="card-footer">
+                        <a href="/program/create"><button type="submit" class="btn btn-success"><i class="fa-regular fa-plus mr-2"></i>Input Program</button></a>
+                    </div>
+                    <!--/.Tambah Data-->
+                
+                  <!-- /.RKA-label -->
               </div>
               <!-- /.tab-content -->
             </div>
