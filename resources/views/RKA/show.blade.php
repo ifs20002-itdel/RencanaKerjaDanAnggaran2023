@@ -4,6 +4,7 @@
     <li class="breadcrumb-item"><a href="/program">Program</a></li>
 @endsection
 
+
 @section('breadcrumb2')
     <li class="breadcrumb-item">{{$program->mataanggaran->mataAnggaran}} - {{$program->namaProgram}}</li>
 @endsection
@@ -30,12 +31,18 @@
             <a class="nav-link" id="statusdanriwayat" data-toggle="pill" href="#custom-tabs-four-settings" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Status & Riwayat</a>
           </li>
         </ul>
+
       </div>
       <div class="card-body">
         <div class="tab-content" id="custom-tabs-four-tabContent">
 
         {{-- DATA PROGRAM --}}
           <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="dataprogram">
+          <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-outline-primary" style="width: fit-content; float: right;" onclick="exportToExcel()"><i class="fa fa-save"></i> Save to Excel</button>
+
+          </div>
+          <br>
             {{-- CONTENT --}}
             <table id="w0" class="table table-striped table-bordered detail-view" style="font-size: 14px;">
                 <tbody>
@@ -258,5 +265,48 @@
       <!-- /.card -->
     </div>
 </div>
+
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script>
+function exportToExcel() {
+  // Get the table element
+  const table = document.getElementById('w0');
+
+  // Create a new workbook
+  const workbook = XLSX.utils.book_new();
+
+  // Create a worksheet and add the table data
+  const worksheet = XLSX.utils.table_to_sheet(table);
+
+  // Modify the style of the table
+  const range = XLSX.utils.decode_range(worksheet['!ref']);
+  for (let col = range.s.c; col <= range.e.c; ++col) {
+    let maxLength = 0;
+    for (let row = range.s.r; row <= range.e.r; ++row) {
+      const cellAddress = XLSX.utils.encode_cell({ r: row, c: col });
+      const cell = worksheet[cellAddress];
+      if (cell && cell.v) {
+        const cellLength = cell.v.toString().length;
+        if (cellLength > maxLength) {
+          maxLength = cellLength;
+        }
+      }
+    }
+    const columnWidth = maxLength > 10 ? maxLength : 10; // Set a minimum width of 10 characters
+    const columnLetter = XLSX.utils.encode_col(col);
+    worksheet['!cols'] = worksheet['!cols'] || [];
+    worksheet['!cols'][col] = { wch: columnWidth };
+  }
+
+  // Add the worksheet to the workbook
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet 1');
+
+  // Generate a file name for the export
+  const fileName = 'data_program.xlsx';
+
+  // Save the workbook as an Excel file
+  XLSX.writeFile(workbook, fileName);
+}
+</script>
 
 @endsection
