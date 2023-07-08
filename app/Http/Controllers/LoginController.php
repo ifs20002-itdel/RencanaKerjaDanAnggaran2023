@@ -37,6 +37,8 @@ class LoginController extends Controller
         $dataAdmin = new User;
         $dataAdmin->user_id = 777;
         $dataAdmin->email = "admin";
+        $dataAdmin->username = $username;
+        $dataAdmin->password = bcrypt($password);
 
         $cekApakahAdaId = User::where('user_id', '=', 777)->exists();
         if (!$cekApakahAdaId) {
@@ -67,6 +69,8 @@ class LoginController extends Controller
            
             //InsertData
             $dataUser = new User;
+            $dataUser->username = $username;
+            $dataUser->password = bcrypt($password);
             $dataUser->user_id = $user_id;
             $dataUser->email = $email;
             //SaveDataWithValidations
